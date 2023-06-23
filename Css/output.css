@@ -744,16 +744,6 @@ video {
   letter-spacing: .05rem;
 }
 
-.text-gray {
-  --tw-text-opacity: 1;
-  color: rgb(135 138 153 / var(--tw-text-opacity));
-}
-
-.text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgb(73 80 87 / var(--tw-text-opacity));
-}
-
 .text-light-btn-color {
   --tw-text-opacity: 1;
   color: rgb(135 138 153 / var(--tw-text-opacity));

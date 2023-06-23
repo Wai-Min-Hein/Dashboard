@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import Ecommerce from "./Pages/Ecommerce";
 import SideBar from "./Pages/SideBar";
+import Home from "./Pages/Home";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       
 
       <Routes>
-        <Route path="/" element={<Ecommerce />} />
+        <Route path="/" element={<Home />} />
       </Routes>
 
     </div>
