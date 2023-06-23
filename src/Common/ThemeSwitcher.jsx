@@ -30,9 +30,7 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleThemeSwitcher}>{theme === "light" ? <MdOutlineLightMode /> : <PiMoon />}</button>
-    </div>
+      <button onClick={handleThemeSwitcher}>{theme === "light" ? <MdOutlineLightMode  className="text-[22px] font-normal" /> : <PiMoon className="text-[22px] font-normal" />}</button>
   );
 };
 

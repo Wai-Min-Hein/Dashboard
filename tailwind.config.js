@@ -24,6 +24,9 @@ export default {
         'light-card-heading-text-color': '#878a99',
         'light-btn-color': '#878a99',
 
+        'light-header-color' : '#495057',
+        'light-para-color' : '##878a99',
+
 
 
 
