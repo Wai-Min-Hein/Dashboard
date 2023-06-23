@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face{
+  font-family: 'HkGroteskLight';
+  src:url('../Font/HKGrotesk-Light.woff') 
+}
+
+@font-face{
+  font-family: 'HkGroteskMedium';
+  src:url('../Font/HKGrotesk-Medium.woff') 
+}
+@font-face{
+  font-family: 'HkGroteskRegular';
+  src:url('../Font/HKGrotesk-Regular.woff')
+}
+
+
+@font-face{
+  font-family: 'HkGroteskRegularLegacy';
+  src:url('../Font/HKGrotesk-RegularLegacy.woff')
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* npx tailwindcss -i ./src/App.css -o ./Css/output.css --watch */
