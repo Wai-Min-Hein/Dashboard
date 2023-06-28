@@ -595,7 +595,7 @@ html {
 
 .top-4 {
   top: 1rem;
-
+}
 .fixed{
   position: fixed;
 }
@@ -644,9 +644,7 @@ html {
   top: 3rem;
 }
 
-.top-\[\]{
-  top: ;
-}
+
 
 .top-\[1\.5rem\]{
   top: 1.5rem;

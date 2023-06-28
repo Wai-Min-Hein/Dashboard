@@ -1,5 +1,4 @@
 
-const SideBar = () => {
  
 import "flowbite/dist/flowbite.min.js";
 import {
@@ -1763,5 +1762,4 @@ const SideBar = () => {
 
   );
 };
-
 export default SideBar;
