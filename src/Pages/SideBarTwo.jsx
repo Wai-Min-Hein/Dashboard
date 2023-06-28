@@ -1,5 +1,3 @@
-
- 
 import "flowbite/dist/flowbite.min.js";
 import {
   RiDashboard2Line,
@@ -8,15 +6,23 @@ import {
   RiAccountCircleLine,
   RiPagesLine,
   RiRocketLine,
+  RiAuctionFill,
+  RiLandscapeFill,
 } from "react-icons/ri";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { StateContext } from "../Context/StateContext";
+const SideBarTwo = () => {
+  const { isSideOpen,setIsSideOpen, tCol } = useContext(StateContext);
+  const [dash, setDash] = useState(true);
+  const [app, setApp] = useState(false);
+  const [layout, setLayout] = useState(false);
+  const [auth, setAuth] = useState(false);
+  const [page, setPage] = useState(false);
+  const [landing, setLanding] = useState(false);
 
-const SideBar = () => {
-  const {isSideOpen,semi} = useContext(StateContext)
-  const Sidebar_animation = {
+  const sideVariant = {
     open: {
       width: "16rem",
       transition: {
@@ -24,182 +30,192 @@ const SideBar = () => {
       },
     },
     closed: {
-      width: "5rem",
+      width: "4.5rem",
       transition: {
         damping: 40,
       },
     },
   };
   return (
-      <motion.div
-      variants={Sidebar_animation}
-      animate={isSideOpen ? "open" : "closed"}
-      className={`bg-light-side-bar-color w-[16rem] z-[9999]   max-h-screen overflow-y-auto sideBar ${semi? 'ml-3 my-6 rounded-md bg-gray': ''}`}
+    <motion.div
+      className={`bg-light-side-bar-color  z-[9999]   max-h-screen overflow-y-auto sideBar ${
+        isSideOpen ? "!w-[18rem] " : "!w-[4rem] "
+      } flex justify-start items-stretch`}
     >
-      
-      <aside
-        id="default-sidebar"
-        className="   z-40 w-[275px] h-screen transition-transform -translate-x-full sm:translate-x-0"
-        aria-label="Sidebar"
-      >
-        <div className=" my-6 flex items-center justify-center font-para text-4xl font-extrabold text-center">
+      <div className="w-[4rem]  h-full bg-[#3a4b84]">
+        <div className=" grid place-items-center py-6 mb-4">
           <img
-            className="  h-[19px]"
-            src="https://themesbrand.com/velzon/html/default/assets/images/logo-light.png"
+            src="https://themesbrand.com/velzon/html/default/assets/images/logo-sm.png"
+            className="w-6 h-6"
             alt=""
           />
         </div>
-        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-          {/* Menu */}
-          <ul className="space-y-2 font-medium">
-            {
-              isSideOpen&&( <h1 className=" ms-1 mb-4 p-2 text-light-side-bar-menu-color  text-sm">
-              Menu
-            </h1>)
-            }
-             
-
-            <li className=" z-[2999]">
-             
-
-              <button
-                type="button"
-                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white dark:text-2xl dark:hover:text-gray-700"
-                aria-controls="dropdown-example"
-                data-collapse-toggle="dropdown-example"
-              >
-                  <RiDashboard2Line className=" text-inherit  text-2xl" />
-                <span
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit  flex-1 ml-3 text-left whitespace-nowrap`}
-                  sidebar-toggle-item="true"
-                >
-                  Dashboards
-                </span>
-                <svg
-                  sidebar-toggle-item="true"
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit text-light-side-bar-text-color w-6 h-6`}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-              <ul id="dropdown-example" className="w-full  hidden py-2 space-y-2">
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Analytics
-                  </a>
-                </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    CRM
-                  </a>
-                </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Ecommerce
-                  </a>
-                </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Crypto
-                  </a>
-                </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Projects
-                  </a>
-                </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    NFT
-                  </a>
-                </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex items-center text-sm   transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Job
-                  </a>
-                </li>
-              </ul>
+        <div className="grid  place-items-center gap-4">
+          <div
+            onClick={() => (
+              setDash(true),
+              setApp(false),
+              setLayout(false),
+              setAuth(false),
+              setPage(false),
+              setLanding(false)
+              ,setIsSideOpen(true)
               
-
-
-
-
-
-
-
+            )}
+            className={`${dash ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
+          >
+            <RiDashboard2Line className="text-[#abb9e8] text-2xl" />
+          </div>
+          <div
+            onClick={() => (
+              setDash(false),
+              setApp(true),
+              setLayout(false),
+              setAuth(false),
+              setPage(false),
+              setLanding(false)
+              ,setIsSideOpen(true)
+            )}
+            className={`${app ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
+          >
+            <RiApps2Line className="text-[#abb9e8] text-2xl" />
+          </div>
+          <div
+            onClick={() => (
+              setDash(false),
+              setApp(false),
+              setLayout(true),
+              setAuth(false),
+              setPage(false),
+              setLanding(false)
+              ,setIsSideOpen(true)
+            )}
+            className={`${layout ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
+          >
+            <RiLayout3Line className="text-[#abb9e8] text-2xl " />
+          </div>
+          <div
+            onClick={() => (
+              setDash(false),
+              setApp(false),
+              setLayout(false),
+              setAuth(true),
+              setPage(false),
+              setLanding(false)
+              ,setIsSideOpen(true)
+            )}
+            className={`${auth ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
+          >
+            <RiAuctionFill className="text-[#abb9e8] text-2xl " />
+          </div>
+          <div
+            onClick={() => (
+              setDash(false),
+              setApp(false),
+              setLayout(false),
+              setAuth(false),
+              setPage(true),
+              setLanding(false)
+              ,setIsSideOpen(true)
+            )}
+            className={`${page ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
+          >
+            <RiPagesLine className="text-[#abb9e8] text-2xl " />
+          </div>
+          <div
+            onClick={() => (
+              setDash(false),
+              setApp(false),
+              setLayout(false),
+              setAuth(false),
+              setPage(false),
+              setLanding(true)
+            )}
+            className={`${landing ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
+          >
+            <RiLandscapeFill className="text-[#abb9e8] text-2xl " />
+          </div>
+        </div>
+      </div>
+      <div
+        className={` max-h-screen overflow-y-auto flex-1 ${
+          isSideOpen ? "block" : "hidden"
+        }`}
+      >
+        <div className=" grid place-items-center py-6 mb-4">
+          <img
+            src="https://themesbrand.com/velzon/html/default/assets/images/logo-light.png"
+            className="w-24 h-auto"
+            alt=""
+          />
+        </div>
+        <div className="">
+            <ul id="dropdown-example" className={`w-full   py-2 space-y-2 ${dash?'block': 'hidden'}`}>
+            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <span className=" text-inherit ps-4">-</span>
+                <a
+                href="#"
+                className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                >
+                Analytics
+                </a>
             </li>
-            <li>
-            <button
-                type="button"
-                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white dark:text-2xl dark:hover:text-gray-700"
-                aria-controls="dropdown-example1"
-                data-collapse-toggle="dropdown-example1"
-              >
-                  <RiApps2Line className=" text-inherit  text-2xl" />
-                <span
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit  flex-1 ml-3 text-left whitespace-nowrap`}
-                  sidebar-toggle-item="true"
+            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <span className=" text-inherit ps-4">-</span>
+                <a
+                href="#"
+                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                 >
-                  App
-                </span>
-                <svg
-                  sidebar-toggle-item="true"
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit text-light-side-bar-text-color w-6 h-6`}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+                CRM
+                </a>
+            </li>
+            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <span className=" text-inherit ps-4">-</span>
+                <a
+                href="#"
+                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-              <ul id="dropdown-example1" className="hidden py-2 space-y-2">
+                Ecommerce
+                </a>
+            </li>
+            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <span className=" text-inherit ps-4">-</span>
+                <a
+                href="#"
+                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                >
+                Crypto
+                </a>
+            </li>
+            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <span className=" text-inherit ps-4">-</span>
+                <a
+                href="#"
+                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                >
+                Projects
+                </a>
+            </li>
+            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <span className=" text-inherit ps-4">-</span>
+                <a
+                href="#"
+                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                >
+                NFT
+                </a>
+            </li>
+            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <span className=" text-inherit ps-4">-</span>
+                <a
+                href="#"
+                className="flex items-center text-sm   transition duration-75 rounded-lg pl-6 group  text-inherit"
+                >
+                Job
+                </a>
+            </li>
+            </ul>
+            <ul id="dropdown-example1" className={`w-full   py-2 space-y-2 ${app?'block': 'hidden'}`}>
                 <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
@@ -929,7 +945,7 @@ const SideBar = () => {
                     className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
                   >
                     Jobs
-                    <span className="  px-2 py-1  ml-28 text-xs font-medium rounded-lg  text-white  bg-emerald-950  dark:bg-gray-700 dark:text-gray-300">
+                    <span className="  px-2 py-1   text-xs font-medium rounded-lg  text-white  bg-emerald-950  dark:bg-gray-700 dark:text-gray-300">
                       New
                     </span>
                   </a>
@@ -947,73 +963,47 @@ const SideBar = () => {
                   </a>
                 </li>
               </ul>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center justify-start p-2 text-light-side-bar-text-color rounded-lg dark:text-white hover:text-white dark:hover:bg-gray-700"
-              >
-                <RiLayout3Line className=" text-inherit text-light-side-bar-text-color text-2xl" />
-                <span
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit  ml-3 whitespace-nowrap`}
-                >
-                  Layout
-                </span>
-                {/* className={`${isSideOpen?'inline-block':'hidden'} text-inherit  flex-1 ml-3 text-left whitespace-nowrap`} */}
-                <span
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } inline-flex items-center justify-center px-2 py-1 ml-3 text-xs font-medium  text-white  bg-red rounded-lg  dark:bg-gray-700 dark:text-gray-300`}
-                >
-                  Hot
-                </span>
-              </a>
-            </li>
-          </ul>
 
-          {/* Pages */}
-          <ul className=" pt-4 space-y-2 font-medium">
-          {
-              isSideOpen&&( <h1 className=" ms-1 mb-4 p-2 text-light-side-bar-menu-color  text-sm">
-              PAGES
-            </h1>)
-            }
-            
-            <li>
-              <button
-                type="button"
-                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white dark:text-2xl dark:hover:text-gray-700"
-                aria-controls="dropdown-example11"
-                data-collapse-toggle="dropdown-example11"
-              >
-                <RiAccountCircleLine className=" text-inherit  text-2xl" />
-                <span
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit  flex-1 ml-3 text-left whitespace-nowrap`}
-                  sidebar-toggle-item="true"
+              <ul id="dropdown-example" className={`w-full   py-2 space-y-2 ${layout?'block': 'hidden'}`}>
+            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                <span className=" text-inherit ps-4">-</span>
+                <a
+                href="#"
+                className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                 >
-                  Authentication
-                </span>
-                <svg
-                  sidebar-toggle-item="true"
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit text-light-side-bar-text-color w-6 h-6`}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+                Horizontal
+                </a>
+            </li>
+            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                <span className=" text-inherit ps-4">-</span>
+                <a
+                href="#"
+                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-              <ul id="dropdown-example11" className="  hidden py-2 space-y-2">
+                Detached
+                </a>
+            </li>
+            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                <span className=" text-inherit ps-4">-</span>
+                <a
+                href="#"
+                className=" text-sm   transition duration-75 rounded-lg pl-6 group  text-inherit"
+                >
+                Two Column
+                </a>
+            </li>
+            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                <span className=" text-inherit ps-4">-</span>
+                <a
+                href="#"
+                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                >
+                Hovered
+                </a>
+            </li>
+            </ul>
+
+            <ul id="dropdown-example11" className={`w-full   py-2 space-y-2 ${auth?'block': 'hidden'}`}>
                 <li>
                   <button
                     type="button"
@@ -1510,40 +1500,7 @@ const SideBar = () => {
                   </ul>
                 </li>
               </ul>
-            </li>
-            <li>
-              <button
-                type="button"
-                className=" text-light-side-bar-text-color flex items-center w-full p-2  transition duration-75 rounded-lg group hover:text-white dark:text-white dark:hover:bg-gray-700"
-                aria-controls="dropdown-example12"
-                data-collapse-toggle="dropdown-example12"
-              >
-                <RiPagesLine className="  text-inherit  text-2xl" />
-                <span
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit  flex-1 ml-3 text-left whitespace-nowrap`}
-                  sidebar-toggle-item="true"
-                >
-                  Pages
-                </span>
-                <svg
-                  sidebar-toggle-item="true"
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit text-light-side-bar-text-color w-6 h-6`}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-              <ul id="dropdown-example12" className="hidden py-2 space-y-2">
+              <ul id="dropdown-example12" className={`w-full   py-2 space-y-2 ${page?'block': 'hidden'}`}>
                 <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
@@ -1687,40 +1644,7 @@ const SideBar = () => {
                   </a>
                 </li>
               </ul>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white dark:text-2xl dark:hover:text-gray-700"
-                aria-controls="dropdown-example40"
-                data-collapse-toggle="dropdown-example40"
-              >
-                <RiRocketLine className=" text-inherit text-light-side-bar-text-color text-2xl" />
-                <span
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit  flex-1 ml-3 text-left whitespace-nowrap`}
-                  sidebar-toggle-item="true"
-                >
-                  Landing
-                </span>
-                <svg
-                  sidebar-toggle-item="true"
-                  className={`${
-                    isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit text-light-side-bar-text-color w-6 h-6`}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-              <ul id="dropdown-example40" className="  hidden py-2 space-y-2">
+              <ul id="dropdown-example40" className={`w-full   py-2 space-y-2 ${landing?'block': 'hidden'}`}>
                 <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
@@ -1739,27 +1663,24 @@ const SideBar = () => {
                     NFT Landing
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex items-center ">
+                <li className=" text-light-side-bar-text-color hover:text-white pb-2 w-full flex  items-center ">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
-                    className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
+                    className=" text-sm flex-1 flex justify-between items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
                   >
                     Jobs
-                    <span className="  px-2 py-1  ml-28 text-xs font-medium rounded-lg  text-white  bg-emerald-950  dark:bg-gray-700 dark:text-gray-300">
+                    <span className="  px-2 py-1   text-xs font-medium rounded-lg  text-white  bg-emerald-950  dark:bg-gray-700 dark:text-gray-300">
                       New
                     </span>
                   </a>
                 </li>
               </ul>
-            </li>
-          </ul>
         </div>
-      </aside>
-     
+        
+      </div>
     </motion.div>
-  
-
   );
 };
-export default SideBar;
+
+export default SideBarTwo;
