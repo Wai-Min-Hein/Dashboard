@@ -7,6 +7,7 @@ import ProfileSettings from "./Pages/ProfileSettings";
 import Test from "./Pages/Test";
 
 import Home from "./Pages/Home";
+import Profile from "./Pages/Profile";
 import Ecommerce from "./Pages/Ecommerce";
 import { motion } from "framer-motion";
 import { FiSettings } from "react-icons/fi";
@@ -14,7 +15,6 @@ import { useContext, useState } from "react";
 import { StateContext } from "./Context/StateContext";
 import SettingBar from "./Components/SettingBar";
 import SideBarTwo from "./Pages/SideBarTwo";
-
 
 const App = () => {
   const variant = {
@@ -54,6 +54,7 @@ const App = () => {
         <Route path="/test" element={<Test />} />
 
         <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile/>}/>
         <Route path="/ecommerce" element={<Ecommerce />} />
 
       </Routes>
