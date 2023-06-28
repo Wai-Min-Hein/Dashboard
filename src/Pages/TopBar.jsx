@@ -5,11 +5,6 @@ import { BiShoppingBag } from "react-icons/bi";
 import { BiFullscreen } from "react-icons/bi";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
-
-
-
-
-
 import admin from "../../Image/admin.jpg";
 import ThemeSwitcher from "../Common/ThemeSwitcher";
 
@@ -24,7 +19,7 @@ import spain from "../../Image/spain.svg";
 
 const TopBar = () => {
   return (
-    <div className="bg-white h-[70px] sticky top-0  w-full px-6 flex items-center justify-between z-[100]">
+    <div className=" bg-white h-[70px] sticky top-0  w-full px-6 flex items-center justify-between z-[100]">
       <div className="flex items-center gap-4">
         <HiOutlineMenuAlt2 className="text-light-btn-color text-2xl" />
         <div className="flex items-center justify-start bg-light-gray-bg px-3 py-2 rounded-md gap-3  font-para">
