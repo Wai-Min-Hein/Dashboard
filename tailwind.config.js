@@ -134,7 +134,5 @@ export default {
     prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
   },
-}
 
-  plugins: [],
 };
