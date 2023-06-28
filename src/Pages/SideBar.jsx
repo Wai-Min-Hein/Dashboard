@@ -1,3 +1,6 @@
+
+const SideBar = () => {
+ 
 import "flowbite/dist/flowbite.min.js";
 import {
   RiDashboard2Line,
@@ -1757,6 +1760,7 @@ const SideBar = () => {
      
     </motion.div>
   
+
   );
 };
 

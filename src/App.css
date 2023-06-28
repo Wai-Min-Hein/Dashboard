@@ -3,7 +3,23 @@
 @tailwind components;
 @tailwind utilities;
 
+.active{
+  border-bottom: 1px solid #405189;
+}
 
+
+
+/* For Toggles don't delete */
+input:checked  ~ .bgtoggle {
+  transform: translateX(0%);
+  background-color: #405189;
+  border-color: #405189;
+}
+
+input:checked ~ .dot {
+  transform: translateX(90%);
+  background-color: white;
+}
 
 @layer base {
   html {
@@ -77,6 +93,7 @@ th{
     font-weight: 400;
   }
 }
+
 
 
 

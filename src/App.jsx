@@ -1,5 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import SideBar from "./Pages/SideBar";
+
+// import Home from "./Pages/Home";
+import ProfileSettings from "./Pages/ProfileSettings";
+// import TopBar from "./Pages/TopBar";
+import Test from "./Pages/Test";
+
 import Home from "./Pages/Home";
 import Ecommerce from "./Pages/Ecommerce";
 import { motion } from "framer-motion";
@@ -8,6 +14,7 @@ import { useContext, useState } from "react";
 import { StateContext } from "./Context/StateContext";
 import SettingBar from "./Components/SettingBar";
 import SideBarTwo from "./Pages/SideBarTwo";
+
 
 const App = () => {
   const variant = {
@@ -41,8 +48,14 @@ const App = () => {
 
 
       <Routes>
+
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/profile/settings" element={<ProfileSettings/>} />
+        <Route path="/test" element={<Test />} />
+
         <Route path="/" element={<Home />} />
         <Route path="/ecommerce" element={<Ecommerce />} />
+
       </Routes>
 
     </div>
