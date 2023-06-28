@@ -3,15 +3,20 @@ export default {
   darkMode: 'class',
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-    fontFamily: {
-      'header-light': ['HkGroteskLight', 'sans-serif'],
-      'header-medium': ['HkGroteskMedium', 'sans-serif'],
-      'header-regular': ['HkGroteskRegular', 'sans-serif'],
-      'header-regular-legacy': ['HkGroteskRegularLegacy', 'sans-serif'],
-      'para': ['Poppins', 'sans-serif'],
-      
-    },
+    
     extend: {
+      fontFamily: {
+        'header-light': ['HkGroteskLight', 'sans-serif'],
+        'header-medium': ['HkGroteskMedium', 'sans-serif'],
+        'header-regular': ['HkGroteskRegular', 'sans-serif'],
+        'header-regular-legacy': ['HkGroteskRegularLegacy', 'sans-serif'],
+        'para': ['Poppins', 'sans-serif'],
+        
+      },
+      backgroundImage: {
+        'sale-gradient': "linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)",
+      },
+
       colors: {
         //Light Theme
 
@@ -20,17 +25,23 @@ export default {
         'light-white-bg': '#ffffff',
         'light-body-text-color': '#212529',
         'light-side-bar-text-color': '#abb9e8',
-        'light-heading-text-color': '#495057',
+        'light-side-bar-menu-color': '#838fb9',
+        
+
         'light-card-heading-text-color': '#878a99',
         'light-btn-color': '#878a99',
 
         'light-header-color' : '#495057',
-        'light-para-color' : '##878a99',
+        'light-para-color' : '#878a99',
 
+        'blue-btn-bg': 'rgba(41, 156, 219, 0.1)',
+        'green-btn-bg': 'rgba(10, 179, 156, 0.1)',
+        'orange-btn-bg': 'rgba(241, 150, 59, 0.1)',
+        'gray-btn-bg': 'rgba(255, 255, 255, 0.15)',
 
+        
 
-
-
+        
 
 
 
@@ -84,13 +95,14 @@ export default {
           'danger': '#f06548',
           
       },
-      // backgroundImage: {
-      //   'black': 'linear-gradient(rgba(15, 14, 23, 0.5), rgba(15, 14, 23, 0.5))',
+      backgroundImage: {
+        // 'black': 'linear-gradient(rgba(15, 14, 23, 0.5), rgba(15, 14, 23, 0.5))',
 
 
-      //   'background': ' linear-gradient(3deg, rgb(237,242,244),rgb(247,237,226));'
+        // 'background': ' linear-gradient(3deg, rgb(237,242,244),rgb(247,237,226))',
+        'sideGradient': 'linear-gradient(to right,#405189,#0ab39c)'
         
-      // }
+      }
     },
     screens: {
       'sm': '640px',
@@ -99,8 +111,11 @@ export default {
       'md': '768px',
       // => @media (min-width: 768px) { ... }
 
+      'slg': '990px',
       'lg': '1024px',
       // => @media (min-width: 1024px) { ... }
+      'sxl': '1200px',
+      // => @media (min-width: 1280px) { ... }
 
       'xl': '1280px',
       // => @media (min-width: 1280px) { ... }
