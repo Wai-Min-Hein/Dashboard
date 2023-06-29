@@ -11,13 +11,34 @@ import {
 } from "react-icons/ri";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { motion } from "framer-motion";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StateContext } from "../Context/StateContext";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const SideBar = () => {
   const nav = useNavigate()
-  const {isSideOpen,semi,sideLight,sideDark,sideGradient } = useContext(StateContext)
+  const {isSideOpen,setIsSideOpen,semi,sideLight,sideDark,sideGradient } = useContext(StateContext)
+
+
+  const isDesktop = useMediaQuery({
+    query: "(min-width: 1537px)",
+  });
+  const laptop = useMediaQuery({
+    query: "(min-width: 1280px)",
+  });
+  const tablet = useMediaQuery({
+    query: "(min-width: 1024px)",
+  });
+
+  const phone = useMediaQuery({
+    query: "(min-width: 768px)",
+  });
+
+  const smPhone = useMediaQuery({
+    query: "(min-width: 640px)",
+  });
+
   const Sidebar_animation = {
     open: {
       width: "16rem",
@@ -32,16 +53,40 @@ const SideBar = () => {
       },
     },
   };
+
+  const Sidebar_animationR = {
+    open: {
+      width: "16rem",
+      x:0,
+      transition: {
+        damping: 40,
+      },
+    },
+    closed: {
+      width: "0",
+      x:'-100px',
+      transition: {
+        damping: 40,
+      },
+    },
+  };
+
+
   return (
       <motion.div
-      variants={Sidebar_animation}
+      variants={!smPhone? Sidebar_animationR:Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
-      className={`bg-light-side-bar-color w-[16rem] z-[9999]     max-h-screen overflow-y-auto sideBar ${sideLight? 'bg-white': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray': ''} ${sideDark? 'bg-light-side-bar-color': ''} ${sideGradient? ' bg-sideGradient': ''}`}
+      className={`bg-light-side-bar-color md:w-[16rem] z-[9999] absolute top-0 left-0  w-0 md:relative      max-h-screen overflow-y-auto sideBar ${sideLight? 'bg-white': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray': ''} ${sideDark? 'bg-light-side-bar-color': ''} ${sideGradient? ' bg-sideGradient': ''}`}
     >
+      <motion.div
+      variants={!smPhone? Sidebar_animationR:Sidebar_animation}
+      animate={isSideOpen ? "open" : "closed"}
+      onClick={() =>setIsSideOpen(false)}
+      className=" bg-gray-btn-bg z-[990] fixed md:ml-0 ml-[16rem] top-0 left-0 w-full md:hidden h-full "></motion.div>
       
       <aside
         id="default-sidebar"
-        className="   z-40 w-[275px] h-screen transition-transform -translate-x-full sm:translate-x-0"
+        className="   z-40 w-[275px] h-screen "
         aria-label="Sidebar"
       >
         <div className=" my-6 flex items-center justify-center font-para text-4xl font-extrabold text-center">

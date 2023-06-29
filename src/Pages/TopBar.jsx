@@ -30,7 +30,7 @@ const TopBar = () => {
       <div className={ `h-[70px]  px-6 flex items-center justify-between ${semi? 'mt-6': (hor? 'px-[5rem]':'mt-0')}`}>
       <div className="flex items-center gap-4">
         <HiOutlineMenuAlt2 onClick={() => setIsSideOpen(!isSideOpen)} className="text-light-btn-color text-2xl cursor-pointer" />
-        <div className="flex items-center justify-start bg-light-gray-bg px-3 py-2 rounded-md gap-3  font-para">
+        <div className=" items-center justify-start bg-light-gray-bg px-3 py-2 hidden md:flex rounded-md gap-3  font-para">
           <AiOutlineSearch className="text-light-btn-color text-xl font-semibold" />
           <input
             autoFocus
@@ -50,13 +50,13 @@ const TopBar = () => {
         </button>
         </span>
 
-        <button className="bg-gr hover:bg-blue-btn-bg px-3 py-3 rounded-full">
+        <button className="bg-gr hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full">
           <BiCategoryAlt className="text-[23px] font-normal hover:text-blue" />
         </button>
-        <button className="bg-gr hover:bg-blue-btn-bg px-3 py-3 rounded-full">
+        <button className="bg-gr hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full">
           <BiShoppingBag className="text-[23px] font-normal hover:text-blue" />
         </button>
-        <button className=" hover:bg-blue-btn-bg px-3 py-3 rounded-full">
+        <button className=" hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full">
           <BiFullscreen className="text-[23px] font-normal hover:text-blue" />
         </button>
        
@@ -64,7 +64,7 @@ const TopBar = () => {
         <ThemeSwitcher className="text-[23px] font-normal" />
 
         
-        <button className=" hover:bg-blue-btn-bg px-3 py-3 rounded-full">
+        <button className=" hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full">
           <IoMdNotificationsOutline className="text-[23px] font-normal hover:text-blue" />
         </button>
 
