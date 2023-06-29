@@ -16,6 +16,7 @@ import { StateContext } from "./Context/StateContext";
 import SettingBar from "./Components/SettingBar";
 import SideBarTwo from "./Pages/SideBarTwo";
 import PasswordReset from "./Pages/PassReset";
+import { useLocation } from "react-router-dom/dist";
 
 const App = () => {
   const variant = {
@@ -25,7 +26,7 @@ const App = () => {
 
   const {setting,setSetting,tCol,hor} = useContext(StateContext)
 
-  console.log(location.pathname)
+  const location = useLocation()
   return (
     <div className="flex items-stretch justify-start max-h-screen font-para relative bg-light-gray-bg">
 
