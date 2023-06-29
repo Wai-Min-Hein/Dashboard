@@ -82,7 +82,7 @@ const SideBar = () => {
       variants={!smPhone? Sidebar_animationR:Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
       onClick={() =>setIsSideOpen(false)}
-      className=" bg-gray-btn-bg z-[990] fixed md:ml-0 ml-[16rem] top-0 left-0 w-full md:hidden h-full "></motion.div>
+      className=" bg-gray-btn-bg z-[990] md:z-[-1] fixed md:ml-0 ml-[16rem] top-0 left-0 w-full md:hidden h-full "></motion.div>
       
       <aside
         id="default-sidebar"
