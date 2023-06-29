@@ -35,7 +35,9 @@ const App = () => {
       {
         
 
-      location.pathname== "/password-reset"?'': (
+      location.pathname== "/password-reset"?(
+        <div className="w-0 h-0"></div>
+      ): (
         
           hor? '': (tCol? <SideBarTwo/>:<SideBar/>)
         

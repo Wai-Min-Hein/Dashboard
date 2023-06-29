@@ -15,7 +15,6 @@ import { useContext, useState } from "react";
 import { StateContext } from "../Context/StateContext";
 import { useNavigate } from "react-router-dom";
 const SideBarTwo = () => {
-  const nav = useNavigate()
   const { isSideOpen,setIsSideOpen, tCol,sideLight,sideDark,sideGradient } = useContext(StateContext);
   const [dash, setDash] = useState(true);
   const [app, setApp] = useState(false);
@@ -38,6 +37,8 @@ const SideBarTwo = () => {
       },
     },
   };
+
+  const nav = useNavigate()
   return (
     <motion.div
       className={`  z-[9999]   max-h-screen overflow-y-auto sideBar ${
@@ -172,14 +173,16 @@ const SideBarTwo = () => {
                 CRM
                 </a>
             </li>
-            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+            <li
+            onClick={() => nav('/')}
+            className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
                 <span className=" text-inherit ps-4">-</span>
-                <a
-                href="#"
+                <apan
+                
                 className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                 >
                 Ecommerce
-                </a>
+                </apan>
             </li>
             <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
                 <span className=" text-inherit ps-4">-</span>
@@ -1113,6 +1116,7 @@ const SideBarTwo = () => {
                 </li>
                 <li>
                   <button
+                  onClick={() => nav('/password-reset')}
                     type="button"
                     className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example22"
@@ -1547,12 +1551,12 @@ const SideBarTwo = () => {
                   >
                     <li onClick={() => nav('/profile/settings')} className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
+                      <span
+                       
                         className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                       >
                         Simple Page
-                      </a>
+                      </span>
                     </li>
                     <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
