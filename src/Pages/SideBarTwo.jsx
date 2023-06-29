@@ -1116,7 +1116,7 @@ const SideBarTwo = () => {
                 </li>
                 <li>
                   <button
-                  onClick={() => nav('/password-reset')}
+                  
                     type="button"
                     className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example22"
@@ -1147,10 +1147,12 @@ const SideBarTwo = () => {
                     id="dropdown-example22"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li
+                    onClick={() => nav('/password-reset')}
+                    className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
-                        href="#"
+                      
                         className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                       >
                         Basic
