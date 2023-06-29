@@ -1154,12 +1154,14 @@ const SideBar = () => {
                   >
                     <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="/password-reset"
+                      <span
+                      onClick={() => nav('/password-reset')}
+                        // href="/password-reset"
+
                         className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                       >
                         Basic
-                      </a>
+                      </span>
                     </li>
                     <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
@@ -1587,14 +1589,14 @@ const SideBar = () => {
                     id="dropdown-example30"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li onClick={() => nav('/profile/settings')} className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li onClick={() => nav('/profile')} className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="/profile"
+                      <span
+                        
                         className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                       >
                         Simple Page
-                      </a>
+                      </span>
                     </li>
                     <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
