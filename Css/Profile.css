@@ -8,24 +8,24 @@
         font-size: 0.8125rem;
         font-weight: 400;
         line-height: 1.5;
-        color: #212529;
+        /* color: #212529; */
         background-color: #f3f3f9;
         -webkit-text-size-adjust: 100%;
         -webkit-tap-highlight-color: transparent;
         
     }
-    h1,h2,h3,h4,h5,h6{
+    /* h1,h2,h3,h4,h5,h6{
         font-weight: 500 ;
         margin-bottom: 0.25rem;
         font-family: 'Poppins', sans-serif;
         color: #495057;
         font-size: 16px;
-    }
-    p{
+    } */
+    /* p{
         font-size: 13px;
         color: rgba(255,255,255,.5);
         margin-bottom: 1rem ;
-    }
+    } */
     .MuiLinearProgress-bar::before{
         content: "";
         position: absolute;

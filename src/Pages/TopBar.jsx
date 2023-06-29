@@ -9,6 +9,7 @@ import admin from "../../Image/admin.jpg";
 import ThemeSwitcher from "../Common/ThemeSwitcher";
 import { useContext } from "react";
 import { StateContext } from "../Context/StateContext";
+import SideBarHor from "./SideBarHor";
 
 // import english from "../../Image/English.svg";
 // import ae from "../../Image/ae.svg";
@@ -20,12 +21,13 @@ import { StateContext } from "../Context/StateContext";
 // import spain from "../../Image/spain.svg";
 
 const TopBar = () => {
-  const {isSideOpen, setIsSideOpen,semi} = useContext(StateContext)
+  const {isSideOpen, setIsSideOpen,semi, hor} = useContext(StateContext)
 
   return (
 
-    <div className={`bg-white h-[70px] sticky top-0   w-full px-6 flex items-center justify-between z-[100] ${semi? 'mt-6': 'mt-0'}`}>
+    <div className={`bg-white  sticky top-0   z-[99999] w-full`}>
 
+      <div className={ `h-[70px]  px-6 flex items-center justify-between ${semi? 'mt-6': (hor? 'px-[5rem]':'mt-0')}`}>
       <div className="flex items-center gap-4">
         <HiOutlineMenuAlt2 onClick={() => setIsSideOpen(!isSideOpen)} className="text-light-btn-color text-2xl cursor-pointer" />
         <div className="flex items-center justify-start bg-light-gray-bg px-3 py-2 rounded-md gap-3  font-para">
@@ -80,6 +82,8 @@ const TopBar = () => {
           </div>
         </div>
       </div>
+      </div>
+      {hor&& (<SideBarHor/>)}
     </div>
   );
 };

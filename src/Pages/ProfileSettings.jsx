@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 // import TopBar from "./TopBar";
 import {
   RiImageEditLine,
@@ -15,12 +15,15 @@ import Experience from "../components/Experience";
 import PersonalDetails from "../components/PersonalDetails";
 import PrivacyPolicy from "../components/PrivacyPolicy";
 import { motion, AnimatePresence } from "framer-motion";
+import { StateContext } from "../Context/StateContext";
 
 const ProfileSettings = () => {
   const [tab, setTab] = useState("PersonalDetails");
 
+  const {semi }= useContext(StateContext)
+
   return (
-    <div className="w-full h-screen font-header-regular">
+    <div className={`z-50 bg-light-gray-bg flex-1 font-header-regular min-h-screen overflow-y-auto  w-full relative  ${semi? 'px-[10rem]': ''}`} >
       {/* <TopBar/> */}
       <div className="relative md:h-[260px]">
         <img

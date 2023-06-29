@@ -13,9 +13,11 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { StateContext } from "../Context/StateContext";
+import { useNavigate } from "react-router-dom";
 
 const SideBar = () => {
-  const {isSideOpen,semi} = useContext(StateContext)
+  const nav = useNavigate()
+  const {isSideOpen,semi,sideLight,sideDark,sideGradient } = useContext(StateContext)
   const Sidebar_animation = {
     open: {
       width: "16rem",
@@ -34,7 +36,7 @@ const SideBar = () => {
       <motion.div
       variants={Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
-      className={`bg-light-side-bar-color w-[16rem] z-[9999]   max-h-screen overflow-y-auto sideBar ${semi? 'ml-3 my-6 rounded-md bg-gray': ''}`}
+      className={`bg-light-side-bar-color w-[16rem] z-[9999]     max-h-screen overflow-y-auto sideBar ${sideLight? 'bg-white': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray': ''} ${sideDark? 'bg-light-side-bar-color': ''} ${sideGradient? ' bg-sideGradient': ''}`}
     >
       
       <aside
@@ -115,7 +117,7 @@ const SideBar = () => {
                 <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
-                    href="#"
+                    href="/"
                     className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                   >
                     Ecommerce
@@ -1153,7 +1155,7 @@ const SideBar = () => {
                     <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
-                        href="#"
+                        href="/password-reset"
                         className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                       >
                         Basic
@@ -1585,10 +1587,10 @@ const SideBar = () => {
                     id="dropdown-example30"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li onClick={() => nav('/profile/settings')} className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
-                        href="#"
+                        href="/profile"
                         className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
                       >
                         Simple Page

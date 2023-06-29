@@ -41,8 +41,8 @@ const StateContextProvider = ({children}) => {
     const [viewDefault, setViewDefault] = useState(true)
     const [detached, setDetached] = useState(false)
 
-    const [sideLight, setSideLight] = useState(true)
-    const [sideDark, setSideDark] = useState(false)
+    const [sideLight, setSideLight] = useState(false)
+    const [sideDark, setSideDark] = useState(true)
     const [sideGradient, setSideGradient] = useState(false)
 
     const [img1, setImg1] = useState(true)

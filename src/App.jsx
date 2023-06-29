@@ -15,6 +15,7 @@ import { useContext, useState } from "react";
 import { StateContext } from "./Context/StateContext";
 import SettingBar from "./Components/SettingBar";
 import SideBarTwo from "./Pages/SideBarTwo";
+import PasswordReset from "./Pages/PassReset";
 
 const App = () => {
   const variant = {
@@ -22,16 +23,25 @@ const App = () => {
     closed: {transition: { duration: 0 } },
   };
 
-  const {setting,setSetting,tCol} = useContext(StateContext)
+  const {setting,setSetting,tCol,hor} = useContext(StateContext)
+
+  console.log(location.pathname)
   return (
     <div className="flex items-stretch justify-start max-h-screen font-para relative bg-light-gray-bg">
 
       {/* <SideBarTest /> */}
       {/* <SideBar/> */}
-      
       {
-        tCol? <SideBarTwo/>:<SideBar/>
+        
+
+      location.pathname== "/password-reset"?'': (
+        
+          hor? '': (tCol? <SideBarTwo/>:<SideBar/>)
+        
+      )
       }
+      
+      
       <motion.span
         initial={"closed"}
         animate={"open"}
@@ -53,9 +63,10 @@ const App = () => {
         <Route path="/profile/settings" element={<ProfileSettings/>} />
         <Route path="/test" element={<Test />} />
 
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/profile" element={<Profile/>}/>
-        <Route path="/ecommerce" element={<Ecommerce />} />
+        <Route path="/password-reset" element={<PasswordReset/>}/>
+        <Route path="/" element={<Ecommerce />} />
 
       </Routes>
 

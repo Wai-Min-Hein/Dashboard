@@ -13,8 +13,10 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { StateContext } from "../Context/StateContext";
+import { useNavigate } from "react-router-dom";
 const SideBarTwo = () => {
-  const { isSideOpen,setIsSideOpen, tCol } = useContext(StateContext);
+  const nav = useNavigate()
+  const { isSideOpen,setIsSideOpen, tCol,sideLight,sideDark,sideGradient } = useContext(StateContext);
   const [dash, setDash] = useState(true);
   const [app, setApp] = useState(false);
   const [layout, setLayout] = useState(false);
@@ -38,11 +40,11 @@ const SideBarTwo = () => {
   };
   return (
     <motion.div
-      className={`bg-light-side-bar-color  z-[9999]   max-h-screen overflow-y-auto sideBar ${
+      className={`  z-[9999]   max-h-screen overflow-y-auto sideBar ${
         isSideOpen ? "!w-[18rem] " : "!w-[4rem] "
-      } flex justify-start items-stretch`}
+      } flex justify-start items-stretch ${sideLight? 'bg-white': ''} ${sideDark? 'bg-light-side-bar-color': ''} ${sideGradient? ' bg-sideGradient': ''}`}
     >
-      <div className="w-[4rem]  h-full bg-[#3a4b84]">
+      <div className={`w-[4rem]  h-full   ${sideLight? 'bg-white': ''} ${sideDark? 'bg-[#3a4b84]': ''} ${sideGradient? ' bg-sideGradient': ''}`}>
         <div className=" grid place-items-center py-6 mb-4">
           <img
             src="https://themesbrand.com/velzon/html/default/assets/images/logo-sm.png"
@@ -137,6 +139,7 @@ const SideBarTwo = () => {
           </div>
         </div>
       </div>
+
       <div
         className={` max-h-screen overflow-y-auto flex-1 ${
           isSideOpen ? "block" : "hidden"
@@ -1542,7 +1545,7 @@ const SideBarTwo = () => {
                     id="dropdown-example30"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li onClick={() => nav('/profile/settings')} className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
