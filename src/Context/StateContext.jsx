@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useEffect, useMemo, useState } from "react"
 
 export const StateContext = createContext()
 const StateContextProvider = ({children}) => {
@@ -57,12 +57,19 @@ const states = JSON.parse(localStorage.getItem('states'))
     const [disabled, setDisabled] = useState(states.disabled)
     const [enabled, setEnabled] = useState(states.enabled)
 
-    // const LsStates = {ver,hor,tCol,semi,lightTheme,darkTheme,fluid,boxed,fixed,boxed,fixed,scrollable,lightTop,darkTop,sizeDefault,compact,smallIcon,smallHover,viewDefault,detached,sideLight,sideDark,sideGradient,img1,img2,img3,img4,img5,disabled,enabled}
+    let LsStates = {ver,hor,tCol,semi,lightTheme,darkTheme,fluid,boxed,fixed,boxed,fixed,scrollable,lightTop,darkTop,sizeDefault,compact,smallIcon,smallHover,viewDefault,detached,sideLight,sideDark,sideGradient,img1,img2,img3,img4,img5,disabled,enabled}
+
+    useMemo(() => {
+      localStorage.setItem('states',JSON.stringify( LsStates))
+
+    }, [])
+
+
+
     useEffect(() => {
 
-  localStorage.setItem('states',JSON.stringify( {ver,hor,tCol,semi,lightTheme,darkTheme,fluid,boxed,fixed,boxed,fixed,scrollable,lightTop,darkTop,sizeDefault,compact,smallIcon,smallHover,viewDefault,detached,sideLight,sideDark,sideGradient,img1,img2,img3,img4,img5,disabled,enabled}))
-}, [ver,hor,tCol,semi,lightTheme,darkTheme,fluid,boxed,fixed,boxed,fixed,scrollable,lightTop,darkTop,sizeDefault,compact,smallIcon,smallHover,viewDefault,detached,sideLight,sideDark,sideGradient,img1,img2,img3,img4,img5,disabled,enabled]) 
-console.log(hor, tCol)
+  localStorage.setItem('states',JSON.stringify( LsStates))
+}, [LsStates]) 
 
 
 
