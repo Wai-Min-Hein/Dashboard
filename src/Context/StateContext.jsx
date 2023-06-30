@@ -15,47 +15,47 @@ const states = JSON.parse(localStorage.getItem('states'))
     const [setting, setSetting] = useState(false)
 
 
-    const [ver, setVer] = useState(states.ver)
-    const [hor, setHor] = useState(states.hor)
-    const [tCol, setTCol] = useState(states.tCol)
-    const [semi, setSemi] = useState(false)
+    const [ver, setVer] = useState(states?.ver)
+    const [hor, setHor] = useState(states?.hor)
+    const [tCol, setTCol] = useState(states?.tCol)
+    const [semi, setSemi] = useState(states?.semi)
 
 
-    const [lightTheme, setLightTheme] = useState(states.lightTheme)
-    const [darkTheme, setDarkTheme] = useState(states.darkTheme)
+    const [lightTheme, setLightTheme] = useState(states?.lightTheme)
+    const [darkTheme, setDarkTheme] = useState(states?.darkTheme)
 
-    const [fluid, setFluid] = useState(states.fluid)
-    const [boxed, setBoxed] = useState(states.boxed)
+    const [fluid, setFluid] = useState(states?.fluid)
+    const [boxed, setBoxed] = useState(states?.boxed)
 
 
-    const [fixed, setFixed] = useState(states.fixed)
-    const [scrollable, setScrollable] = useState(states.scrollable)
+    const [fixed, setFixed] = useState(states?.fixed)
+    const [scrollable, setScrollable] = useState(states?.scrollable)
 
     
-    const [lightTop, setLightTop] = useState(states.lightTop)
-    const [darkTop, setDarkTop] = useState(states.darkTop)
+    const [lightTop, setLightTop] = useState(states?.lightTop)
+    const [darkTop, setDarkTop] = useState(states?.darkTop)
 
-    const [sizeDefault, setSizeDefault] = useState(states.sizeDefault)
-    const [compact, setCompact] = useState(states.compact)
-    const [smallIcon, setSmallIcon] = useState(states.smallIcon)
-    const [smallHover, setSmallHover] = useState(states.smallHover)
+    const [sizeDefault, setSizeDefault] = useState(states?.sizeDefault)
+    const [compact, setCompact] = useState(states?.compact)
+    const [smallIcon, setSmallIcon] = useState(states?.smallIcon)
+    const [smallHover, setSmallHover] = useState(states?.smallHover)
 
 
-    const [viewDefault, setViewDefault] = useState(states.viewDefault)
-    const [detached, setDetached] = useState(states.detached)
+    const [viewDefault, setViewDefault] = useState(states?.viewDefault)
+    const [detached, setDetached] = useState(states?.detached)
 
-    const [sideLight, setSideLight] = useState(states.sideLight)
-    const [sideDark, setSideDark] = useState(states.sideDark)
-    const [sideGradient, setSideGradient] = useState(states.sideGradient)
+    const [sideLight, setSideLight] = useState(states?.sideLight)
+    const [sideDark, setSideDark] = useState(states?.sideDark)
+    const [sideGradient, setSideGradient] = useState(states?.sideGradient)
 
-    const [img1, setImg1] = useState(states.img1)
-    const [img2, setImg2] = useState(states.img2)
-    const [img3, setImg3] = useState(states.img3)
-    const [img4, setImg4] = useState(states.img4)
-    const [img5, setImg5] = useState(states.img5)
+    const [img1, setImg1] = useState(states?.img1)
+    const [img2, setImg2] = useState(states?.img2)
+    const [img3, setImg3] = useState(states?.img3)
+    const [img4, setImg4] = useState(states?.img4)
+    const [img5, setImg5] = useState(states?.img5)
 
-    const [disabled, setDisabled] = useState(states.disabled)
-    const [enabled, setEnabled] = useState(states.enabled)
+    const [disabled, setDisabled] = useState(states?.disabled)
+    const [enabled, setEnabled] = useState(states?.enabled)
 
     let LsStates = {ver,hor,tCol,semi,lightTheme,darkTheme,fluid,boxed,fixed,boxed,fixed,scrollable,lightTop,darkTop,sizeDefault,compact,smallIcon,smallHover,viewDefault,detached,sideLight,sideDark,sideGradient,img1,img2,img3,img4,img5,disabled,enabled}
 
