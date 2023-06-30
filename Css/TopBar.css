@@ -1,6 +1,6 @@
 
 
-@layer base{
+
     body{
         font-family: 'Poppins', sans-serif;
         font-size: 0.8125rem;
@@ -67,4 +67,3 @@
             left: -95px !important;
         }
     }
-}
