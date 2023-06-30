@@ -15,9 +15,9 @@ const WorldMap = () => {
  
 
   return (
-    <div className=" bg-white w-full  rounded-sm relative">
+    <div className=" bg-white dark:bg-dark-bg-color w-full  rounded-sm relative">
       <div className="flex items-center justify-between px-4 py-4 border-b-[1px] border-gray-300">
-        <h4 className="font-medium text-[16px] font-para">Sales by Locations</h4>
+        <h4 className="font-medium text-[16px] font-para dark:text-dark-header-color">Sales by Locations</h4>
         <div className="flex items-center justify-start gap-1">
           <span className="bg-light-gray-bg px-2 py-2 rounded-sm text-[12px] font-normal tracking-wide cursor-pointer hover:bg-light-side-bar-color hover:text-white">
             Export Report
@@ -1881,11 +1881,11 @@ const WorldMap = () => {
       <div className="px-6">
         <div className="">
           <div className="flex items-center justify-between">
-          <h6 className="text-sm">Canada</h6>
+          <h6 className="text-sm dark:text-dark-header-color">Canada</h6>
           <span>75%</span>
 
           </div>
-          <div className="mt-3 h-[.35rem] bg-slate-200 rounded-full w-full">
+          <div className="mt-3 h-[.35rem] bg-slate-200 dark:bg-gray-dark rounded-full w-full">
             <div className="bg-primary bg-sale-gradient bg-[length:0.6rem_0.6rem] w-3/4 h-full rounded-full">
 
             </div>
@@ -1893,11 +1893,11 @@ const WorldMap = () => {
         </div>
         <div className="my-[.6rem]">
           <div className="flex items-center justify-between">
-          <h6 className="text-sm">Greenland</h6>
+          <h6 className="text-sm dark:text-dark-header-color">Greenland</h6>
           <span>47%</span>
 
           </div>
-          <div className="mt-3 h-[.35rem] bg-slate-200 rounded-full w-full">
+          <div className="mt-3 h-[.35rem] bg-slate-200 dark:bg-gray-dark rounded-full w-full">
             <div className="bg-primary bg-sale-gradient bg-[length:0.6rem_0.6rem] w-[47%] h-full rounded-full">
 
             </div>
@@ -1906,11 +1906,11 @@ const WorldMap = () => {
         </div>
         <div className="">
           <div className="flex items-center justify-between">
-          <h6 className="text-sm">Russia</h6>
+          <h6 className="text-sm dark:text-dark-header-color">Russia</h6>
           <span>82%</span>
 
           </div>
-          <div className="mt-3 h-[.35rem] bg-slate-200 rounded-full w-full">
+          <div className="mt-3 h-[.35rem] bg-slate-200 dark:bg-gray-dark rounded-full w-full">
             <div className="bg-primary bg-sale-gradient bg-[length:0.6rem_0.6rem] w-[82%] h-full rounded-full">
 
             </div>

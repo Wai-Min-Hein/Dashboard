@@ -48,12 +48,25 @@ export default {
 
 
         "light-header-color": "#495057",
-        "light-para-color": "##878a99",
+        "light-para-color": "#878a99",
+
+
+
+
 
         //Dark Theme
 
         "dark-side-bar-color": "#212529",
         "dark-nav-bar-color": "#292832",
+
+        "dark-header-color": "#ced4da",
+        // "dark-para-color": "#878a99",
+        "dark-bg-color": "#292e32",
+
+
+
+
+
 
         light: "#f3f6f9",
         dark: "#212529",

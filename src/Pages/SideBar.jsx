@@ -76,20 +76,20 @@ const SideBar = () => {
       <motion.div
       variants={!smPhone? Sidebar_animationR:Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
-      className={`bg-light-side-bar-color md:w-[16rem] z-[9999] absolute top-0 left-0  w-0 md:relative      max-h-screen overflow-y-auto sideBar ${sideLight? 'bg-white': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray': ''} ${sideDark? 'bg-light-side-bar-color': ''} ${sideGradient? ' bg-sideGradient': ''}`}
+      className={`bg-light-side-bar-color md:w-[16rem] z-[9999] absolute top-0 left-0  w-0 md:relative      max-h-screen overflow-y-auto sideBar ${sideLight? 'bg-white  dark:bg-dark-side-bar-color': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray dark:bg-dark-side-bar-color': ''} ${sideDark? 'bg-light-side-bar-color': ''} ${sideGradient? ' bg-sideGradient': ''}`}
     >
       <motion.div
       variants={!smPhone? Sidebar_animationR:Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
       onClick={() =>setIsSideOpen(false)}
-      className=" bg-gray-btn-bg z-[990] md:z-[-1] fixed md:ml-0 ml-[16rem] top-0 left-0 w-full md:hidden h-full "></motion.div>
+      className=" bg-gray-btn-bg dark:bg-dark-side-bar-color z-[990] md:z-[-1] fixed md:scale-0 md:ml-0 ml-[16rem] top-0 left-0 w-full md:hidden h-full "></motion.div>
       
       <aside
         id="default-sidebar"
         className="   z-40 w-[275px] h-screen "
         aria-label="Sidebar"
       >
-        <div className=" my-6 flex items-center justify-center font-para text-4xl font-extrabold text-center">
+        <div className=" my-6 flex  items-center justify-center font-para text-4xl font-extrabold text-center">
           <img
             className="  h-[19px]"
             src="https://themesbrand.com/velzon/html/default/assets/images/logo-light.png"
@@ -111,7 +111,7 @@ const SideBar = () => {
 
               <button
                 type="button"
-                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white dark:text-2xl dark:hover:text-gray-700"
+                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white  dark:hover:text-gray-700"
                 aria-controls="dropdown-example"
                 data-collapse-toggle="dropdown-example"
               >
@@ -217,7 +217,7 @@ const SideBar = () => {
             <li>
             <button
                 type="button"
-                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white dark:text-2xl dark:hover:text-gray-700"
+                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white  dark:hover:text-gray-700"
                 aria-controls="dropdown-example1"
                 data-collapse-toggle="dropdown-example1"
               >
@@ -1031,7 +1031,7 @@ const SideBar = () => {
             <li>
               <button
                 type="button"
-                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white dark:text-2xl dark:hover:text-gray-700"
+                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white  dark:hover:text-gray-700"
                 aria-controls="dropdown-example11"
                 data-collapse-toggle="dropdown-example11"
               >
@@ -1743,7 +1743,7 @@ const SideBar = () => {
             <li>
               <button
                 type="button"
-                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white dark:text-2xl dark:hover:text-gray-700"
+                className="flex items-center w-full p-2 text-light-side-bar-text-color transition duration-75 rounded-lg group hover:text-white  dark:hover:text-gray-700"
                 aria-controls="dropdown-example40"
                 data-collapse-toggle="dropdown-example40"
               >

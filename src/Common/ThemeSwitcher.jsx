@@ -30,7 +30,7 @@ const ThemeSwitcher = () => {
   };
 
   return (
-      <button className="hover:bg-blue-btn-bg px-3 py-3 rounded-full" onClick={handleThemeSwitcher}>{theme === "light" ? <MdOutlineLightMode  className="text-[23px] font-normal hover:text-blue" /> : <PiMoon className="text-[23px] font-normal hover:text-blue" />}</button>
+      <button className="hover:bg-blue-btn-bg px-3 py-3 rounded-full" onClick={handleThemeSwitcher}>{theme === "light" ? <MdOutlineLightMode  className="text-[23px] dark:text-gray-400font-normal hover:text-blue" /> : <PiMoon className="text-[23px] dark:text-gray-400 font-normal hover:text-blue" />}</button>
   );
 };
 

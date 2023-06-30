@@ -36,8 +36,8 @@ const Donut = () => {
     const [donut, setDonut] = useState(false)
 
   return (
-    <div className=" w-full !min-h-[300px] sxl:col-start-1 sxl:col-end-2 relative bg-white mx-auto">
-        <div className="flex items-center justify-between py-4 px-4 border-gray-300 border-b">
+    <div className=" w-full !min-h-[300px] sxl:col-start-1 sxl:col-end-2 relative bg-white dark:bg-dark-bg-color mx-auto">
+        <div className="flex items-center justify-between py-4 px-4 border-gray-300  border-b">
             <h4>Best Selling Products</h4>
             <span onClick={() => setDonut(!donut)} className="text text-light-header-color font-medium text-sm cursor-pointer relative">
               <span className="text-light-para-color font-normal text-[0.8rem] flex items-center justify-start gap-1">
@@ -59,7 +59,7 @@ className="absolute bg-white shadow-md text-light-header-color w-[10rem]  py-2 r
  )}
             </span>
           </div>
-      <ReactApexChart options={state.options} series={state.series}  type="donut" className="py-4 md:w-[60%] w-[100%] sxl:w-[100%] mx-auto z-10" />
+      <ReactApexChart options={state.options} series={state.series}  type="donut" className="py-4 md:w-[60%] w-[100%] sxl:w-[100%] mx-auto z-10 " />
 
      
     </div>

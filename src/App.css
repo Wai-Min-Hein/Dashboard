@@ -79,6 +79,10 @@ th{
   font-weight: 400;
 }
 
+.apexcharts-pie-area{
+
+}
+
 @media only screen and (min-width: 640px) {
   .apexcharts-text tspan {
     letter-spacing: 1.25px;
@@ -95,7 +99,9 @@ th{
 }
 
 
-
+.flatpickr-input{
+  color: inherit;
+}
 
 
 .flatpickr-day.selected{
@@ -196,6 +202,9 @@ th{
 ::-webkit-scrollbar-track {
   background-color: #CBD5E0;
 } */
+
+
+
 
 
 

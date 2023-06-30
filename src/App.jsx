@@ -17,6 +17,8 @@ import SettingBar from "./Components/SettingBar";
 import SideBarTwo from "./Pages/SideBarTwo";
 import PasswordReset from "./Pages/PassReset";
 import { useLocation } from "react-router-dom/dist";
+import SideSmallHover from "./Pages/SideSmallHover";
+import SideBoxed from "./Pages/SideBoxed";
 
 const App = () => {
   const variant = {
@@ -28,11 +30,11 @@ const App = () => {
 
   const location = useLocation()
   return (
-    <div className="flex items-stretch justify-start max-h-screen font-para relative bg-light-gray-bg">
+    <div className="flex items-stretch justify-start max-h-screen font-para relative bg-light-gray-bg  mx-[6rem]">
 
-      {/* <SideBarTest /> */}
-      {/* <SideBar/> */}
-      {
+     
+
+      {/* {
         
 
       location.pathname== "/password-reset"?(
@@ -42,8 +44,8 @@ const App = () => {
           hor? '': (tCol? <SideBarTwo/>:<SideBar/>)
         
       )
-      }
-      
+      } */}
+      <SideBoxed/>
       
       <motion.span
         initial={"closed"}

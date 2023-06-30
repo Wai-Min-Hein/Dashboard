@@ -147,7 +147,7 @@ const Ecommerce = () => {
     },
   ];
 
-  const {semi} = useContext(StateContext)
+  const {semi, boxed} = useContext(StateContext)
   
   const [sort, setSort] = useState(false);
   const [report, setReport] = useState(false);
@@ -162,7 +162,7 @@ const Ecommerce = () => {
     let duration = Math.floor(interval/endVal)
     let counter = setInterval(() => {
       startVal+=2
-      valueDisplay.textContent = startVal >= endVal?`${startVal}.5` : startVal
+      valueDisplay.textContent = startVal >= endVal?`559.5` : startVal
       if(startVal >= endVal){
         clearInterval(counter)
       }
@@ -280,14 +280,14 @@ const Ecommerce = () => {
   
 
   return (
-    <div className={`z-50 bg-light-gray-bg flex-1 min-h-screen overflow-y-auto  w-full relative  ${semi? 'px-[10rem]': ''}`}>
+    <div className={`z-50 bg-light-gray-bg dark:bg-dark flex-1 min-h-screen overflow-y-auto  w-full relative  ${semi? 'px-[10rem]': ''} ${boxed? 'mx-[4rem]': ''}`}>
       
       <TopBar />
      
 
       <div className={` grid grid-cols-1 slg:grid-cols-2 gap-3 slg:gap-0 justify-between mt-5 ${semi? 'px-0 ':'px-6 '}`}>
         <div className="">
-          <h2 className=" text-light-header-color font-medium font-para">
+          <h2 className=" text-light-header-color dark:text-dark-header-color font-medium font-para">
             Good Morning, Anna!
           </h2>
           <p className="text-light-para-color text-[13px] mt-1">
@@ -295,7 +295,7 @@ const Ecommerce = () => {
           </p>
         </div>
         <div className="flex items-center justify-start slg:justify-end gap-4 ">
-          <div className="bg-white w-[16rem] flex items-center justify-between  h-[2.35rem] pl-3 overflow-hidden rounded">
+          <div className="bg-white  dark:text-gray-400 dark:bg-dark-bg-color w-[16rem] flex items-center justify-between  h-[2.35rem] pl-3 overflow-hidden rounded">
             <RangeCalendar className="bg-transparent flex-1 basis-[90%]" />
             <div className="bg-primary text-white  w-[2.9rem] h-[2.35rem] grid place-items-center">
               <RiCalendar2Line className="text-[13.5px]" />
@@ -314,8 +314,9 @@ const Ecommerce = () => {
         </div>
       </div>
 
+
       <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6   mt-5 flex-wrap  ${semi? 'px-0':'px-6 '}`}>
-        <div className="bg-white  py-4 px-4 rounded-md shadow-md hover:translate-y-[-4px] duration-[.4s] hover:shadow-xl">
+        <div className="bg-white dark:bg-dark-bg-color  py-4 px-4 rounded-md shadow-md hover:translate-y-[-4px] duration-[.4s] hover:shadow-xl">
           <div className="flex items-center justify-between">
             <h2 className=" text-light-para-color font-medium text-[12px] tracking-wider">
               TOTAL EARNINGS
@@ -325,7 +326,7 @@ const Ecommerce = () => {
               <span className="text-sm font-medium">+16.24 %</span>
             </div>
           </div>
-          <h2 className="text-[1.35rem] font-semibold text-light-header-color mt-5 tracking-wide">
+          <h2 className="text-[1.35rem] font-semibold text-light-header-color dark:text-dark-header-color mt-5 tracking-wide">
             $
             <span className="num1" data-target="559.25">
               0
@@ -335,7 +336,7 @@ const Ecommerce = () => {
           <div className="flex items-end justify-between">
             <a
               href=""
-              className="underline text-light-header-color text-[13px] font-normal "
+              className="underline text-light-header-color dark:text-dark-header-color text-[13px] font-normal "
             >
               View net earnings
             </a>
@@ -344,7 +345,7 @@ const Ecommerce = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white py-4 px-4 rounded-md shadow-md hover:translate-y-[-4px] duration-[.4s] hover:shadow-xl">
+        <div className="bg-white dark:bg-dark-bg-color py-4 px-4 rounded-md shadow-md hover:translate-y-[-4px] duration-[.4s] hover:shadow-xl">
           <div className="flex items-center justify-between">
             <h2 className=" text-light-para-color font-medium text-[13px] tracking-wide">
               ORDERS
@@ -354,7 +355,7 @@ const Ecommerce = () => {
               <span className="text-sm font-medium">-3.57 %</span>
             </div>
           </div>
-          <h2 className="text-[1.35rem] font-semibold text-light-header-color mt-5 tracking-wide">
+          <h2 className="text-[1.35rem] font-semibold text-light-header-color dark:text-dark-header-color mt-5 tracking-wide">
             
             <span className="num2" data-target="36894">
               0
@@ -363,7 +364,7 @@ const Ecommerce = () => {
           <div className="flex items-end justify-between">
             <a
               href=""
-              className="underline text-light-header-color text-[13px] font-normal "
+              className="underline text-light-header-color dark:text-dark-header-color text-[13px] font-normal "
             >
               View net earnings
             </a>
@@ -372,7 +373,7 @@ const Ecommerce = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white py-4 px-4 rounded-md shadow-md hover:translate-y-[-4px] duration-[.4s] hover:shadow-xl">
+        <div className="bg-white dark:bg-dark-bg-color py-4 px-4 rounded-md shadow-md hover:translate-y-[-4px] duration-[.4s] hover:shadow-xl">
           <div className="flex items-center justify-between">
             <h2 className=" text-light-para-color font-medium text-[13px] tracking-wide">
               CUSTOMERS
@@ -382,7 +383,7 @@ const Ecommerce = () => {
               <span className="text-sm font-medium">+29.08 %</span>
             </div>
           </div>
-          <h2 className="text-[1.35rem] font-semibold text-light-header-color mt-5 tracking-wide">
+          <h2 className="text-[1.35rem] font-semibold text-light-header-color dark:text-dark-header-color mt-5 tracking-wide">
             <span className="num3" data-target="183.35">
               0
             </span>
@@ -391,7 +392,7 @@ const Ecommerce = () => {
           <div className="flex items-end justify-between">
             <a
               href=""
-              className="underline text-light-header-color text-[13px] font-normal "
+              className="underline text-light-header-color dark:text-dark-header-color text-[13px] font-normal "
             >
               See Details
             </a>
@@ -400,7 +401,7 @@ const Ecommerce = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white py-4 px-4 rounded-md shadow-md hover:translate-y-[-4px] duration-[.4s] hover:shadow-xl">
+        <div className="bg-white dark:bg-dark-bg-color py-4 px-4 rounded-md shadow-md hover:translate-y-[-4px] duration-[.4s] hover:shadow-xl">
           <div className="flex items-center justify-between">
             <h2 className=" text-light-para-color font-medium text-[12px] tracking-wider uppercase">
               My Balance
@@ -409,7 +410,7 @@ const Ecommerce = () => {
               <span className="text-sm font-medium">+0.00 %</span>
             </div>
           </div>
-          <h2 className="text-[1.35rem] font-semibold text-light-header-color mt-5 tracking-wide">
+          <h2 className="text-[1.35rem] font-semibold text-light-header-color dark:text-dark-header-color mt-5 tracking-wide">
             $
             <span className="num4" data-target="165.89">
               0
@@ -419,7 +420,7 @@ const Ecommerce = () => {
           <div className="flex items-end justify-between">
             <a
               href=""
-              className="underline text-light-header-color text-[13px] font-normal "
+              className="underline text-light-header-color dark:text-dark-header-color text-[13px] font-normal "
             >
               withdraw money
             </a>
@@ -430,10 +431,12 @@ const Ecommerce = () => {
         </div>
       </div>
 
+
+
       <div className={`grid grid-cols-1 place-items-stretch sxl:grid-cols-3 gap-6  mt-3 pt-4 pb-2 sxl:overflow-hidden  ${semi? 'px-0':'px-6 '}`}>
-        <div className=" col-start-1 col-end-3 chart-container bg-white  pt-4 rounded-md">
+        <div className=" col-start-1 col-end-3 chart-container bg-white dark:bg-dark-bg-color   pt-4 rounded-md">
           <div className="flex items-center justify-between px-4">
-            <h4 className="font-medium text-light-header-color text-[16px] ">
+            <h4 className="font-medium text-light-header-color dark:text-dark-header-color text-[16px] ">
               Revenue
             </h4>
             <div className="flex items-center justify-start gap-1">
@@ -451,10 +454,10 @@ const Ecommerce = () => {
               </span>
             </div>
           </div>
-          <div className="flex items-center justify-between mt-4 bg-[#fdfdfe] flex-wrap sm:flex-nowrap">
-            <div className="basis-1/2 sm:basis-1/4  grid place-items-center py-3 border-r border-y border-gray-300 border-dashed ">
+          <div className="flex items-center justify-between mt-4 bg-[#fdfdfe]  dark:bg-dark-bg-color  flex-wrap sm:flex-nowrap">
+            <div className="basis-1/2 sm:basis-1/4  grid place-items-center py-3 border-r border-y border-gray-300 bg dark:border-gray-dark border-dashed ">
               <h5>
-                <span className="text-[16px] font-medium tracking-wide font-para text-light-header-color num5" 
+                <span className="text-[16px] font-medium tracking-wide font-para text-light-header-color dark:text-dark-header-color num5" 
                 data-target='7585'>
                   0
                 </span>
@@ -463,9 +466,9 @@ const Ecommerce = () => {
                 Orders
               </p>
             </div>
-            <div className="basis-1/2 sm:basis-1/4  grid place-items-center py-3 border-r border-y border-gray-300 border-dashed ">
+            <div className="basis-1/2 sm:basis-1/4  grid place-items-center py-3 border-r border-y border-gray-300 bg dark:border-gray-dark border-dashed ">
               <h5>
-                <span className="text-[16px] font-medium tracking-wide font-para text-light-header-color">
+                <span className="text-[16px] font-medium tracking-wide font-para text-light-header-color dark:text-dark-header-color">
                   $<span className="num6"  data-target='22'>0</span>k
                 </span>
               </h5>
@@ -473,9 +476,9 @@ const Ecommerce = () => {
                 Earnings
               </p>
             </div>
-            <div className="basis-1/2 sm:basis-1/4  grid place-items-center py-3 border-r border-y border-gray-300 border-dashed ">
+            <div className="basis-1/2 sm:basis-1/4  grid place-items-center py-3 border-r border-y border-gray-300 bg dark:border-gray-dark border-dashed ">
               <h5>
-                <span className="text-[16px] font-medium tracking-wide font-para text-light-header-color">
+                <span className="text-[16px] font-medium tracking-wide font-para text-light-header-color dark:text-dark-header-color">
                   <span  className="num7"  data-target='367'>367</span>
                 </span>
               </h5>
@@ -483,7 +486,7 @@ const Ecommerce = () => {
                 Refunds
               </p>
             </div>
-            <div className="basis-1/2 sm:basis-1/4  grid place-items-center py-3  border-y border-gray-300 border-dashed ">
+            <div className="basis-1/2 sm:basis-1/4  grid place-items-center py-3  border-y border-gray-300 bg dark:border-gray-dark border-dashed ">
               <h5>
                 <span className="text-[16px] font-medium tracking-wide font-para text-green">
                   <span  className="num8"  data-target='18'>18.92</span>%
@@ -501,14 +504,14 @@ const Ecommerce = () => {
       </div>
 
       <div className={`grid grid-cols-1 lg:grid-cols-2 mt-5 gap-6 rounded-md  ${semi? 'px-0':'px-6 '}`}>
-        <div className="bg-white   overflow-auto">
+        <div className="bg-white dark:bg-dark-bg-color   overflow-auto">
           <div className="flex items-center justify-between py-4 px-4 border-gray-300 border-b">
-            <h4>Best Selling Products</h4>
+            <h4 className="dark:text-dark-header-color text-[16px] font-medium">Best Selling Products</h4>
             <span
               onClick={() => setSort(!sort)}
               className="text parent font-medium  flex items-center justify-normal gap-1 cursor-pointer relative"
             >
-              <span className="text-xs font-semibold uppercase text-light-header-color">
+              <span className="text-xs font-semibold uppercase text-light-header-color dark:text-dark-header-color">
                 Sort By:
               </span>
               <span className="text-light-para-color font-normal text-[0.8rem] flex items-center justify-start gap-1">
@@ -519,7 +522,7 @@ const Ecommerce = () => {
                   initial={"closed"}
                   variants={"variants"}
                   animate={sort ? "open" : "closed"}
-                  className="absolute bg-white shadow-md text-light-header-color w-[10rem]  py-2 rounded top-[3rem] right-0"
+                  className="absolute bg-white dark:bg-dark-bg-color shadow-md text-light-header-color dark:text-dark-header-color w-[10rem]  py-2 rounded top-[3rem] right-0"
                 >
                   <span className="block text-[13px] py-1 px-4 font-normal hover:bg-gray-300">
                     Today
@@ -543,7 +546,7 @@ const Ecommerce = () => {
               )}
 <motion.div
                   
-                  className="absolute child hidden bg-white shadow-md text-light-header-color w-[10rem]  py-2 rounded top-[1rem] right-0"
+                  className="absolute child hidden bg-white dark:bg-dark-bg-color shadow-md text-light-header-color dark:text-dark-header-color w-[10rem]  py-2 rounded top-[1rem] right-0"
                 >
                   <span className="block text-[13px] py-1 px-4 font-normal hover:bg-gray-300">
                     Today
@@ -582,7 +585,7 @@ const Ecommerce = () => {
                         />
                       </div>
                       <div className="">
-                        <span className="block text-[0.88rem] font-medium text-light-header-color">
+                        <span className="block text-[0.88rem] font-medium text-light-header-color dark:text-dark-header-color">
                           Branded T-Shirts
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -592,7 +595,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $29.00
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -602,7 +605,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           62
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -612,7 +615,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           510
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -622,7 +625,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $1,798
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -642,7 +645,7 @@ const Ecommerce = () => {
                         />
                       </div>
                       <div className="">
-                        <span className="block text-[0.88rem] font-medium text-light-header-color">
+                        <span className="block text-[0.88rem] font-medium text-light-header-color dark:text-dark-header-color">
                           Branded T-Shirts
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -652,7 +655,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $29.00
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -662,7 +665,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           62
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -672,7 +675,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           510
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -682,7 +685,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $1,798
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -701,7 +704,7 @@ const Ecommerce = () => {
                         />
                       </div>
                       <div className="">
-                        <span className="block text-[0.88rem] font-medium text-light-header-color">
+                        <span className="block text-[0.88rem] font-medium text-light-header-color dark:text-dark-header-color">
                           Branded T-Shirts
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -711,7 +714,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $29.00
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -721,7 +724,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           62
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -731,7 +734,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           510
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -741,7 +744,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $1,798
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -760,7 +763,7 @@ const Ecommerce = () => {
                         />
                       </div>
                       <div className="">
-                        <span className="block text-[0.88rem] font-medium text-light-header-color">
+                        <span className="block text-[0.88rem] font-medium text-light-header-color dark:text-dark-header-color">
                           Branded T-Shirts
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -770,7 +773,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $29.00
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -780,7 +783,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           62
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -790,7 +793,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           510
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -800,7 +803,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $1,798
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -819,7 +822,7 @@ const Ecommerce = () => {
                         />
                       </div>
                       <div className="">
-                        <span className="block text-[0.88rem] font-medium text-light-header-color">
+                        <span className="block text-[0.88rem] font-medium text-light-header-color dark:text-dark-header-color">
                           Branded T-Shirts
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -829,7 +832,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $29.00
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -839,7 +842,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           62
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -849,7 +852,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           510
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -859,7 +862,7 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $1,798
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -876,8 +879,8 @@ const Ecommerce = () => {
           <div className="px-4 flex items-center justify-between py-4">
             <p className="t text-light-para-color font-normal">
               Showing{" "}
-              <span className="text-light-header-color font-medium">5</span> of{" "}
-              <span className="text-light-header-color font-medium">25</span>{" "}
+              <span className="text-light-header-color dark:text-dark-header-color font-medium">5</span> of{" "}
+              <span className="text-light-header-color dark:text-dark-header-color font-medium">25</span>{" "}
               results
             </p>
             <div className="flex items-center justify-start gap-3 font-medium">
@@ -900,9 +903,9 @@ const Ecommerce = () => {
           </div>
         </div>
 
-        <div className="bg-white  overflow-x-auto">
+        <div className="bg-white dark:bg-dark-bg-color  overflow-x-auto">
           <div className="flex items-center justify-between py-4 px-4 border-gray-300 border-b">
-            <h4>Best Selling Products</h4>
+            <h4 className="dark:text-dark-header-color text-[16px] font-medium">Top Seller</h4>
             <span
               onClick={() => (setSort(false), setReport(!report))}
               className="text  font-medium  flex items-center justify-normal gap-1 cursor-pointer relative"
@@ -916,7 +919,7 @@ const Ecommerce = () => {
                   initial={"closed"}
                   variants={"variants"}
                   animate={sort ? "open" : "closed"}
-                  className="absolute bg-white shadow-md text-light-header-color w-[10rem]  py-2 rounded top-[3rem] right-0"
+                  className="absolute bg-white dark:bg-dark-bg-color shadow-md text-light-header-color dark:text-dark-header-color w-[10rem]  py-2 rounded top-[3rem] right-0"
                 >
                   <span className="block text-[13px] py-1 px-4 font-normal hover:bg-gray-300">
                     Today
@@ -955,7 +958,7 @@ const Ecommerce = () => {
                         />
                       </div>
                       <div className="">
-                        <span className="block text-[0.88rem] font-medium text-light-header-color">
+                        <span className="block text-[0.88rem] font-medium text-light-header-color dark:text-dark-header-color">
                           iTest Factory
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -965,14 +968,14 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           Bags and Wallets
                         </span>
                       </div>
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           8547
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -982,14 +985,14 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $541200
                         </span>
                       </div>
                     </td>
                     <td>
                       <div className="flex items-center justify-start gap-2">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           32%
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1008,7 +1011,7 @@ const Ecommerce = () => {
                         />
                       </div>
                       <div className="">
-                        <span className="block text-[0.88rem] font-medium text-light-header-color">
+                        <span className="block text-[0.88rem] font-medium text-light-header-color dark:text-dark-header-color">
                           iTest Factory
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1018,14 +1021,14 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           Bags and Wallets
                         </span>
                       </div>
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           8547
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1035,14 +1038,14 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $541200
                         </span>
                       </div>
                     </td>
                     <td>
                       <div className="flex items-center justify-start gap-2">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           32%
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1061,7 +1064,7 @@ const Ecommerce = () => {
                         />
                       </div>
                       <div className="">
-                        <span className="block text-[0.88rem] font-medium text-light-header-color">
+                        <span className="block text-[0.88rem] font-medium text-light-header-color dark:text-dark-header-color">
                           iTest Factory
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1071,14 +1074,14 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           Bags and Wallets
                         </span>
                       </div>
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           8547
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1088,14 +1091,14 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $541200
                         </span>
                       </div>
                     </td>
                     <td>
                       <div className="flex items-center justify-start gap-2">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           32%
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1114,7 +1117,7 @@ const Ecommerce = () => {
                         />
                       </div>
                       <div className="">
-                        <span className="block text-[0.88rem] font-medium text-light-header-color">
+                        <span className="block text-[0.88rem] font-medium text-light-header-color dark:text-dark-header-color">
                           iTest Factory
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1124,14 +1127,14 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           Bags and Wallets
                         </span>
                       </div>
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           8547
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1141,14 +1144,14 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $541200
                         </span>
                       </div>
                     </td>
                     <td>
                       <div className="flex items-center justify-start gap-2">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           32%
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1167,7 +1170,7 @@ const Ecommerce = () => {
                         />
                       </div>
                       <div className="">
-                        <span className="block text-[0.88rem] font-medium text-light-header-color">
+                        <span className="block text-[0.88rem] font-medium text-light-header-color dark:text-dark-header-color">
                           iTest Factory
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1177,14 +1180,14 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           Bags and Wallets
                         </span>
                       </div>
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           8547
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1194,14 +1197,14 @@ const Ecommerce = () => {
                     </td>
                     <td>
                       <div className="">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           $541200
                         </span>
                       </div>
                     </td>
                     <td>
                       <div className="flex items-center justify-start gap-2">
-                        <span className="block text-[0.88rem] text-light-header-color font-normal">
+                        <span className="block text-[0.88rem] text-light-header-color dark:text-dark-header-color font-normal">
                           32%
                         </span>
                         <span className="block text-[13px] capitalize text-light-para-color font-normal">
@@ -1218,8 +1221,8 @@ const Ecommerce = () => {
           <div className="px-4 flex items-center justify-between py-4">
             <p className="t text-light-para-color font-normal">
               Showing{" "}
-              <span className="text-light-header-color font-medium">5</span> of{" "}
-              <span className="text-light-header-color font-medium">25</span>{" "}
+              <span className="text-light-header-color dark:text-dark-header-color font-medium">5</span> of{" "}
+              <span className="text-light-header-color dark:text-dark-header-color font-medium">25</span>{" "}
               results
             </p>
             <div className="flex items-center justify-start gap-3 font-medium">
@@ -1245,7 +1248,7 @@ const Ecommerce = () => {
 
       <div className={`grid  place-items-stretch sxl:grid-cols-3 grid-cols-1 gap-4 justify-between mt-5  mb-2  ${semi? 'px-0':'px-6 '}`}>
         <Donut className="" />
-        <div className=" bg-white overflow-x-auto sxl:col-start-2 sxl:col-end-4">
+        <div className=" bg-white dark:bg-dark-bg-color overflow-x-auto sxl:col-start-2 sxl:col-end-4">
           <div className="flex items-center justify-between py-4 px-4 border-gray-300 border-b">
             <h4>Recent Orders</h4>
             <span
@@ -1260,7 +1263,7 @@ const Ecommerce = () => {
 
           <div className="w-full overflow-x-auto">
             <table className="w-full donut-table whitespace-nowrap">
-              <thead className=" bg-light-gray-bg">
+              <thead className=" bg-light-gray-bg dark:bg-[rgba(255,255,255,0.05)] ">
                 <tr>
                   <th className="capitalize">Order ID</th>
                   <th>Customer</th>
@@ -1463,7 +1466,7 @@ const Ecommerce = () => {
         </div>
       </div>
 
-      <div className={`flex items-center justify-between bg-white mt-4  py-4  ${semi? 'px-0':'px-6 '}`}>
+      <div className={`flex items-center justify-between bg-white dark:bg-dark-bg-color mt-4  py-4  ${semi? 'px-0':'px-6 '}`}>
         <p className="text-[13px] text-light-para-color">2023 &#169; Velzon</p>
         <p className="text-[13px] text-light-para-color">
           Design & Develop by Themesbrand

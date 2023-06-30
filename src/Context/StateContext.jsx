@@ -6,54 +6,63 @@ const StateContextProvider = ({children}) => {
   const [isSideOpen, setIsSideOpen] = useState(true);
 
 
+const states = JSON.parse(localStorage.getItem('states'))
+
+
 
     const [theme, setTheme] = useState('light')
     const [sideBar, setSideBar] = useState(true)
     const [setting, setSetting] = useState(false)
 
 
-    const [ver, setVer] = useState(true)
-    const [hor, setHor] = useState(false)
-    const [tCol, setTCol] = useState(false)
+    const [ver, setVer] = useState(states.ver)
+    const [hor, setHor] = useState(states.hor)
+    const [tCol, setTCol] = useState(states.tCol)
     const [semi, setSemi] = useState(false)
 
 
-    const [lightTheme, setLightTheme] = useState(true)
-    const [darkTheme, setDarkTheme] = useState(false)
+    const [lightTheme, setLightTheme] = useState(states.lightTheme)
+    const [darkTheme, setDarkTheme] = useState(states.darkTheme)
 
-    const [fluid, setFluid] = useState(true)
-    const [boxed, setBoxed] = useState(false)
+    const [fluid, setFluid] = useState(states.fluid)
+    const [boxed, setBoxed] = useState(states.boxed)
 
 
-    const [fixed, setFixed] = useState(true)
-    const [scrollable, setScrollable] = useState(false)
+    const [fixed, setFixed] = useState(states.fixed)
+    const [scrollable, setScrollable] = useState(states.scrollable)
 
     
-    const [lightTop, setLightTop] = useState(true)
-    const [darkTop, setDarkTop] = useState(false)
+    const [lightTop, setLightTop] = useState(states.lightTop)
+    const [darkTop, setDarkTop] = useState(states.darkTop)
 
-    const [sizeDefault, setSizeDefault] = useState(true)
-    const [compact, setCompact] = useState(false)
-    const [smallIcon, setSmallIcon] = useState(false)
-    const [smallHover, setSmallHover] = useState(false)
+    const [sizeDefault, setSizeDefault] = useState(states.sizeDefault)
+    const [compact, setCompact] = useState(states.compact)
+    const [smallIcon, setSmallIcon] = useState(states.smallIcon)
+    const [smallHover, setSmallHover] = useState(states.smallHover)
 
 
-    const [viewDefault, setViewDefault] = useState(true)
-    const [detached, setDetached] = useState(false)
+    const [viewDefault, setViewDefault] = useState(states.viewDefault)
+    const [detached, setDetached] = useState(states.detached)
 
-    const [sideLight, setSideLight] = useState(false)
-    const [sideDark, setSideDark] = useState(true)
-    const [sideGradient, setSideGradient] = useState(false)
+    const [sideLight, setSideLight] = useState(states.sideLight)
+    const [sideDark, setSideDark] = useState(states.sideDark)
+    const [sideGradient, setSideGradient] = useState(states.sideGradient)
 
-    const [img1, setImg1] = useState(true)
-    const [img2, setImg2] = useState(false)
-    const [img3, setImg3] = useState(false)
-    const [img4, setImg4] = useState(false)
-    const [img5, setImg5] = useState(false)
+    const [img1, setImg1] = useState(states.img1)
+    const [img2, setImg2] = useState(states.img2)
+    const [img3, setImg3] = useState(states.img3)
+    const [img4, setImg4] = useState(states.img4)
+    const [img5, setImg5] = useState(states.img5)
 
-    const [disabled, setDisabled] = useState(true)
-    const [enabled, setEnabled] = useState(false)
+    const [disabled, setDisabled] = useState(states.disabled)
+    const [enabled, setEnabled] = useState(states.enabled)
 
+    // const LsStates = {ver,hor,tCol,semi,lightTheme,darkTheme,fluid,boxed,fixed,boxed,fixed,scrollable,lightTop,darkTop,sizeDefault,compact,smallIcon,smallHover,viewDefault,detached,sideLight,sideDark,sideGradient,img1,img2,img3,img4,img5,disabled,enabled}
+    useEffect(() => {
+
+  localStorage.setItem('states',JSON.stringify( {ver,hor,tCol,semi,lightTheme,darkTheme,fluid,boxed,fixed,boxed,fixed,scrollable,lightTop,darkTop,sizeDefault,compact,smallIcon,smallHover,viewDefault,detached,sideLight,sideDark,sideGradient,img1,img2,img3,img4,img5,disabled,enabled}))
+}, [ver,hor,tCol,semi,lightTheme,darkTheme,fluid,boxed,fixed,boxed,fixed,scrollable,lightTop,darkTop,sizeDefault,compact,smallIcon,smallHover,viewDefault,detached,sideLight,sideDark,sideGradient,img1,img2,img3,img4,img5,disabled,enabled]) 
+console.log(hor, tCol)
 
 
 
