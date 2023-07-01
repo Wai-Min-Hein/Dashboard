@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import "../../Css/Profile.css";
+// import "../../Css/Profile.css";
 import bg from "../../Image/profile-bg.jpg";
 import user from "../../Image/admin.jpg";
 import james from "../../Image/user/avatar-3.jpg";
