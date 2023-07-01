@@ -14,7 +14,7 @@ import admin from "../../Image/admin.jpg";
 import ThemeSwitcher from "../Common/ThemeSwitcher";
 import { useContext, useState } from "react";
 import { StateContext } from "../Context/StateContext";
-// import "../../Css/Topbar.css";
+import "../../Css/Topbar.css";
 import SideBarHor from "./SideBarHor";
 
 
@@ -29,12 +29,40 @@ import SideBarHor from "./SideBarHor";
 
 const TopBar = () => {
   const { isSideOpen, setIsSideOpen, semi,hor,boxed,detached } = useContext(StateContext);
-  const [category, setCategory] = useState(false);
-  const [cart, setCart] = useState(false);
-  const [notification, setNotification] = useState(false);
+  const [category,setCategory] = useState(false)
+  const [cart,setCart] = useState(false)
+  const [notification,setNotification] = useState(false)
+  const [flags,setFlags] = useState(false)
+
+    
+  const handleCart = ()=>{
+    setCategory(false)
+    setFlags(false)
+    setNotification(false)
+    setCart(!cart)
+  }
+  const handleNotification = ()=>{
+    setCart(false)
+    setCategory(false)
+    setFlags(false)
+    setNotification(!notification)
+  }
+  const handleCategory = ()=>{
+    setCart(false)
+    setFlags(false)
+    setNotification(false)
+    setCategory(!category)
+
+  }
+  const handleFlag = ()=>{
+    setCategory(false)
+    setCart(false)
+    setNotification(false)
+    setFlags(!flags)
+  }
 
   return (
-    <div className={`bg-white dark:bg-dark-bg-color  sticky top-0 ${detached? 'z-10': 'z-[99999]'}    w-full`}>
+    <div className={`topbar bg-white dark:bg-dark-bg-color  sticky top-0 ${detached? 'z-10': 'z-[99999]'}    w-full`}>
       <div
       className={`bg-white dark:bg-dark-bg-color h-[70px] sticky top-0   w-full px-6 flex items-center justify-between z-[100] ${
         semi ? "mt-6" : "mt-0"
@@ -58,19 +86,51 @@ const TopBar = () => {
       </div>
 
       <div className="flex items-center justify-start">
-        <span className="hover:bg-blue-btn-bg w-12 h-12 rounded-full grid place-items-center">
-          <button className="w-5 h-5 overflow-hidden rounded-md ">
-            <img
-              src="https://themesbrand.com/velzon/html/default/assets/images/flags/us.svg"
-              className="block z-50"
-              alt=""
-            />
-          </button>
+      <span className="bg-gr cursor-pointer hover:bg-blue-btn-bg w-12 h-12 rounded-full grid place-items-center relative">
+        <button onClick={handleFlag} className="w-5 h-5 overflow-hidden rounded-md">
+          <img src='https://themesbrand.com/velzon/html/default/assets/images/flags/us.svg' className="block z-50" alt="" />
+        </button>
+        <div className={flags ? 'dropdown-menu py-2 block right-5' : 'hidden'}>
+            <div className="">
+              <a href="#!" className="py-2 px-5 flex items-center hover:bg-light hover:text-[#1e2125]">
+                <img src="https://themesbrand.com/velzon/html/default/assets/images/flags/us.svg" className="mr-2 align-middle rounded h-[18px]" alt="" />
+                <span className=" align-middle  text-black">English</span>
+              </a>
+              <a href="#!" className="py-2 px-5 flex items-center hover:bg-light hover:text-[#1e2125]">
+                <img src="https://themesbrand.com/velzon/html/default/assets/images/flags/spain.svg" className="mr-2 align-middle rounded h-[18px]" alt="" />
+                <span className=" align-middle  text-black">Española</span>
+              </a>
+              <a href="#!" className="py-2 px-5 flex items-center hover:bg-light hover:text-[#1e2125]">
+                <img src="https://themesbrand.com/velzon/html/default/assets/images/flags/germany.svg" className="mr-2 align-middle rounded h-[18px]" alt="" />
+                <span className=" align-middle  text-black">Deutsche</span>
+              </a>
+              <a href="#!" className="py-2 px-5 flex items-center hover:bg-light hover:text-[#1e2125]">
+                <img src="https://themesbrand.com/velzon/html/default/assets/images/flags/italy.svg" className="mr-2 align-middle rounded h-[18px]" alt="" />
+                <span className=" align-middle  text-black">Italiana</span>
+              </a>
+              <a href="#!" className="py-2 px-5 flex items-center hover:bg-light hover:text-[#1e2125]">
+                <img src="https://themesbrand.com/velzon/html/default/assets/images/flags/russia.svg" className="mr-2 align-middle rounded h-[18px]" alt="" />
+                <span className=" align-middle  text-black">русский</span>
+              </a>
+              <a href="#!" className="py-2 px-5 flex items-center hover:bg-light hover:text-[#1e2125]">
+                <img src="https://themesbrand.com/velzon/html/default/assets/images/flags/china.svg" className="mr-2 align-middle rounded h-[18px]" alt="" />
+                <span className=" align-middle  text-black">中国人</span>
+              </a>
+              <a href="#!" className="py-2 px-5 flex items-center hover:bg-light hover:text-[#1e2125]">
+                <img src="https://themesbrand.com/velzon/html/default/assets/images/flags/french.svg" className="mr-2 align-middle rounded h-[18px]" alt="" />
+                <span className=" align-middle  text-black">français</span>
+              </a>
+              <a href="#!" className="py-2 px-5 flex items-center hover:bg-light hover:text-[#1e2125]">
+                <img src="https://themesbrand.com/velzon/html/default/assets/images/flags/ae.svg" className="mr-2 align-middle rounded h-[18px]" alt="" />
+                <span className=" align-middle  text-black">Arabic</span>
+              </a>
+            </div>
+          </div>
         </span>
 
         <span className="bg-gr cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full relative">
           <BiCategoryAlt
-            onClick={() => setCategory(!category)}
+            onClick={handleCategory}
             className="text-[23px] dark:text-gray-400 font-normal hover:text-blue"
           />
           <div
@@ -136,7 +196,7 @@ const TopBar = () => {
           </div>
         </span>
         <span className="bg-gr cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full relative">
-          <div className="" onClick={() => setCart(!cart)}>
+          <div className="" onClick={handleCart}>
             <BiShoppingBag className="text-[23px] dark:text-gray-400 font-normal hover:text-blue " />
             <span className="absolute top-[-2px] py-[0.25em] px-[0.60em] text-white right-[-2px] text-[10px] rounded-full bg-info">
               5
@@ -296,7 +356,7 @@ const TopBar = () => {
         <ThemeSwitcher className="text-[23px] dark:text-gray-400 font-normal" />
 
          <span className=" cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full relative mr-1 md:mr-4">
-          <div className="" onClick={() => setNotification(!notification)}>
+          <div className="" onClick={handleNotification}>
             <IoMdNotificationsOutline className="text-[23px] dark:text-gray-400 font-normal hover:text-blue" />
             <span className="absolute top-[-2px] py-[0.25em] px-[0.60em] text-white right-[-2px] text-[10px] rounded-full bg-danger">
               3
