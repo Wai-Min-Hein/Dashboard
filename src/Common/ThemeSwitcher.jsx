@@ -7,13 +7,13 @@ import { MdOutlineLightMode } from "react-icons/md";
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useContext(StateContext);
 
-  useEffect(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  //     setTheme("dark");
+  //   } else {
+  //     setTheme("light");
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (theme === "dark") {

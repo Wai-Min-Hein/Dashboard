@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Loader from "./Loader";
 
 const SettingBar = () => {
-  const { setting, setSetting,ver, setVer,hor, setHor,tCol, setTCol,semi, setSemi,lightTheme, setLightTheme,darkTheme, setDarkTheme,fluid, setFluid,boxed, setBoxed,fixed, setFixed,scrollable, setScrollable,lightTop, setLightTop,darkTop, setDarkTop,sizeDefault, setSizeDefault,compact, setCompact,smallIcon, setSmallIcon,smallHover, setSmallHover,viewDefault, setViewDefault,detached, setDetached,sideLight, setSideLight,sideDark, setSideDark,sideGradient, setSideGradient,img1, setImg1,img2, setImg2,img3, setImg3,img4, setImg4,img5, setImg5,disabled, setDisabled,enabled, setEnabled } = useContext(StateContext);
+  const { setting, setSetting,ver, setVer,hor, setHor,tCol, setTCol,semi, setSemi,lightTheme, setLightTheme,darkTheme, setDarkTheme,fluid, setFluid,boxed, setBoxed,fixed, setFixed,scrollable, setScrollable,lightTop, setLightTop,darkTop, setDarkTop,sizeDefault, setSizeDefault,compact, setCompact,smallIcon, setSmallIcon,smallHover, setSmallHover,viewDefault, setViewDefault,detached, setDetached,sideLight, setSideLight,sideDark, setSideDark,sideGradient, setSideGradient,img,setImg,img1, setImg1,img2, setImg2,img3, setImg3,img4, setImg4,disabled, setDisabled,enabled, setEnabled } = useContext(StateContext);
   const barVariant = {
     open: { x: "0", opacity: 1, transition: { duration: 0.25 } },
     closed: { x: "100%", opacity: 0, transition: { duration: 0.25 } },
@@ -37,7 +37,7 @@ const SettingBar = () => {
         initial={"closed"}
         animate={setting ? "open" : "closed"}
         variants={barVariant}
-        className="fixed top-0 right-0 w-[25rem] z-[2000]  max-h-screen overflow-y-auto settingBar  shadow-lg bg-white"
+        className="fixed top-0 right-0 w-[25rem] z-[2000]  h-full overflow-y-auto settingBar  shadow-lg bg-white "
       >
         {/* <div className="w-full s  "> */}
           <div className="sticky px-2 py-4 top-0 right-0 w-full flex items-center justify-between bg-primary z-[2999]">
@@ -84,7 +84,7 @@ const SettingBar = () => {
               <p className="text-sm pt-2 text-center">vertical</p>
             </div>
             <div  onClick={() => (
-              setVer(false), setHor(true), setTCol(false), setSemi(false)
+              setVer(false), setHor(true), setTCol(false), setSemi(false),setSizeDefault(true), setCompact(false),setSmallIcon(false),setSmallHover(false)
             )} className="bg-white  basis-[30%] flex flex-col relative cursor-pointer">
             <span className="absolute top-[1rem] right-[1rem] radio-btn">
                 {
@@ -111,7 +111,7 @@ const SettingBar = () => {
               <p className="text-sm pt-2 text-center">Horizontal</p>
             </div>
             <div  onClick={() => (
-              setVer(false), setHor(false), setTCol(true), setSemi(false)
+              setVer(false), setHor(false), setTCol(true), setSemi(false),setSizeDefault(true), setCompact(false),setSmallIcon(false),setSmallHover(false)
             )} className="bg-white  basis-[30%] flex flex-col relative cursor-pointer">
             <span className="absolute top-[1rem] right-[1rem] radio-btn">
                 {
@@ -145,7 +145,7 @@ const SettingBar = () => {
             </div>
 
             <div  onClick={() => (
-              setVer(false), setHor(false), setTCol(false), setSemi(true)
+              setVer(false), setHor(false), setTCol(false), setSemi(true), setDetached(false),setFluid(true),setBoxed(false)
             )} className="bg-white  basis-[30%] relative cursor-pointer">
           
               <span className="absolute top-[1rem] right-[1rem] radio-btn">
@@ -250,7 +250,7 @@ const SettingBar = () => {
             
           </div>
         </div>
-
+{!semi&& (
         <div className="layout-width  px-4 py-4">
         <h6 className="text-sm uppercase font-medium text-light-header-color">
             Color Theme
@@ -320,7 +320,7 @@ const SettingBar = () => {
             
           </div>
         </div>
-
+)}
         <div className="layout-position  px-4 py-4">
         <h6 className="text-sm uppercase font-medium text-light-header-color">
         LAYOUT POSITION
@@ -407,6 +407,8 @@ const SettingBar = () => {
             
           </div>
         </div>
+
+{(!hor&& !tCol)&& (
 
         <div className="side-bar-size px-4 py-4">
           <h6 className="text-sm uppercase font-medium text-light-header-color">
@@ -532,6 +534,9 @@ const SettingBar = () => {
           
           
         </div>
+)}
+{
+  !semi && (
 
 
         <div className="side-bar-view px-4 py-4 mt-8">
@@ -610,8 +615,11 @@ const SettingBar = () => {
           
           
         </div>
+          )
+        }
+        
 
-        <div className="side-bar-color  px-4 py-4">
+        <div className={`side-bar-color  px-4 py-4 ${semi? 'mt-5': ''}`}>
         <h6 className="text-sm uppercase font-medium text-light-header-color">
         SIDEBAR COLOR
           </h6>
@@ -715,33 +723,35 @@ const SettingBar = () => {
           Choose a image of Sidebar.
           </p>
 
+          
+
           <div className="flex items-stretch justify-stretch gap-4  mt-4">
-            <div onClick={() => (setImg1(true),setImg2(false),setImg3(false),setImg4(false),setImg5(false))} className="px-3 grid place-items-center py-2 border border-gray-300 relative rounded-md">
-              {img1&& (<span className="absolute top-0 right-0 w-full h-full bg-gray text-white rounded-md grid p place-items-center">
+            <div onClick={() => (setImg(true),setImg1(false),setImg2(false),setImg3(false),setImg4(false))} className="px-3 grid place-items-center py-2 border border-gray-300 relative rounded-md">
+              {img&& (<span className="absolute top-0 right-0 w-full h-full bg-gray text-white rounded-md grid p place-items-center">
                 <BiSolidCheckCircle/>
               </span>)}
             <RxCross2/>
             </div>
-            <div  onClick={() => (setImg1(false),setImg2(true),setImg3(false),setImg4(false),setImg5(false))} className=" h-full  overflow-hidden relative">
-            {img2&& (<span className="absolute top-0 right-0 w-full h-full bg-gray text-white rounded-md grid p place-items-center">
+            <div  onClick={() => (setImg(false),setImg1(true),setImg2(false),setImg3(false),setImg4(false))} className=" h-full  overflow-hidden relative">
+            {img1&& (<span className="absolute top-0 right-0 w-full h-full bg-gray text-white rounded-md grid p place-items-center">
                 <BiSolidCheckCircle/>
               </span>)}
               <img src="https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-1.jpg" className="block rounded-md object-cover h-[4.5rem]" alt="" />
             </div>
-            <div  onClick={() => (setImg1(false),setImg2(false),setImg3(true),setImg4(false),setImg5(false))} className=" h-full  overflow-hidden relative">
-            {img3&& (<span className="absolute top-0 right-0 w-full h-full bg-gray text-white rounded-md grid p place-items-center">
+            <div  onClick={() => (setImg(false),setImg1(false),setImg2(true),setImg3(false),setImg4(false))} className=" h-full  overflow-hidden relative">
+            {img2&& (<span className="absolute top-0 right-0 w-full h-full bg-gray text-white rounded-md grid p place-items-center">
                 <BiSolidCheckCircle/>
               </span>)}
               <img src="https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-2.jpg" className="block rounded-md object-cover h-[4.5rem]" alt="" />
             </div>
-            <div  onClick={() => (setImg1(false),setImg2(false),setImg3(false),setImg4(true),setImg5(false))} className=" h-full  overflow-hidden relative">
-            {img4&& (<span className="absolute top-0 right-0 w-full h-full bg-gray text-white rounded-md grid p place-items-center">
+            <div  onClick={() => (setImg(false),setImg1(false),setImg2(false),setImg3(true),setImg4(false))} className=" h-full  overflow-hidden relative">
+            {img3&& (<span className="absolute top-0 right-0 w-full h-full bg-gray text-white rounded-md grid p place-items-center">
                 <BiSolidCheckCircle/>
               </span>)}
               <img src="https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-3.jpg" className="block rounded-md object-cover h-[4.5rem]" alt="" />
             </div>
-            <div  onClick={() => (setImg1(false),setImg2(false),setImg3(false),setImg4(false),setImg5(true))} className=" h-full  overflow-hidden relative">
-            {img5&& (<span className="absolute top-0 right-0 w-full h-full bg-gray text-white rounded-md grid p place-items-center">
+            <div  onClick={() => (setImg(false),setImg1(false),setImg2(false),setImg3(false),setImg4(true))} className=" h-full  overflow-hidden relative">
+            {img4&& (<span className="absolute top-0 right-0 w-full h-full bg-gray text-white rounded-md grid p place-items-center">
                 <BiSolidCheckCircle/>
               </span>)}
               <img src="https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-4.jpg" className="block rounded-md object-cover h-[4.5rem]" alt="" />
@@ -848,7 +858,7 @@ const SettingBar = () => {
         onClick={() => setSetting(false)}
         className={`${
           setting
-            ? "block w-screen h-screen bg-[rgba(135,138,153,0.4)] fixed top-0 left-0 z-[1999]"
+            ? "block w-screen h-screen bg-[rgba(135,138,153,0.4)] dark:bg-[rgba(62,62,63,0.29)] fixed top-0 left-0 z-[1999]"
             : "hidden"
         }`}
       ></motion.div>

@@ -28,13 +28,13 @@ import SideBarHor from "./SideBarHor";
 // import spain from "../../Image/spain.svg";
 
 const TopBar = () => {
-  const { isSideOpen, setIsSideOpen, semi,hor,boxed } = useContext(StateContext);
+  const { isSideOpen, setIsSideOpen, semi,hor,boxed,detached } = useContext(StateContext);
   const [category, setCategory] = useState(false);
   const [cart, setCart] = useState(false);
   const [notification, setNotification] = useState(false);
 
   return (
-    <div className="bg-white dark:bg-dark-bg-color  sticky top-0   z-[99999] w-full">
+    <div className={`bg-white dark:bg-dark-bg-color  sticky top-0 ${detached? 'z-10': 'z-[99999]'}    w-full`}>
       <div
       className={`bg-white dark:bg-dark-bg-color h-[70px] sticky top-0   w-full px-6 flex items-center justify-between z-[100] ${
         semi ? "mt-6" : "mt-0"

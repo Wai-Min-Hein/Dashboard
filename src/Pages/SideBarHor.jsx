@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom/dist";
     const nav = useNavigate()
     return (
       <div className="border-t border-gray-500 mt-4  ">
-        <div className="  w-full  bg-white hidden lg:block">
+        <div className="  w-full  bg-white dark:bg-dark-bg-color hidden lg:block">
           <div className="flex items-center justify-start gap-6 px-[5rem] z-[9999] py-2">
             <div className={`cursor-pointer p-2 relative dash`}>
               <button
@@ -30,7 +30,7 @@ import { useNavigate } from "react-router-dom/dist";
               >
                 <RiDashboard2Line className=" text-gray-dark  text-xl" />
                 <span
-                  className={`  text-[#6d7080]  flex-1 ml-3 text-sm text-left whitespace-nowrap`}
+                  className={`  text-[#6d7080] dark:text-gray  flex-1 ml-3 text-sm text-left whitespace-nowrap`}
                 >
                   Dashboards
                 </span>
@@ -47,7 +47,7 @@ import { useNavigate } from "react-router-dom/dist";
                   ></path>
                 </svg>
               </button>
-              <div className="absolute w-[10rem] px-4  bg-white  shadow-lg rounded-md top-[3rem] dash-child left-0">
+              <div className="absolute w-[10rem] z-[9999999999] px-4  bg-white dark:bg-dark-bg-color  shadow-lg rounded-md top-[3rem] dash-child left-0">
                 <ul id="dropdown-example" className={`w-full   py-2 space-y-2 `}>
                   <li className=" text-gray pb-2 flex  w-1/3 items-center">
                     <span className=" text-inherit ps-4">-</span>
@@ -124,7 +124,7 @@ import { useNavigate } from "react-router-dom/dist";
               >
                 <RiApps2Line className=" text-gray-dark  text-xl" />
                 <span
-                  className={`  text-[#6d7080]  flex-1 ml-3 text-sm text-left whitespace-nowrap`}
+                  className={`  text-[#6d7080] dark:text-gray flex-1 ml-3 text-sm text-left whitespace-nowrap`}
                 >
                   App
                 </span>
@@ -141,7 +141,7 @@ import { useNavigate } from "react-router-dom/dist";
                   ></path>
                 </svg>
               </button>
-              <div className="absolute w-[12rem] bg-white  shadow-lg rounded-md top-[3rem] app-child left-0">
+              <div className="absolute w-[12rem] bg-white dark:bg-dark-bg-color  shadow-lg rounded-md top-[3rem] app-child left-0">
               <ul id="dropdown-example1" className={`w-full   py-2 space-y-2`}>
                   <li className=" text-gray pb-2 flex  w-1/3 items-center">
                     <span className=" text-inherit ps-4">-</span>
@@ -753,7 +753,7 @@ import { useNavigate } from "react-router-dom/dist";
               >
                 <RiLayout3Line className=" text-gray-dark  text-xl" />
                 <span
-                  className={`  text-[#6d7080]  flex-1 ml-3 text-sm text-left whitespace-nowrap`}
+                  className={`  text-[#6d7080] dark:text-gray flex-1 ml-3 text-sm text-left whitespace-nowrap`}
                 >
                   Layout
                 </span>
@@ -770,7 +770,7 @@ import { useNavigate } from "react-router-dom/dist";
                   ></path>
                 </svg>
               </button>
-              <div className="absolute w-[10rem] px-4 bg-white  shadow-lg rounded-md top-[3rem] lay-child left-0">
+              <div className="absolute w-[10rem] px-4 bg-white dark:bg-dark-bg-color  shadow-lg rounded-md top-[3rem] lay-child left-0">
               <ul id="dropdown-example" className={`w-full   py-2 space-y-2 `}>
               <li className=" text-gray pb-2 flex  w-full items-center">
                   <span className=" text-inherit ps-4">-</span>
@@ -820,7 +820,7 @@ import { useNavigate } from "react-router-dom/dist";
               >
                 <RiAuctionFill className=" text-gray-dark  text-xl" />
                 <span
-                  className={`  text-[#6d7080]  flex-1 ml-3 text-sm text-left whitespace-nowrap`}
+                  className={`  text-[#6d7080] dark:text-gray flex-1 ml-3 text-sm text-left whitespace-nowrap`}
                 >
                   Authentication
                 </span>
@@ -837,7 +837,7 @@ import { useNavigate } from "react-router-dom/dist";
                   ></path>
                 </svg>
               </button>
-              <div className="absolute w-[14rem] px-4 bg-white  shadow-lg rounded-md top-[3rem] auth-child left-0">
+              <div className="absolute w-[14rem] px-4 bg-white dark:bg-dark-bg-color  shadow-lg rounded-md top-[3rem] auth-child left-0">
               <ul id="dropdown-example11" className={`w-full   py-2 space-y-2 `}>
                   <li>
                     <button
@@ -1241,7 +1241,7 @@ import { useNavigate } from "react-router-dom/dist";
                 <RiPagesLine className=" text-gray-dark  text-xl" />
                 <span
                   className={`
-                    text-[#6d7080]  flex-1 ml-3 text-sm text-left whitespace-nowrap`}
+                    text-[#6d7080] dark:text-gray flex-1 ml-3 text-sm text-left whitespace-nowrap`}
                 >
                   Pages
                 </span>
@@ -1259,7 +1259,7 @@ import { useNavigate } from "react-router-dom/dist";
                   ></path>
                 </svg>
               </button>
-              <div className="absolute w-[12rem] px-4 bg-white  shadow-lg rounded-md top-[3rem] page-child left-0">
+              <div className="absolute w-[12rem] px-4 bg-white dark:bg-dark-bg-color  shadow-lg rounded-md top-[3rem] page-child left-0">
               <ul id="dropdown-example12" className={`w-full   py-2 space-y-2 `}>
                   <li className=" text-gray pb-2 flex  w-1/3 items-center">
                     <span className=" text-inherit ps-4">-</span>
@@ -1403,7 +1403,7 @@ import { useNavigate } from "react-router-dom/dist";
               >
                 <RiLandscapeFill className=" text-gray-dark  text-xl" />
                 <span
-                  className={` text-[#6d7080]  flex-1 ml-3 text-sm text-left whitespace-nowrap`}
+                  className={` text-[#6d7080] dark:text-gray flex-1 ml-3 text-sm text-left whitespace-nowrap`}
                 >
                   Landing
                 </span>
@@ -1421,7 +1421,7 @@ import { useNavigate } from "react-router-dom/dist";
                 </svg>
               </button>
   
-              <div className="absolute w-[10rem] px-4 bg-white  shadow-lg rounded-md top-[3rem] land-child left-0">
+              <div className="absolute w-[10rem] px-4 bg-white dark:bg-dark-bg-color  shadow-lg rounded-md top-[3rem] land-child left-0">
               <ul id="dropdown-example40" className={`w-full   py-2 space-y-2`}>
                   <li className=" text-gray pb-2 flex  w-full items-center">
                     <span className=" text-inherit ps-4">-</span>

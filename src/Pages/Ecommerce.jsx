@@ -147,7 +147,7 @@ const Ecommerce = () => {
     },
   ];
 
-  const {semi, boxed} = useContext(StateContext)
+  const {semi, boxed,detached,smallHover} = useContext(StateContext)
   
   const [sort, setSort] = useState(false);
   const [report, setReport] = useState(false);
@@ -280,9 +280,9 @@ const Ecommerce = () => {
   
 
   return (
-    <div className={`z-50 bg-light-gray-bg dark:bg-dark flex-1 min-h-screen overflow-y-auto  w-full relative  ${semi? 'px-[10rem]': ''} ${boxed? 'mx-[4rem]': ''}`}>
+    <div className={`z-50 bg-light-gray-bg dark:bg-dark flex-1 min-h-screen overflow-y-auto  w-full relative  ${semi? 'px-[10rem]': ''} ${boxed? 'mx-[0rem]': ''} ${smallHover?'ml-[4rem]':''}`}>
       
-      <TopBar />
+     {!detached&& ( <TopBar />)}
      
 
       <div className={` grid grid-cols-1 slg:grid-cols-2 gap-3 slg:gap-0 justify-between mt-5 ${semi? 'px-0 ':'px-6 '}`}>
@@ -424,8 +424,8 @@ const Ecommerce = () => {
             >
               withdraw money
             </a>
-            <div className="bg-gr bg-gray-200 px-3 py-3 rounded-md">
-              <BiWallet className="text-light-para-color text-2xl" />
+            <div className="bg-gr bg-gray-200 dark:bg-blue-btn-bg px-3 py-3 rounded-md">
+              <BiWallet className="text-light-para-color dark:text-blue text-2xl" />
             </div>
           </div>
         </div>
@@ -443,13 +443,13 @@ const Ecommerce = () => {
               <span className="b bg-blue-btn-bg px-2 py-2 rounded-sm text-[10px] tracking-widest text-blue cursor-pointer hover:text-white hover:bg-blue duration-100">
                 ALL
               </span>
-              <span className="b bg-blue-btn-bg px-2 py-2 rounded-sm text-[10px] tracking-widest text-blue  cursor-pointer hover:text-white hover:bg-blue duration-100">
+              <span className=" bg-blue-btn-bg px-2 py-2 rounded-sm text-[10px] tracking-widest text-blue  cursor-pointer hover:text-white hover:bg-blue duration-100">
                 1M
               </span>
               <span className="b bg-blue-btn-bg px-2 py-2 rounded-sm text-[10px] tracking-widest text-blue  cursor-pointer hover:text-white hover:bg-blue duration-100">
                 6M
               </span>
-              <span className="bg-light-gray-bg px-2 py-2 rounded-sm text-[10px] tracking-widest cursor-pointer hover:bg-light-side-bar-color hover:text-white">
+              <span className="bg-light-gray-bg dark:bg-dark dark:text-gray px-2 py-2 rounded-sm text-[10px] tracking-widest cursor-pointer hover:bg-light-side-bar-color hover:text-white">
                 1Y
               </span>
             </div>
@@ -497,7 +497,7 @@ const Ecommerce = () => {
               </p>
             </div>
           </div>
-          <Chart options={options} series={series} height={"370"} type="area" />
+          <Chart options={options} series={series} height={"370"} type="area" className="dark:text-gray text-gray" />
         </div>
 
         <WorldMap />
@@ -505,7 +505,7 @@ const Ecommerce = () => {
 
       <div className={`grid grid-cols-1 lg:grid-cols-2 mt-5 gap-6 rounded-md  ${semi? 'px-0':'px-6 '}`}>
         <div className="bg-white dark:bg-dark-bg-color   overflow-auto">
-          <div className="flex items-center justify-between py-4 px-4 border-gray-300 border-b">
+          <div className="flex items-center justify-between py-4 px-4 border-gray-300 border-b dark:border-gray-dark">
             <h4 className="dark:text-dark-header-color text-[16px] font-medium">Best Selling Products</h4>
             <span
               onClick={() => setSort(!sort)}
@@ -575,7 +575,7 @@ const Ecommerce = () => {
             <div className=" ">
               <table className=" w-full table-auto whitespace-nowrap">
                 <tbody className="">
-                  <tr className="border-b border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
+                  <tr className="border-b dark:border-gray-dark border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
                     <td className="img flex items-center justify-start gap-2">
                       <div className="w-10 h-10 bg-blue-btn-bg px-1 py-1 rounded-sm">
                         <img
@@ -635,7 +635,7 @@ const Ecommerce = () => {
                     </td>
                   </tr>
 
-                  <tr className="border-b border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
+                  <tr className="border-b dark:border-gray-dark border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
                     <td className="img flex items-center justify-start gap-2">
                       <div className="w-10 h-10 bg-blue-btn-bg px-1 py-1 rounded-sm">
                         <img
@@ -694,7 +694,7 @@ const Ecommerce = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr className="border-b border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
+                  <tr className="border-b dark:border-gray-dark border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
                     <td className="img flex items-center justify-start gap-2">
                       <div className="w-10 h-10 bg-blue-btn-bg px-1 py-1 rounded-sm">
                         <img
@@ -753,7 +753,7 @@ const Ecommerce = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr className="border-b border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
+                  <tr className="border-b dark:border-gray-dark border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
                     <td className="img flex items-center justify-start gap-2">
                       <div className="w-10 h-10 bg-blue-btn-bg px-1 py-1 rounded-sm">
                         <img
@@ -812,7 +812,7 @@ const Ecommerce = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr className="border-b border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
+                  <tr className="border-b dark:border-gray-dark border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
                     <td className="img flex items-center justify-start gap-2">
                       <div className="w-10 h-10 bg-blue-btn-bg px-1 py-1 rounded-sm">
                         <img
@@ -904,7 +904,7 @@ const Ecommerce = () => {
         </div>
 
         <div className="bg-white dark:bg-dark-bg-color  overflow-x-auto">
-          <div className="flex items-center justify-between py-4 px-4 border-gray-300 border-b">
+          <div className="flex items-center justify-between py-4 px-4 border-gray-300 border-b dark:border-gray-dark">
             <h4 className="dark:text-dark-header-color text-[16px] font-medium">Top Seller</h4>
             <span
               onClick={() => (setSort(false), setReport(!report))}
@@ -948,7 +948,7 @@ const Ecommerce = () => {
             <div className="">
               <table className="table-auto whitespace-nowrap w-full">
                 <tbody className="">
-                  <tr className="border-b border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
+                  <tr className="border-b dark:border-gray-dark border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
                     <td className="img flex items-center justify-start gap-2">
                       <div className="w-10 h-10  px-1 py-1 rounded-sm">
                         <img
@@ -1001,7 +1001,7 @@ const Ecommerce = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr className="border-b border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
+                  <tr className="border-b dark:border-gray-dark border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
                     <td className="img flex items-center justify-start gap-2">
                       <div className="w-10 h-10  px-1 py-1 rounded-sm">
                         <img
@@ -1054,7 +1054,7 @@ const Ecommerce = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr className="border-b border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
+                  <tr className="border-b dark:border-gray-dark border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
                     <td className="img flex items-center justify-start gap-2">
                       <div className="w-10 h-10  px-1 py-1 rounded-sm">
                         <img
@@ -1107,7 +1107,7 @@ const Ecommerce = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr className="border-b border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
+                  <tr className="border-b dark:border-gray-dark border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
                     <td className="img flex items-center justify-start gap-2">
                       <div className="w-10 h-10  px-1 py-1 rounded-sm">
                         <img
@@ -1160,7 +1160,7 @@ const Ecommerce = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr className="border-b border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
+                  <tr className="border-b dark:border-gray-dark border-gray-300 hover:bg-gray-00 duration-100  cursor-pointer">
                     <td className="img flex items-center justify-start gap-2">
                       <div className="w-10 h-10  px-1 py-1 rounded-sm">
                         <img
@@ -1249,8 +1249,8 @@ const Ecommerce = () => {
       <div className={`grid  place-items-stretch sxl:grid-cols-3 grid-cols-1 gap-4 justify-between mt-5  mb-2  ${semi? 'px-0':'px-6 '}`}>
         <Donut className="" />
         <div className=" bg-white dark:bg-dark-bg-color overflow-x-auto sxl:col-start-2 sxl:col-end-4">
-          <div className="flex items-center justify-between py-4 px-4 border-gray-300 border-b">
-            <h4>Recent Orders</h4>
+          <div className="flex items-center justify-between py-4 px-4 border-gray-300 border-b dark:border-gray-dark">
+            <h4 className="dark:text-gray text-lg font-medium text-light-header-color">Recent Orders</h4>
             <span
               onClick={() => setSort(!sort)}
               className="text  font-medium  flex items-center justify-normal gap-1 cursor-pointer relative"
@@ -1287,7 +1287,7 @@ const Ecommerce = () => {
                         alt=""
                       />
                     </div>
-                    <span className="text-sm font-normal text-dark tracking-wider">
+                    <span className="text-sm font-normal text-dark dark:text-gray  tracking-wider">
                       Alex Smith
                     </span>
                   </td>
@@ -1324,7 +1324,7 @@ const Ecommerce = () => {
                         alt=""
                       />
                     </div>
-                    <span className="text-sm font-normal text-dark tracking-wider">
+                    <span className="text-sm font-normal text-dark dark:text-gray  tracking-wider">
                       Alex Smith
                     </span>
                   </td>
@@ -1361,7 +1361,7 @@ const Ecommerce = () => {
                         alt=""
                       />
                     </div>
-                    <span className="text-sm font-normal text-dark tracking-wider">
+                    <span className="text-sm font-normal text-dark dark:text-gray  tracking-wider">
                       Alex Smith
                     </span>
                   </td>
@@ -1398,7 +1398,7 @@ const Ecommerce = () => {
                         alt=""
                       />
                     </div>
-                    <span className="text-sm font-normal text-dark tracking-wider">
+                    <span className="text-sm font-normal text-dark dark:text-gray  tracking-wider">
                       Alex Smith
                     </span>
                   </td>
@@ -1435,7 +1435,7 @@ const Ecommerce = () => {
                         alt=""
                       />
                     </div>
-                    <span className="text-sm font-normal text-dark tracking-wider">
+                    <span className="text-sm font-normal text-dark dark:text-gray  tracking-wider">
                       Alex Smith
                     </span>
                   </td>
@@ -1460,6 +1460,7 @@ const Ecommerce = () => {
                     </span>
                   </td>
                 </tr>
+                
               </tbody>
             </table>
           </div>

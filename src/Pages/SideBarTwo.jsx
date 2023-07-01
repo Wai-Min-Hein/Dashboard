@@ -15,7 +15,7 @@ import { useContext, useState } from "react";
 import { StateContext } from "../Context/StateContext";
 import { useNavigate } from "react-router-dom";
 const SideBarTwo = () => {
-  const { isSideOpen,setIsSideOpen, tCol,sideLight,sideDark,sideGradient } = useContext(StateContext);
+  const { isSideOpen,setIsSideOpen, tCol,sideLight,sideDark,sideGradient,detached,img,img1,img2,img3,img4  } = useContext(StateContext);
   const [dash, setDash] = useState(true);
   const [app, setApp] = useState(false);
   const [layout, setLayout] = useState(false);
@@ -39,13 +39,33 @@ const SideBarTwo = () => {
   };
 
   const nav = useNavigate()
+  console.log(detached)
+
+  const BgImg = (img1&&`bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-1.jpg')]` )||  (img2&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-2.jpg')]`)|| (img3&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-3.jpg')]`)||  (img4&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-4.jpg')]`)
+
+
   return (
     <motion.div
-      className={`  z-[9999]   max-h-screen overflow-y-auto sideBar ${
+      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}  z-[9999]    overflow-y-auto sideBar relative ${
         isSideOpen ? "!w-[18rem] " : "!w-[4rem] "
-      } flex justify-start items-stretch ${sideLight? 'bg-white': ''} ${sideDark? 'bg-light-side-bar-color': ''} ${sideGradient? ' bg-sideGradient': ''}`}
+      } flex justify-start items-stretch ${img&&sideLight? 'bg-white text-gray': ''} ${img&&sideDark? 'bg-light-side-bar-color dark:bg-dark-side-bar-color': ''} ${img&&sideGradient? ' bg-sideGradient': ''} ${detached? 'min-h-screen': 'max-h-screen'}`}
     >
-      <div className={`w-[4rem]  h-full   ${sideLight? 'bg-white': ''} ${sideDark? 'bg-[#3a4b84]': ''} ${sideGradient? ' bg-sideGradient': ''}`}>
+
+{
+        (sideDark&& (
+
+          <div className="absolute inset-0 bg-gradient-to-t from-[#171e32] to-[#405189] opacity-80 z-[-1]"></div>
+        ))|| (sideGradient&& (
+
+          <div className="absolute inset-0  bg-sideGradient opacity-80  z-[-1]"></div>
+        ))|| (sideLight&& (
+
+          <div className="absolute inset-0 bg-gradient-to-t from-[#fff] to-[#fff] opacity-90 z-[-5]"></div>
+
+        ))
+      }
+
+      <div className={`w-[4rem]  h-full sideBar   ${sideLight? 'bg-white text-gray': ''} ${sideDark? 'bg-[#3a4b84] dark:bg-dark-side-bar-color': ''} ${sideGradient? ' bg-sideGradient': ''}`}>
         <div className=" grid place-items-center py-6 mb-4">
           <img
             src="https://themesbrand.com/velzon/html/default/assets/images/logo-sm.png"
@@ -142,7 +162,7 @@ const SideBarTwo = () => {
       </div>
 
       <div
-        className={` max-h-screen overflow-y-auto flex-1 ${
+        className={` ${detached? 'min-h-screen': 'max-h-screen'} overflow-y-auto sideBar flex-1 ${
           isSideOpen ? "block" : "hidden"
         }`}
       >
@@ -153,9 +173,9 @@ const SideBarTwo = () => {
             alt=""
           />
         </div>
-        <div className="">
+        <div className={`${sideDark|| sideGradient ? 'text-white': ''}`}>
             <ul id="dropdown-example" className={`w-full   py-2 space-y-2 ${dash?'block': 'hidden'}`}>
-            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                 <span className=" text-inherit ps-4">-</span>
                 <a
                 href="#"
@@ -164,7 +184,7 @@ const SideBarTwo = () => {
                 Analytics
                 </a>
             </li>
-            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                 <span className=" text-inherit ps-4">-</span>
                 <a
                 href="#"
@@ -175,7 +195,7 @@ const SideBarTwo = () => {
             </li>
             <li
             onClick={() => nav('/')}
-            className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+            className=" text-inherit pb-2 flex  w-1/3 items-center">
                 <span className=" text-inherit ps-4">-</span>
                 <apan
                 
@@ -184,7 +204,7 @@ const SideBarTwo = () => {
                 Ecommerce
                 </apan>
             </li>
-            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                 <span className=" text-inherit ps-4">-</span>
                 <a
                 href="#"
@@ -193,7 +213,7 @@ const SideBarTwo = () => {
                 Crypto
                 </a>
             </li>
-            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                 <span className=" text-inherit ps-4">-</span>
                 <a
                 href="#"
@@ -202,7 +222,7 @@ const SideBarTwo = () => {
                 Projects
                 </a>
             </li>
-            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                 <span className=" text-inherit ps-4">-</span>
                 <a
                 href="#"
@@ -211,7 +231,7 @@ const SideBarTwo = () => {
                 NFT
                 </a>
             </li>
-            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                 <span className=" text-inherit ps-4">-</span>
                 <a
                 href="#"
@@ -222,7 +242,7 @@ const SideBarTwo = () => {
             </li>
             </ul>
             <ul id="dropdown-example1" className={`w-full   py-2 space-y-2 ${app?'block': 'hidden'}`}>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -231,7 +251,7 @@ const SideBarTwo = () => {
                     Calendar
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -243,7 +263,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example2"
                     data-collapse-toggle="dropdown-example2"
                   >
@@ -272,7 +292,7 @@ const SideBarTwo = () => {
                     id="dropdown-example2"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -281,7 +301,7 @@ const SideBarTwo = () => {
                         Mailbox
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -295,7 +315,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example3"
                     data-collapse-toggle="dropdown-example3"
                   >
@@ -324,7 +344,7 @@ const SideBarTwo = () => {
                     id="dropdown-example3"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -333,7 +353,7 @@ const SideBarTwo = () => {
                         Products
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -342,7 +362,7 @@ const SideBarTwo = () => {
                         Product Details
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -351,7 +371,7 @@ const SideBarTwo = () => {
                         Create Product
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -360,7 +380,7 @@ const SideBarTwo = () => {
                         Orders
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -369,7 +389,7 @@ const SideBarTwo = () => {
                         Order Details
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -378,7 +398,7 @@ const SideBarTwo = () => {
                         Customers
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -387,7 +407,7 @@ const SideBarTwo = () => {
                         Shopping Carts
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -396,7 +416,7 @@ const SideBarTwo = () => {
                         Checkout
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -405,7 +425,7 @@ const SideBarTwo = () => {
                         Seller
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -419,7 +439,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example4"
                     data-collapse-toggle="dropdown-example4"
                   >
@@ -448,7 +468,7 @@ const SideBarTwo = () => {
                     id="dropdown-example4"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -457,7 +477,7 @@ const SideBarTwo = () => {
                         List
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -466,7 +486,7 @@ const SideBarTwo = () => {
                         Overview
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -480,7 +500,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example5"
                     data-collapse-toggle="dropdown-example5"
                   >
@@ -509,7 +529,7 @@ const SideBarTwo = () => {
                     id="dropdown-example5"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -518,7 +538,7 @@ const SideBarTwo = () => {
                         Kanban Board
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -527,7 +547,7 @@ const SideBarTwo = () => {
                         List View
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -541,7 +561,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example6"
                     data-collapse-toggle="dropdown-example6"
                   >
@@ -570,7 +590,7 @@ const SideBarTwo = () => {
                     id="dropdown-example6"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -579,7 +599,7 @@ const SideBarTwo = () => {
                         Contacts
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -588,7 +608,7 @@ const SideBarTwo = () => {
                         Companies
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -597,7 +617,7 @@ const SideBarTwo = () => {
                         Deals
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -611,7 +631,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example7"
                     data-collapse-toggle="dropdown-example7"
                   >
@@ -640,7 +660,7 @@ const SideBarTwo = () => {
                     id="dropdown-example7"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -649,7 +669,7 @@ const SideBarTwo = () => {
                         Transaction
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -658,7 +678,7 @@ const SideBarTwo = () => {
                         Buy & Sell
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -667,7 +687,7 @@ const SideBarTwo = () => {
                         Orders
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -676,7 +696,7 @@ const SideBarTwo = () => {
                         My Wallet
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -685,7 +705,7 @@ const SideBarTwo = () => {
                         ICO Lists
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -699,7 +719,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example8"
                     data-collapse-toggle="dropdown-example8"
                   >
@@ -728,7 +748,7 @@ const SideBarTwo = () => {
                     id="dropdown-example8"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -737,7 +757,7 @@ const SideBarTwo = () => {
                         List View
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -746,7 +766,7 @@ const SideBarTwo = () => {
                         Details
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -760,7 +780,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example9"
                     data-collapse-toggle="dropdown-example9"
                   >
@@ -789,7 +809,7 @@ const SideBarTwo = () => {
                     id="dropdown-example9"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -798,7 +818,7 @@ const SideBarTwo = () => {
                         List View
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -812,7 +832,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example10"
                     data-collapse-toggle="dropdown-example10"
                   >
@@ -841,7 +861,7 @@ const SideBarTwo = () => {
                     id="dropdown-example10"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -850,7 +870,7 @@ const SideBarTwo = () => {
                         Marketplace
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -859,7 +879,7 @@ const SideBarTwo = () => {
                         Explore now
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -868,7 +888,7 @@ const SideBarTwo = () => {
                         Live Auction
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -877,7 +897,7 @@ const SideBarTwo = () => {
                         Item Details
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -886,7 +906,7 @@ const SideBarTwo = () => {
                         Collections
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -895,7 +915,7 @@ const SideBarTwo = () => {
                         Creators
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -905,7 +925,7 @@ const SideBarTwo = () => {
                       </a>
                     </li>
 
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -915,7 +935,7 @@ const SideBarTwo = () => {
                       </a>
                     </li>
 
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -926,7 +946,7 @@ const SideBarTwo = () => {
                     </li>
                   </ul>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                <li className=" text-inherit pb-2 flex  w-full items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -935,7 +955,7 @@ const SideBarTwo = () => {
                     File Manager
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                <li className=" text-inherit pb-2 flex  w-full items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -944,7 +964,7 @@ const SideBarTwo = () => {
                     To do
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex items-center ">
+                <li className=" text-inherit pb-2 flex items-center ">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -956,7 +976,7 @@ const SideBarTwo = () => {
                     </span>
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex items-center ">
+                <li className=" text-inherit pb-2 flex items-center ">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -971,7 +991,7 @@ const SideBarTwo = () => {
               </ul>
 
               <ul id="dropdown-example" className={`w-full   py-2 space-y-2 ${layout?'block': 'hidden'}`}>
-            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+            <li className=" text-inherit pb-2 flex  w-full items-center">
                 <span className=" text-inherit ps-4">-</span>
                 <a
                 href="#"
@@ -980,7 +1000,7 @@ const SideBarTwo = () => {
                 Horizontal
                 </a>
             </li>
-            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+            <li className=" text-inherit pb-2 flex  w-full items-center">
                 <span className=" text-inherit ps-4">-</span>
                 <a
                 href="#"
@@ -989,7 +1009,7 @@ const SideBarTwo = () => {
                 Detached
                 </a>
             </li>
-            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+            <li className=" text-inherit pb-2 flex  w-full items-center">
                 <span className=" text-inherit ps-4">-</span>
                 <a
                 href="#"
@@ -998,7 +1018,7 @@ const SideBarTwo = () => {
                 Two Column
                 </a>
             </li>
-            <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+            <li className=" text-inherit pb-2 flex  w-full items-center">
                 <span className=" text-inherit ps-4">-</span>
                 <a
                 href="#"
@@ -1013,7 +1033,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example20"
                     data-collapse-toggle="dropdown-example20"
                   >
@@ -1042,7 +1062,7 @@ const SideBarTwo = () => {
                     id="dropdown-example20"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1051,7 +1071,7 @@ const SideBarTwo = () => {
                         Basic
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1065,7 +1085,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example21"
                     data-collapse-toggle="dropdown-example21"
                   >
@@ -1094,7 +1114,7 @@ const SideBarTwo = () => {
                     id="dropdown-example21"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1103,7 +1123,7 @@ const SideBarTwo = () => {
                         Basic
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1118,7 +1138,7 @@ const SideBarTwo = () => {
                   <button
                   
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example22"
                     data-collapse-toggle="dropdown-example22"
                   >
@@ -1149,7 +1169,7 @@ const SideBarTwo = () => {
                   >
                     <li
                     onClick={() => nav('/password-reset')}
-                    className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                       
@@ -1158,7 +1178,7 @@ const SideBarTwo = () => {
                         Basic
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1172,7 +1192,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example23"
                     data-collapse-toggle="dropdown-example23"
                   >
@@ -1201,7 +1221,7 @@ const SideBarTwo = () => {
                     id="dropdown-example23"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1210,7 +1230,7 @@ const SideBarTwo = () => {
                         Basic
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1224,7 +1244,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example24"
                     data-collapse-toggle="dropdown-example24"
                   >
@@ -1253,7 +1273,7 @@ const SideBarTwo = () => {
                     id="dropdown-example24"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1262,7 +1282,7 @@ const SideBarTwo = () => {
                         Basic
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1276,7 +1296,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example25"
                     data-collapse-toggle="dropdown-example25"
                   >
@@ -1305,7 +1325,7 @@ const SideBarTwo = () => {
                     id="dropdown-example25"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1314,7 +1334,7 @@ const SideBarTwo = () => {
                         Basic
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1328,7 +1348,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example26"
                     data-collapse-toggle="dropdown-example26"
                   >
@@ -1357,7 +1377,7 @@ const SideBarTwo = () => {
                     id="dropdown-example26"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1366,7 +1386,7 @@ const SideBarTwo = () => {
                         Basic
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1380,7 +1400,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example27"
                     data-collapse-toggle="dropdown-example27"
                   >
@@ -1409,7 +1429,7 @@ const SideBarTwo = () => {
                     id="dropdown-example27"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1418,7 +1438,7 @@ const SideBarTwo = () => {
                         Basic
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1432,7 +1452,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example28"
                     data-collapse-toggle="dropdown-example28"
                   >
@@ -1461,7 +1481,7 @@ const SideBarTwo = () => {
                     id="dropdown-example28"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1470,7 +1490,7 @@ const SideBarTwo = () => {
                         404 Basic
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1479,7 +1499,7 @@ const SideBarTwo = () => {
                         404 Cover
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1488,7 +1508,7 @@ const SideBarTwo = () => {
                         404 Alt
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1497,7 +1517,7 @@ const SideBarTwo = () => {
                         500
                       </a>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1510,7 +1530,7 @@ const SideBarTwo = () => {
                 </li>
               </ul>
               <ul id="dropdown-example12" className={`w-full   py-2 space-y-2 ${page?'block': 'hidden'}`}>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1522,7 +1542,7 @@ const SideBarTwo = () => {
                 <li>
                   <button
                     type="button"
-                    className="  text-light-side-bar-text-color hover:text-white flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
+                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
                     aria-controls="dropdown-example30"
                     data-collapse-toggle="dropdown-example30"
                   >
@@ -1551,7 +1571,7 @@ const SideBarTwo = () => {
                     id="dropdown-example30"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li onClick={() => nav('/profile/settings')} className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li onClick={() => nav('/profile/settings')} className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <span
                        
@@ -1560,7 +1580,7 @@ const SideBarTwo = () => {
                         Simple Page
                       </span>
                     </li>
-                    <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                    <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <a
                         href="#"
@@ -1571,7 +1591,7 @@ const SideBarTwo = () => {
                     </li>
                   </ul>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1580,7 +1600,7 @@ const SideBarTwo = () => {
                     Team
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1589,7 +1609,7 @@ const SideBarTwo = () => {
                     Timeline
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1598,7 +1618,7 @@ const SideBarTwo = () => {
                     FAQs
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1607,7 +1627,7 @@ const SideBarTwo = () => {
                     Pricing
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1616,7 +1636,7 @@ const SideBarTwo = () => {
                     Gallery
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-1/3 items-center">
+                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1625,7 +1645,7 @@ const SideBarTwo = () => {
                     Maintainance
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                <li className=" text-inherit pb-2 flex  w-full items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1634,7 +1654,7 @@ const SideBarTwo = () => {
                     Coming Soon
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                <li className=" text-inherit pb-2 flex  w-full items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1643,7 +1663,7 @@ const SideBarTwo = () => {
                     Sitemap
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                <li className=" text-inherit pb-2 flex  w-full items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1654,7 +1674,7 @@ const SideBarTwo = () => {
                 </li>
               </ul>
               <ul id="dropdown-example40" className={`w-full   py-2 space-y-2 ${landing?'block': 'hidden'}`}>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                <li className=" text-inherit pb-2 flex  w-full items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1663,7 +1683,7 @@ const SideBarTwo = () => {
                     One Page
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 flex  w-full items-center">
+                <li className=" text-inherit pb-2 flex  w-full items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
@@ -1672,7 +1692,7 @@ const SideBarTwo = () => {
                     NFT Landing
                   </a>
                 </li>
-                <li className=" text-light-side-bar-text-color hover:text-white pb-2 w-full flex  items-center ">
+                <li className=" text-inherit pb-2 w-full flex  items-center ">
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="#"
