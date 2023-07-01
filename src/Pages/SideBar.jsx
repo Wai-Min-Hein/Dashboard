@@ -89,13 +89,13 @@ const SideBar = () => {
       {
         (sideDark&& (
 
-          <div className="absolute top-0 left-0 inset-0 bg-gradient-to-t from-[#171e32] to-[#405189] opacity-80 z-[-1]"></div>
+          <div className="absolute top-0 left-0 h-full inset-0 bg-gradient-to-t from-[#171e32] to-[#405189] opacity-80 z-[-1]"></div>
         ))|| (sideGradient&& (
 
-          <div className="absolute top-0 left-0 inset-0  bg-sideGradient opacity-80  z-[-1]"></div>
+          <div className="absolute top-0 left-0 inset-0 h-full  bg-sideGradient opacity-80  z-[-1]"></div>
         ))|| (sideLight&& (
 
-          <div className="absolute top-0 left-0 inset-0 bg-gradient-to-t from-[#fff] to-[#fff] opacity-90 z-[-5]"></div>
+          <div className="absolute top-0 left-0 inset-0 h-full bg-gradient-to-t from-[#fff] to-[#fff] opacity-90 z-[-5]"></div>
 
         ))
       }

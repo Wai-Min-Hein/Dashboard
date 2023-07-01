@@ -39,7 +39,7 @@ const App = () => {
       {detached? (
         <div className="max-h-screen ">
           <TopBar/>
-          <div className={`flex items-stretch justify-start font-para relative bg-light-gray-bg mt-6  ${hor? 'z-[-1]': ''}`}> 
+          <div className={`flex items-stretch justify-start font-para relative bg-light-gray-bg dark:bg-dark mt-6  ${hor? 'z-[-1]': ''}`}> 
     
 
      
@@ -89,7 +89,7 @@ const App = () => {
         </div>
       ): (
         // to add  mx-[6rem] at some state
-    <div className={`flex items-stretch justify-start max-h-screen  font-para relative bg-light-gray-bg  ${hor? 'z-[-1]': ''} ${boxed? 'mx-[6rem]': ''}`}> 
+    <div className={`flex items-stretch justify-start max-h-screen  font-para relative bg-light-gray-bg  dark:bg-dark  ${hor? 'z-[-1]': ''} ${boxed? 'mx-[6rem]': ''}`}> 
     
 
      
