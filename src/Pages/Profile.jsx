@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "../../Css/Profile.css";
 import bg from "../../Image/profile-bg.jpg";
 import user from "../../Image/admin.jpg";
@@ -38,23 +38,70 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom/dist";
 import { StateContext } from "../Context/StateContext";
 import TopBar from "./TopBar";
+import { motion } from "framer-motion";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 
 const Profile = () => {
   const [suggestions, setSuggestions] = useState(false);
   const [popular, setPopular] = useState(false);
+  const [currentProgress,setCurrentProgress] = useState(0)
 
   const {semi} = useContext(StateContext)
+  const slider = useRef(null)
+  const next = () => {
+    slider.current.slickNext();
+  };
+
+  const previous = () => {
+    slider.current.slickPrev();
+  };
+  const settings = {
+      dots: false,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: false,
+      responsive: [
+        {
+          breakpoint: 1080,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        },
+      ]
+
+  };
+
 
   const nav = useNavigate()
+  useEffect(()=>{
+    const timer = setInterval(()=>setCurrentProgress(30),500)
+    return()=>{
+      clearInterval(timer)
+    }
+  })
 
   return (
-    <div className={`z-50 bg-light-gray-bg flex-1 min-h-screen overflow-y-auto  w-full relative  ${semi? 'px-[10rem]': ''}`} >
+    <div className={`z-50 bg-light-gray-bg dark:bg-black flex-1 min-h-screen overflow-y-auto overflow-x-hidden w-full relative  ${semi? 'px-[10rem]': ''}`} >
       <TopBar/>
       <div className="profile-content ">
         <div className=" w-[100%]  relative">
           {/* <---bg img---> */}
           <div className="bg-[url('https://themesbrand.com/velzon/html/default/assets/images/profile-bg.jpg')] py-4 relative bg-cover bg-center w-full h-full px-4">
-          <div className="absolute inset-0 bg-gradient-to-t from-[#171e32] to-[#405189] opacity-70 z-[1]" ></div>
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-[#171e32] to-[#405189] opacity-70 z-[1]" ></div>
             <div className="absolute top-0 z-[1000] right-0 left-0 bottom-0 opacity-[.9] bg-[linear-gradient(to top, #171e32, #405189)] "></div>
             {/* <img
               src='https://themesbrand.com/velzon/html/default/assets/images/profile-bg.jpg'
@@ -78,7 +125,7 @@ const Profile = () => {
             <div className="grow px-4">
               <div className="p-2">
                 <div className="">
-                  <h1 className="anna text-white mb-1">Anna Adame</h1>
+                  <h1 className="text-white anna mb-1">Anna Adame</h1>
                   <p className="text-gray-300 text-[14px]">Owner & Founder</p>
                 </div>
                 <div className="flex text-gray-400">
@@ -92,11 +139,11 @@ const Profile = () => {
             </div>
             <div className="mt-6 md:mt-0 grid grid-cols-3">
               <div className="text-center p-2 px-6">
-                <h1 className="text-xl text-white">24.3K</h1>
+                <h1 className=" text-white text-xl">24.3K</h1>
                 <p className="text-[14px] text-gray">Followers</p>
               </div>
               <div className="text-center p-2 px-6">
-                <h1 className="text-xl text-white ">1.3K</h1>
+                <h1 className=" text-white text-xl ">1.3K</h1>
                 <p className="text-[14px] text-gray">Following</p>
               </div>
             </div>
@@ -128,16 +175,15 @@ const Profile = () => {
                   <span className="nav-link hidden md:block">Documents</span>
                 </li>
               </ul>
-              <div onClick={() => nav('/profile/settings')} className="bg-[#0ab39c] text-white py-2 cursor-pointer px-[0.9rem] rounded-md border border-[#0ab39c] flex items-center">
+              <div onClick={() => nav('/profile/settings')} className="bg-green text-white py-2 cursor-pointer px-[0.9rem] rounded-md border border-[#0ab39c] flex items-center">
                 <RiEditBoxLine className="mr-1" />
                 <span className="">Edite Profile</span>
               </div>
-            </div>
-
+          </div>
           </div>
 
           {/* <----profile container----> */}
-          <div className="pf mt-6 lg:mt-4 ">
+          <div className="pf px-4 mt-6 lg:mt-4 ">
             {/* <div className="flex justify-between items-center">
               <ul className="flex nav-edite">
                 <li className="">
@@ -173,10 +219,18 @@ const Profile = () => {
 
             <div className="pt-6 text-[#878a99]">
               <div className="overview-top">
-                <div className="card">
+                <div className=" card dark:bg-dark-side-bar-color border dark:border-dark-side-bar-color border-white">
                   <div className="card-body">
-                    <h1 className="mb-12 text-[16px]">Complete Your Profile</h1>
+                    <h1 className=" text-dark-side-bar-color dark:text-white mb-12 text-[16px]">Complete Your Profile</h1>
                     <div className="relative">
+                      <motion.div
+                      animate={{
+                        x : ['0%', '28%']
+                      }}
+                      transition={{ease:"linear",duration: 0.5,delay: 1.5}}
+                      >
+                      <div className="label">30%</div>
+                      </motion.div>
                       <LinearProgress
                         sx={{
                           backgroundColor: "#eff2f7",
@@ -187,18 +241,17 @@ const Profile = () => {
                             margin: "4px",
                           },
                         }}
-                        value={30}
+                        value={currentProgress}
                         variant="determinate"
-                        className="rounded-md text-progress]"
+                        className="rounded-md text-progress dark:bg-gray-800"
                       />
-                      <div className="label">30%</div>
                     </div>
                   </div>
                 </div>
                 {/* <---info---> */}
-                <div className="card">
+                <div className=" card dark:bg-dark-side-bar-color border dark:border-dark-side-bar-color border-white">
                   <div className="card-body">
-                    <h1>Info</h1>
+                    <h1 className=" text-dark-side-bar-color dark:text-white">Info</h1>
                     <table className="table">
                       <tbody>
                         <tr>
@@ -226,15 +279,15 @@ const Profile = () => {
                   </div>
                 </div>
                 {/* <---profolio---> */}
-                <div className="card">
+                <div className=" card dark:bg-dark-side-bar-color border dark:border-dark-side-bar-color border-white">
                   <div className="card-body">
-                    <h1 className="mb-6">Porfolio</h1>
+                    <h1 className=" text-dark-side-bar-color dark:text-white mb-6">Porfolio</h1>
                     <div className="flex gap-2">
                       <a
                         href="#!"
-                        className="w-8 h-8 flex justify-center items-center rounded-full bg-black"
+                        className="w-8 h-8 flex justify-center items-center rounded-full dark:bg-white bg-black"
                       >
-                        <RiGithubFill className="text-[16px] text-white" />
+                        <RiGithubFill className="text-[16px] text-white dark:text-black" />
                       </a>
                       <a
                         href="#!"
@@ -258,9 +311,9 @@ const Profile = () => {
                   </div>
                 </div>
                 {/* <---skills----> */}
-                <div className="card">
+                <div className=" card dark:bg-dark-side-bar-color border dark:border-dark-side-bar-color border-white">
                   <div className="card-body">
-                    <h1 className="mb-6">Skills</h1>
+                    <h1 className=" text-dark-side-bar-color dark:text-white mb-6">Skills</h1>
                     <div className="flex flex-wrap text-[15px] gap-2">
                       <a
                         href="#!"
@@ -308,11 +361,11 @@ const Profile = () => {
                   </div>
                 </div>
                 {/* <----suggestions----> */}
-                <div className="card">
+                <div className=" card dark:bg-dark-side-bar-color border dark:border-dark-side-bar-color border-white">
                   <div className="card-body">
                     <div className="flex items-center mb-0">
                       <div className="flex-1 mb-6">
-                        <h1 className="mb-0">Suggestions</h1>
+                        <h1 className=" text-dark-side-bar-color dark:text-white mb-0">Suggestions</h1>
                       </div>
                       <div className="flex-shrink-0">
                         <div className="dropdown relative">
@@ -325,7 +378,7 @@ const Profile = () => {
                           </a>
                           <ul
                             className={
-                              suggestions ? "dropdown-menu block" : "hidden"
+                              suggestions ? "dropdown-menu block dark:bg-gray-700  dark:text-gray-400" : "hidden"
                             }
                           >
                             <li>
@@ -357,7 +410,7 @@ const Profile = () => {
                         />
                       </div>
                       <div className=" grow">
-                        <h1 className="text-[14px] mb-1">Esther James</h1>
+                        <h1 className=" text-dark-side-bar-color dark:text-white text-[14px] mb-1">Esther James</h1>
                         <p className="text-[13px] text-gray mb-0">
                           Frontend Develper
                         </p>
@@ -378,7 +431,7 @@ const Profile = () => {
                         />
                       </div>
                       <div className=" grow">
-                        <h1 className="text-[14px] mb-1">Jacqueline Steve</h1>
+                        <h1 className=" text-dark-side-bar-color dark:text-white text-[14px] mb-1">Jacqueline Steve</h1>
                         <p className="text-[13px] text-gray mb-0">
                           UI/UX Designer
                         </p>
@@ -399,7 +452,7 @@ const Profile = () => {
                         />
                       </div>
                       <div className=" grow">
-                        <h1 className="text-[14px] mb-1">George Whalen</h1>
+                        <h1 className=" text-dark-side-bar-color dark:text-white text-[14px] mb-1">George Whalen</h1>
                         <p className="text-[13px] text-gray mb-0">
                           Backend Developer
                         </p>
@@ -413,11 +466,11 @@ const Profile = () => {
                   </div>
                 </div>
                 {/* <---popular posts---> */}
-                <div className="card">
+                <div className=" card dark:bg-dark-side-bar-color border dark:border-dark-side-bar-color border-white">
                   <div className="card-body">
                     <div className="flex items-center mb-0">
                       <div className="flex-1 mb-6">
-                        <h1 className="mb-0">Suggestions</h1>
+                        <h1 className=" text-dark-side-bar-color dark:text-white mb-0">Popular Posts</h1>
                       </div>
                       <div className="flex-shrink-0">
                         <div className="dropdown relative">
@@ -430,7 +483,7 @@ const Profile = () => {
                           </a>
                           <ul
                             className={
-                              popular ? "dropdown-menu block" : "hidden"
+                              popular ? "dropdown-menu block dark:bg-gray-700 dark:text-gray-400" : "hidden"
                             }
                           >
                             <li>
@@ -462,9 +515,9 @@ const Profile = () => {
                         />
                       </div>
                       <div className="grow overflow-hidden ml-4">
-                        <h1 className="text-truncate mb-2 text-[14px]">
+                        <h3 className=" text-dark-side-bar-color dark:text-white mb-2 text-[14px]">
                           Design your apps in your own way
-                        </h1>
+                        </h3>
                         <p className="text-gray text-[13px]">15 Dec 2021</p>
                       </div>
                     </div>
@@ -478,9 +531,9 @@ const Profile = () => {
                         />
                       </div>
                       <div className="grow overflow-hidden ml-4">
-                        <h1 className="text-truncate mb-2 text-[14px]">
+                        <h3 className=" text-dark-side-bar-color dark:text-white mb-2 text-[14px]">
                           Smartest Application for Business
-                        </h1>
+                        </h3>
                         <p className="text-gray text-[13px]">28 Nov 2021</p>
                       </div>
                     </div>
@@ -494,9 +547,9 @@ const Profile = () => {
                         />
                       </div>
                       <div className="grow overflow-hidden ml-4">
-                        <h1 className="text-truncate mb-2 text-[14px]">
+                        <h3 className=" text-dark-side-bar-color dark:text-white mb-2 text-[14px]">
                           How to get creative in your work
-                        </h1>
+                        </h3>
                         <p className="text-gray text-[13px]">21 Nov 2021</p>
                       </div>
                     </div>
@@ -505,9 +558,9 @@ const Profile = () => {
               </div>
               {/* <----overview about----> */}
               <div className="overview-about">
-                <div className="card">
+                <div className=" card dark:bg-dark-side-bar-color border dark:border-dark-side-bar-color border-white">
                   <div className="card-body">
-                    <h1 className="mb-6">About</h1>
+                    <h1 className=" text-dark-side-bar-color dark:text-white mb-6">About</h1>
                     <p className="text-gray">
                       Hi I'm Anna Adame, It will be as simple as Occidental; in
                       fact, it will be Occidental. To an English person, it will
@@ -529,20 +582,20 @@ const Profile = () => {
                     <div className="flex flex-wrap gap-5 grid-cols-2">
                       <div className="flex items-center pr-6 mt-6">
                         <div className="flex-shrink-0 mr-4">
-                          <div className="w-8 h-8 flex justify-center items-center rounded-full bg-[#f3f6f9]">
+                          <div className="w-8 h-8 flex justify-center items-center rounded-full bg-light dark:bg-gray-800">
                             <RiUser2Fill className="text-[16px] text-primary" />
                           </div>
                         </div>
                         <div className="grow overflow-hidden">
                           <p className="mb-1 text-gray">Designation:</p>
-                          <h2 className="text-[13px] text-turncate">
+                          <h3 className="text-[13px] text-turncate">
                             Lead Designer /Developer
-                          </h2>
+                          </h3>
                         </div>
                       </div>
                       <div className="flex items-center px-0 md:px-6 mt-6">
                         <div className="flex-shrink-0 mr-4">
-                          <div className="w-8 h-8 flex justify-center items-center rounded-full bg-[#f3f6f9]">
+                          <div className="w-8 h-8 flex justify-center items-center rounded-full dark:bg-slate-800 bg-light">
                             <RiGlobalLine className="text-[16px] text-primary" />
                           </div>
                         </div>
@@ -557,15 +610,16 @@ const Profile = () => {
                   </div>
                 </div>
                 {/* <---recent activity----> */}
-                <div className="card">
-                  <div className="flex grow items-center border-b border-b-gray-300 p-4">
-                    <h4 className="mr-2 mb-0 text-[14px]">Recent Activity</h4>
-                    <div className=" flex-shrink-0 ml-auto">
+                <div className=" card dark:bg-dark-side-bar-color border dark:border-dark-side-bar-color border-white">
+                  <div className=" p-4">
+                   <div className="border-b flex items-center justify-between grow border-b-gray-300 dark:border-b-gray-700">
+                   <h1 className=" text-dark-side-bar-color dark:text-white mr-2 mb-0 text-[14px]">Recent Activity</h1>
+                    <div className=" flex-shrink-0 ml-auto ">
                       <ul className="flex ">
                         <li className="">
                           <button
                             to={"/today"}
-                            className="p-4 border-b border-b-primary font-[500] text-[12px] text-[#405189]"
+                            className="p-4 border-b-2 border-b-primary font-[500] text-[12px] text-[#405189]"
                           >
                             Today
                           </button>
@@ -588,9 +642,10 @@ const Profile = () => {
                         </li>
                       </ul>
                     </div>
+                   </div>
                   </div>
                   <div className="card-body">
-                    <div className="collapse relative bg-white">
+                    <div className="collapse before:dark:border-gray-700 relative dark:bg-dark-side-bar-color">
                       <input type="checkbox" />
                       <div className="collapse-title p-2">
                         <div className="flex justify-center items-center">
@@ -602,7 +657,7 @@ const Profile = () => {
                             />
                           </div>
                           <div className=" grow ml-4">
-                            <h6 className="text-[14px] mb-1">
+                            <h6 className="text-[14px] text-black dark:text-white mb-1">
                               Jacqueline Steve
                             </h6>
                             <small className=" text-gray mb-0">
@@ -625,17 +680,17 @@ const Profile = () => {
                       </div>
                     </div>
 
-                    <div className="collapse relative bg-white">
+                    <div className="collapse relative before:dark:border-gray-700 dark:bg-dark-side-bar-color">
                       <input type="checkbox" />
                       <div className="collapse-title p-2">
                         <div className="flex justify-center items-center">
-                          <div className=" flex-shrink-0 h-8 w-8 z-10 flex text-center leading-8 rounded-full bg-light">
+                          <div className=" flex-shrink-0 h-8 w-8 z-10 flex text-center leading-8 rounded-full dark:bg-gray-800 bg-light">
                             <p className="max-w-[100%] text-[#0ab39c] h-auto">
                               M
                             </p>
                           </div>
                           <div className=" grow ml-4">
-                            <h6 className="text-[14px] mb-1">Megan Elmore</h6>
+                            <h6 className="text-[14px] text-black dark:text-white mb-1">Megan Elmore</h6>
                             <small className=" text-gray mb-0">
                               Adding a new event with attachment - 04:45PM
                             </small>
@@ -672,7 +727,7 @@ const Profile = () => {
                       </div>
                     </div>
 
-                    <div className="collapse relative bg-white">
+                    <div className="collapse relative before:dark:border-gray-700 dark:bg-dark-side-bar-color">
                       <input type="checkbox" />
                       <div className="collapse-title p-2">
                         <div className="flex justify-center items-center">
@@ -684,7 +739,7 @@ const Profile = () => {
                             />
                           </div>
                           <div className=" grow ml-4">
-                            <h6 className="text-[14px] mb-1">
+                            <h6 className="text-[14px] text-black dark:text-white mb-1">
                               New ticket recceived
                             </h6>
                             <small className=" text-gray mb-0">
@@ -697,15 +752,15 @@ const Profile = () => {
                       </div>
                     </div>
 
-                    <div className="collapse relative bg-white">
+                    <div className="collapse relative before:dark:border-gray-700 dark:bg-dark-side-bar-color">
                       <input type="checkbox" />
                       <div className="collapse-title p-2">
                         <div className="flex justify-center items-center">
-                          <div className=" flex-shrink-0 h-8 w-8 z-10 flex justify-center bg-light rounded-full">
+                          <div className=" flex-shrink-0 h-8 w-8 z-10 flex justify-center dark:bg-gray-800 bg-light rounded-full">
                             <RiUser3Fill className=" max-w-[100%] text-gray h-auto" />
                           </div>
                           <div className=" grow ml-4">
-                            <h6 className="text-[14px] mb-1">Nancy Martino</h6>
+                            <h6 className="text-[14px] text-black dark:text-white mb-1">Nancy Martino</h6>
                             <small className=" text-gray mb-0">
                               <span className=" font-semibold">Commented</span>{" "}
                               on 12:57PM
@@ -725,7 +780,7 @@ const Profile = () => {
                       </div>
                     </div>
 
-                    <div className="collapse relative bg-white">
+                    <div className="collapse relative before:dark:border-gray-700 dark:bg-dark-side-bar-color">
                       <input type="checkbox" />
                       <div className="collapse-title p-2">
                         <div className="flex justify-center items-center">
@@ -737,7 +792,7 @@ const Profile = () => {
                             />
                           </div>
                           <div className=" grow ml-4">
-                            <h6 className="text-[14px] mb-1">lewis Arnold</h6>
+                            <h6 className="text-[14px] text-black dark:text-white mb-1">lewis Arnold</h6>
                             <small className=" text-gray mb-0">
                               Create new project building product - 10:05AM
                             </small>
@@ -755,24 +810,24 @@ const Profile = () => {
                             <div className="w-9 h-9 ">
                               <img
                                 src={jac}
-                                className="max-w-[100%] h-auto rounded-full border-2 border-white hover:translate-y-[-2px]"
+                                className="max-w-[100%] h-auto rounded-full border-2 dark:border-dark-side-bar-color border-white hover:translate-y-[-2px]"
                                 alt=""
                               />
                             </div>
                             <div className="w-9 h-9 ">
                               <img
                                 src={james}
-                                className="max-w-[100%] h-auto rounded-full border-2 border-white hover:translate-y-[-2px]"
+                                className="max-w-[100%] h-auto rounded-full border-2 dark:border-dark-side-bar-color border-white hover:translate-y-[-2px]"
                                 alt=""
                               />
                             </div>
                             <div className="w-8 h-8 text-center leading-8">
-                              <p className="max-w-[100%] h-auto bg-light text-[14px] text-primary rounded-full border-2 border-white hover:translate-y-[-2px]">
+                              <p className="max-w-[100%] h-auto bg-light dark:bg-gray-800 text-[14px] text-primary rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]">
                                 R
                               </p>
                             </div>
                             <div className="w-8 h-8 text-center leading-8">
-                              <p className="max-w-[100%] h-auto bg-primary text-light rounded-full border-2 border-white hover:translate-y-[-2px]">
+                              <p className="max-w-[100%] h-auto bg-primary text-light rounded-full border-2 dark:border-dark-side-bar-color border-white hover:translate-y-[-2px]">
                                 2+
                               </p>
                             </div>
@@ -783,37 +838,37 @@ const Profile = () => {
                   </div>
                 </div>
                 {/* <---project---> */}
-                <div className="card">
+                <div className=" card dark:bg-dark-side-bar-color border dark:border-dark-side-bar-color border-white">
                   <div className="card-body">
                     <div className="flex justify-between items-center mb-2">
-                      <h1>Projects</h1>
-                      <div className="flex gap-2">
-                        <button className="avatar-title text-lg rounded p-1">
+                      <h1 className="text-black dark:text-white">Projects</h1>
+                      <div className="flex gap-2" >
+                        <button className="avatar-title text-lg rounded p-1" onClick={previous}>
                           <RiArrowLeftSLine className="" />
                         </button>
-                        <button className="avatar-title rounded text-lg p-1">
+                        <button className="avatar-title rounded text-lg p-1" onClick={next}>
                           <RiArrowRightSLine className="" />
                         </button>
                       </div>
                     </div>
 
-                    <div className="gap-5 grid grid-cols-1 lg:grid-cols-2">
-                      <div className="card profile-project-card border-l-green">
+                    <Slider ref={slider} className="slider" {...settings}>
+                      <div className="card profile-project-card dark:bg-dark-side-bar-color dark:border-gray-700 dark:border-l-green border-l-green">
                         <div className="card-body p-6">
                           <div className="flex ">
                             <div className="grow">
-                              <h5 className="text-[14px] text-gray-700">
+                              <h5 className="text-[14px] dark:text-white text-gray-700">
                                 ABC Project Customization
                               </h5>
                               <p className="text-gray mb-0">
                                 Last Upate:{" "}
-                                <span className="text-gray-700 font-semibold">
+                                <span className="text-gray-700 dark:text-white font-semibold">
                                   4 hr Ago
                                 </span>
                               </p>
                             </div>
                             <div className=" flex-shrink-0 ml-2">
-                              <div className="text-yellow bg-[#f7b84b1a] fs-sm">
+                              <div className="text-yellow bg-[#f7b84b1a] p-[0.3em] rounded fs-sm">
                                 {" "}
                                 Inprogress
                               </div>
@@ -829,26 +884,26 @@ const Profile = () => {
                               <div className="w-9 h-9 ">
                                 <img
                                   src={jac}
-                                  className="max-w-[100%] h-auto rounded-full border-2 border-white hover:translate-y-[-2px]"
+                                  className="max-w-[100%] h-auto rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]"
                                   alt=""
                                 />
                               </div>
                               <div className="w-9 h-9 ">
                                 <img
                                   src={geo}
-                                  className="max-w-[100%] h-auto rounded-full border-2 border-white hover:translate-y-[-2px]"
+                                  className="max-w-[100%] h-auto rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]"
                                   alt=""
                                 />
                               </div>
                               <div className="w-8 h-8 text-center leading-8">
-                                <p className="max-w-[100%] h-auto bg-light text-[14px] text-primary rounded-full border-2 border-white hover:translate-y-[-2px]">
+                              <p className="max-w-[100%] h-auto bg-light dark:bg-gray-8  text-[14px] text-primary rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]">
                                   A
                                 </p>
                               </div>
                               <div className="w-9 h-9 text-center leading-9">
                                 <img
                                   src={jacqueline}
-                                  className="max-w-[100%] h-auto rounded-full border-2 border-white hover:translate-y-[-2px]"
+                                  className="max-w-[100%] h-auto rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]"
                                   alt=""
                                 />
                               </div>
@@ -857,22 +912,106 @@ const Profile = () => {
                         </div>
                       </div>
 
-                      <div className="card profile-project-card border-l-red">
+                      <div className="card profile-project-card dark:bg-dark-side-bar-color dark:border-gray-700 dark:border-l-red border-l-red ">
                         <div className="card-body p-6">
                           <div className="flex ">
                             <div className="grow">
-                              <h5 className="text-[14px] text-gray-700">
+                              <h5 className="text-[14px] dark:text-white text-gray-700">
                                 Client - John
                               </h5>
                               <p className="text-gray mb-0">
                                 Last Upate:{" "}
-                                <span className="text-gray-700 font-semibold">
+                                <span className="text-gray-700 dark:text-white font-semibold">
                                   1 hr Ago
                                 </span>
                               </p>
                             </div>
                             <div className=" flex-shrink-0 ml-2">
-                              <div className="text-green bg-[#0ab39c1a] fs-sm">
+                              <div className="text-green bg-[#0ab39c1a] p-[0.3em] rounded fs-sm">
+                                completed
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2 mt-6">
+                            <div className=" flex-shrink-0">
+                              <h5 className="text-gray text-[12px]">
+                                Members:
+                              </h5>
+                            </div>
+                            <div className="avatar-group flex flex-shrink-0 -space-x-3">
+                              <div className="w-9 h-9 text-center leading-9">
+                                <img
+                                  src={jacqueline}
+                                  className="max-w-[100%] h-auto rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]"
+                                  alt=""
+                                />
+                              </div>
+                              <div className="w-8 h-8 text-center leading-8">
+                                <p className="max-w-[100%] h-auto bg-light dark:bg-gray-8  text-[14px] text-primary rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]">
+                                  C
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="card profile-project-card dark:bg-dark-side-bar-color dark:border-gray-700 dark:border-l-info border-l-info ">
+                        <div className="card-body p-6">
+                          <div className="flex ">
+                            <div className="grow">
+                              <h5 className="text-[14px] dark:text-white text-gray-700">
+                                Brand Logo Design
+                              </h5>
+                              <p className="text-gray mb-0">
+                                Last Upate:{" "}
+                                <span className="text-gray-700 dark:text-white font-semibold">
+                                  2 hr Ago
+                                </span>
+                              </p>
+                            </div>
+                            <div className=" flex-shrink-0 ml-2">
+                              <div className="text-yellow bg-[#f7b84b1a] p-[0.3em] rounded fs-sm">
+                                Inprogress
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2 mt-6">
+                            <div className=" flex-shrink-0">
+                              <h5 className="text-gray text-[12px]">
+                                Members:
+                              </h5>
+                            </div>
+                            <div className="avatar-group flex flex-shrink-0 -space-x-3">
+                              <div className="w-9 h-9 ">
+                                <img
+                                  src={geo}
+                                  className="max-w-[100%] h-auto rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]"
+                                  alt=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>  
+
+                      <div className="card profile-project-card dark:bg-dark-side-bar-color dark:border-gray-700 dark:border-l-red border-l-red">
+                        <div className="card-body p-6">
+                          <div className="flex ">
+                            <div className="grow">
+                              <h5 className="text-[14px] dark:text-white text-gray-700">
+                                Project update
+                              </h5>
+                              <p className="text-gray mb-0">
+                                Last Upate:{" "}
+                                <span className="text-gray-700 dark:text-white font-semibold">
+                                  4 hr Ago
+                                </span>
+                              </p>
+                            </div>
+                            <div className=" flex-shrink-0 ml-2">
+                              <div className="text-green bg-[#0ab39c1a] p-[0.3em] rounded fs-sm">
+                                {" "}
                                 completed
                               </div>
                             </div>
@@ -887,26 +1026,14 @@ const Profile = () => {
                               <div className="w-9 h-9 ">
                                 <img
                                   src={jac}
-                                  className="max-w-[100%] h-auto rounded-full border-2 border-white hover:translate-y-[-2px]"
+                                  className="max-w-[100%] h-auto rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]"
                                   alt=""
                                 />
                               </div>
                               <div className="w-9 h-9 ">
                                 <img
                                   src={geo}
-                                  className="max-w-[100%] h-auto rounded-full border-2 border-white hover:translate-y-[-2px]"
-                                  alt=""
-                                />
-                              </div>
-                              <div className="w-8 h-8 text-center leading-8">
-                                <p className="max-w-[100%] h-auto bg-light text-[14px] text-primary rounded-full border-2 border-white hover:translate-y-[-2px]">
-                                  A
-                                </p>
-                              </div>
-                              <div className="w-9 h-9 text-center leading-9">
-                                <img
-                                  src={jacqueline}
-                                  className="max-w-[100%] h-auto rounded-full border-2 border-white hover:translate-y-[-2px]"
+                                  className="max-w-[100%] h-auto rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]"
                                   alt=""
                                 />
                               </div>
@@ -915,23 +1042,24 @@ const Profile = () => {
                         </div>
                       </div>
 
-                      <div className="card profile-project-card border-l-red">
+                      <div className="card profile-project-card dark:bg-dark-side-bar-color dark:border-gray-700 dark:border-l-yellow border-l-yellow">
                         <div className="card-body p-6">
                           <div className="flex ">
                             <div className="grow">
-                              <h5 className="text-[14px] text-gray-700">
-                                Client - John
+                              <h5 className="text-[14px] dark:text-white text-gray-700">
+                                Chat App
                               </h5>
                               <p className="text-gray mb-0">
                                 Last Upate:{" "}
-                                <span className="text-gray-700 font-semibold">
+                                <span className="text-gray-700 dark:text-white font-semibold">
                                   1 hr Ago
                                 </span>
                               </p>
                             </div>
                             <div className=" flex-shrink-0 ml-2">
-                              <div className="text-green bg-[#0ab39c1a] fs-sm">
-                                completed
+                              <div className="text-yellow bg-[#f7b84b1a] p-[0.3em] rounded fs-sm">
+                                {" "}
+                                Inprogress
                               </div>
                             </div>
                           </div>
@@ -945,34 +1073,28 @@ const Profile = () => {
                               <div className="w-9 h-9 ">
                                 <img
                                   src={jac}
-                                  className="max-w-[100%] h-auto rounded-full border-2 border-white hover:translate-y-[-2px]"
+                                  className="max-w-[100%] h-auto rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]"
                                   alt=""
                                 />
                               </div>
                               <div className="w-9 h-9 ">
                                 <img
                                   src={geo}
-                                  className="max-w-[100%] h-auto rounded-full border-2 border-white hover:translate-y-[-2px]"
+                                  className="max-w-[100%] h-auto rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]"
                                   alt=""
                                 />
                               </div>
                               <div className="w-8 h-8 text-center leading-8">
-                                <p className="max-w-[100%] h-auto bg-light text-[14px] text-primary rounded-full border-2 border-white hover:translate-y-[-2px]">
+                              <p className="max-w-[100%] h-auto bg-light dark:bg-gray-8  text-[14px] text-primary rounded-full border-2 border-white dark:border-dark-side-bar-color hover:translate-y-[-2px]">
                                   A
                                 </p>
-                              </div>
-                              <div className="w-9 h-9 text-center leading-9">
-                                <img
-                                  src={jacqueline}
-                                  className="max-w-[100%] h-auto rounded-full border-2 border-white hover:translate-y-[-2px]"
-                                  alt=""
-                                />
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Slider>
+                  
                   </div>
                 </div>
               </div>
@@ -980,7 +1102,7 @@ const Profile = () => {
           </div>
         </div>
 
-        <footer className="footer flex justify-between">
+        <footer className="footer dark:bg-dark-side-bar-color flex justify-between">
           <div className="px-6">
             <script>document.write(new Date().getFullYear())</script>
             2023 © Velzon.
