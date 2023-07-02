@@ -1,8 +1,10 @@
 import { AiFillHeart } from "react-icons/ai";
 import lottie from "lottie-web";
 import { defineElement } from "lord-icon-element";
+import { useNavigate } from "react-router-dom";
 defineElement(lottie.loadAnimation);
 const PasswordReset = () => {
+  const nav = useNavigate()
   return (
     <div className="w-full h-screen bg-[#f3f3f9]">
       <header className=" absolute w-full h-[280px] sm:h-[380px]">
@@ -31,7 +33,10 @@ const PasswordReset = () => {
       </header>
       <main className="w-full relative -mt-8 sm:mt-0 z-10">
         <div className="mt-16 mb-16 text-center text-white">
-          <h2 className="text-3xl uppercase font-bold mb-3">velzon</h2>
+          <div className="grid place-items-center mb-5">
+
+         <img className="cur cursor-pointer" onClick={() => nav('/')} src="https://themesbrand.com/velzon/html/default/assets/images/logo-light.png" alt="" />
+          </div>
           <p className="opacity-50">Premium Admin & Dashboard Template</p>
         </div>
         <div className="w-full flex flex-col items-center justify-center">

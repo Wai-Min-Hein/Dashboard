@@ -71,7 +71,7 @@ import { useNavigate } from "react-router-dom/dist";
                     <span className=" text-inherit ps-4">-</span>
                     <a
                       href="/"
-                      className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                      className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary"
                     >
                       Ecommerce
                     </a>
@@ -929,7 +929,7 @@ import { useNavigate } from "react-router-dom/dist";
                       <span className=" text-inherit ps-2">-</span>
                       <span
                       onClick={() => nav('/password-reset')}
-                        className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
+                        className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-secondary"
                         sidebar-toggle-item="true"
                       >
                         Password Reset
@@ -1280,7 +1280,7 @@ import { useNavigate } from "react-router-dom/dist";
                       <span className=" text-inherit ps-2">-</span>
                       <span
                       onClick={()=> nav('/profile')}
-                        className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
+                        className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-secondary"
                         sidebar-toggle-item="true"
                       >
                         Profile
@@ -2529,7 +2529,7 @@ import { useNavigate } from "react-router-dom/dist";
                     >
                       <span className=" text-inherit ps-2">-</span>
                       <span
-                        className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
+                        className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-secondary"
                         sidebar-toggle-item="true"
                       >
                         Password Reset

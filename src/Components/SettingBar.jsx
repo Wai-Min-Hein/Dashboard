@@ -32,7 +32,7 @@ const SettingBar = () => {
  
 
   return (
-    <div className="sticky top-0 left-0 z-[2999]">
+    <div className="sticky top-0 left-0 z-[999999999999]">
       <motion.div
         initial={"closed"}
         animate={setting ? "open" : "closed"}

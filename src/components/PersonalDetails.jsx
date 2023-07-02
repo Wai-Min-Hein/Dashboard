@@ -17,7 +17,7 @@ const PersonalDetails = () => {
             First Name
           </label>
           <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white  dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             value="Dave"
             id="grid-first-name"
             type="text"
@@ -32,7 +32,7 @@ const PersonalDetails = () => {
             Last Name
           </label>
           <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             value="Adame"
             id="grid-last-name"
             type="text"
@@ -50,7 +50,7 @@ const PersonalDetails = () => {
             Phone Number
           </label>
           <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             value="+(1) 987 6543"
             id="phoneNumber"
             type="text"
@@ -65,7 +65,7 @@ const PersonalDetails = () => {
             Email Address
           </label>
           <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             id="emailAddress"
             value="daveadame@velzon.com"
             type="text"
@@ -83,7 +83,7 @@ const PersonalDetails = () => {
             Joining Date
           </label>
           {/* <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             id="joiningDate"
             value="24 Nov, 2021"
             type="text"
@@ -91,7 +91,7 @@ const PersonalDetails = () => {
           /> */}
           <DatePicker
             selected={startDate}
-            className={`appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 eading-tight focus:outline-none focus:border-gray-400`}
+            className={`appearance-none block w-full text-sm bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 eading-tight focus:outline-none focus:border-gray-400`}
             onChange={(date) => setStartDate(date)}
           />
         </div>
@@ -100,7 +100,7 @@ const PersonalDetails = () => {
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full px-3">
           <label
-            className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
+            className="block tracking-wide bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700  text-xs font-bold mb-2"
             for="skillsSelect"
           >
             Skills
@@ -118,7 +118,7 @@ const PersonalDetails = () => {
             Designation
           </label>
           <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             value="Lead Designer / Developer"
             id="designation"
             type="text"
@@ -133,7 +133,7 @@ const PersonalDetails = () => {
             Website
           </label>
           <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             id="website"
             value="www.velzon.com"
             type="text"
@@ -151,7 +151,7 @@ const PersonalDetails = () => {
             City
           </label>
           <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             value="California"
             id="city"
             type="text"
@@ -166,7 +166,7 @@ const PersonalDetails = () => {
             Country
           </label>
           <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             value="United States"
             id="country"
             type="text"
@@ -181,7 +181,7 @@ const PersonalDetails = () => {
             Zip Code
           </label>
           <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             value="90011"
             id="zipCode"
             type="text"
@@ -199,7 +199,7 @@ const PersonalDetails = () => {
             Description
           </label>
           <textarea
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-dark-bg-color dark:border-dark text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             value="Hi I'm Anna Adame,It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is European languages are members of the same family."
             id="description"
             placeholder="Enter your description"

@@ -117,7 +117,7 @@ const ProfileSettings = () => {
                 htmlFor="globalLink"
                 className=" w-8 h-8 bg-light-side-bar-color flex justify-center items-center rounded-full"
               >
-                <RiGlobalLine className="text-light-side-bar-color dark:text-light bg-white dark:bg-gray-900 dark:text-white rounded-full" />
+                <RiGlobalLine className="text-light-side-bar-color dark:text-light bg-white dark:bg-gray-900  rounded-full" />
               </label>
               <input
                 className="appearance-none block w-5/6 text-sm px-3 py-2 bg-white dark:bg-gray-900 text-gray-700 dark:text-light border border-gray-300 rounded leading-tight focus:outline-none focus:border-gray-400"

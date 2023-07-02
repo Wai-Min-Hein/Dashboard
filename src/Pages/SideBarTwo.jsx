@@ -198,7 +198,7 @@ const SideBarTwo = () => {
                 <span className=" text-inherit ps-4">-</span>
                 <apan
                 
-                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary"
                 >
                 Ecommerce
                 </apan>
@@ -1143,7 +1143,7 @@ const SideBarTwo = () => {
                   >
                     <span className=" text-inherit ps-2">-</span>
                     <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
+                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-secondary"
                       sidebar-toggle-item="true"
                     >
                       Password Reset
@@ -1170,12 +1170,12 @@ const SideBarTwo = () => {
                     onClick={() => nav('/password-reset')}
                     className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
+                      <span
                       
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary cursor-pointer"
                       >
                         Basic
-                      </a>
+                      </span>
                     </li>
                     <li className=" text-inherit pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
@@ -1547,7 +1547,7 @@ const SideBarTwo = () => {
                   >
                     <span className=" text-inherit ps-2">-</span>
                     <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
+                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-secondary"
                       sidebar-toggle-item="true"
                     >
                       Profile
@@ -1570,23 +1570,26 @@ const SideBarTwo = () => {
                     id="dropdown-example30"
                     className="  list-disc   py-2 space-y-2"
                   >
-                    <li onClick={() => nav('/profile/settings')} className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
+                    <li onClick={() => nav('/profile')} className="cur cursor-pointer text-inherit pb-2 flex  w-full items-center">
+                 <span className=" text-xs  text-inherit ps-12">o</span>
+
                       <span
                        
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary"
                       >
                         Simple Page
                       </span>
                     </li>
                     <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
+                 <span className=" text-xs  text-inherit ps-12">o</span>
+
+                      <span 
+                      onClick={() => nav('/profile/settings')}
                         href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                        className="flex  text-xs cursor-pointer  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary"
                       >
                         Settings
-                      </a>
+                      </span>
                     </li>
                   </ul>
                 </li>

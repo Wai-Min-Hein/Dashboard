@@ -1,6 +1,8 @@
-import {  useState } from "react";
+import {  useContext, useState } from "react";
+import { StateContext } from "../Context/StateContext";
 
 const WorldMap = () => {
+const {semi}  = useContext(StateContext)
 
 
   const [countryName, setCountryName] = useState(null)
@@ -36,7 +38,7 @@ const WorldMap = () => {
         width="359"
         height="269"
       >
-        <g className="scale-[0.25] sm:scale-[0.3] md:scale-[0.35] sxl:scale-[0.25] xl:scale-[0.35]">
+        <g className={`${semi? 'scale-[0.2] sm:scale-[0.22] md:scale-[0.26] sxl:scale-[0.2] xl:scale-[0.26]': 'scale-[0.25] sm:scale-[0.3] md:scale-[0.35] sxl:scale-[0.25] xl:scale-[0.35]'} `}>
           <path className="fill-gray dark:fill-light-header-color dark:stroke-[rgb(84,83,83)] "
           onMouseOver={(e) => handleHover(e)}
           onMouseLeave={() => setCountryName(null)}

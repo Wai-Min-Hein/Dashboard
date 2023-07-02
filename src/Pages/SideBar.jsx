@@ -167,7 +167,7 @@ const SideBar = () => {
                 <span
                   className={`${
                     isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit  flex-1 ml-3 text-left whitespace-nowrap`}
+                  } text-primary  flex-1 ml-3 text-left whitespace-nowrap`}
                   sidebar-toggle-item="true"
                 >
                   Dashboards
@@ -211,7 +211,7 @@ const SideBar = () => {
                   <span className=" text-inherit ps-4">-</span>
                   <a
                     href="/"
-                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary"
                   >
                     Ecommerce
                   </a>
@@ -1089,7 +1089,7 @@ const SideBar = () => {
                 <span
                   className={`${
                     isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit  flex-1 ml-3 text-left whitespace-nowrap`}
+                  } text-secondary  flex-1 ml-3 text-left whitespace-nowrap`}
                   sidebar-toggle-item="true"
                 >
                   Authentication
@@ -1225,7 +1225,7 @@ const SideBar = () => {
                   >
                     <span className=" text-inherit ps-2">-</span>
                     <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
+                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-secondary"
                       sidebar-toggle-item="true"
                     >
                       Password Reset
@@ -1256,7 +1256,7 @@ const SideBar = () => {
                       
                         // href="/password-reset"
 
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                        className="flex text-xs  items-center cursor-pointer  transition duration-75 rounded-lg pl-6 group  text-secondary"
                       >
                         Basic
                       </span>
@@ -1624,7 +1624,7 @@ const SideBar = () => {
                 <span
                   className={`${
                     isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit  flex-1 ml-3 text-left whitespace-nowrap`}
+                  } text-secondary  flex-1 ml-3 text-left whitespace-nowrap`}
                   sidebar-toggle-item="true"
                 >
                   Pages
@@ -1664,7 +1664,7 @@ const SideBar = () => {
                   >
                     <span className=" text-inherit ps-2">-</span>
                     <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
+                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-secondary cursor-pointer"
                       sidebar-toggle-item="true"
                     >
                       Profile
@@ -1691,19 +1691,20 @@ const SideBar = () => {
                       <span className=" text-xs  text-inherit ps-12">o</span>
                       <span
                         
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary cursor-pointer"
                       >
                         Simple Page
                       </span>
                     </li>
                     <li className=" text-inherit  pb-2 flex  w-full items-center">
                       <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
+                      <span
+                      onClick={() => nav('/profile/settings')}
                         href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
+                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary cursor-pointer"
                       >
                         Settings
-                      </a>
+                      </span>
                     </li>
                   </ul>
                 </li>
