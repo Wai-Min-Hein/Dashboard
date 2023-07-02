@@ -84,10 +84,22 @@ const SideBar = () => {
       <motion.div
       variants={!smPhone? Sidebar_animationR:Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
-      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}   md:w-[16rem] z-[9999] absolute  top-0 left-0  w-0 md:relative       ${detached? 'min-h-screen': 'max-h-screen'} overflow-y-auto sideBar ${img &&sideLight? 'bg-white  dark:bg-dark-side-bar-color': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray dark:bg-dark-side-bar-color': ''} ${img &&sideDark? 'bg-light-side-bar-color': ''} ${img && sideGradient? ' bg-sideGradient': ''}`}
+      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}   md:w-[16rem] z-[9999]   top-0 left-0  w-0 md:relative       ${detached? 'min-h-screen': 'max-h-screen'} overflow-y-auto sideBar ${img &&sideLight? 'bg-white  dark:bg-dark-side-bar-color': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray dark:bg-dark-side-bar-color': ''} ${img &&sideDark? 'bg-light-side-bar-color': ''} ${img && sideGradient? ' bg-sideGradient': ''}`}
     >
       
-     
+      {
+       detached&& (sideDark&& (
+
+          <div className="absolute  top-0 left-0 h-full inset-0 bg-gradient-to-t from-[#171e32] to-[#405189] opacity-80 z-[-1]"></div>
+        ))|| (sideGradient&& (
+
+          <div className="absolute  top-0 left-0 h-full inset-0   bg-sideGradient opacity-80  z-[-1]"></div>
+        ))|| (sideLight&& (
+
+          <div className="absolute  top-0 left-0 h-full inset-0 bg-gradient-to-t from-[#fff] to-[#fff] opacity-90 z-[-5]"></div>
+
+        ))
+      }
 
       <motion.div
       variants={!smPhone? Sidebar_animationR:Sidebar_animation}
@@ -101,7 +113,7 @@ const SideBar = () => {
         aria-label="Sidebar"
       >
  {
-        (sideDark&& (
+       !detached&& (sideDark&& (
 
           <div className="absolute  top-0 left-0 h-full inset-0 bg-gradient-to-t from-[#171e32] to-[#405189] opacity-80 z-[-1]"></div>
         ))|| (sideGradient&& (

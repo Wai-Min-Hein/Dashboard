@@ -50,7 +50,7 @@ const Profile = () => {
   const [popular, setPopular] = useState(false);
   const [currentProgress,setCurrentProgress] = useState(0)
 
-  const {semi} = useContext(StateContext)
+  const {semi,detached} = useContext(StateContext)
   const slider = useRef(null)
   const next = () => {
     slider.current.slickNext();
@@ -96,7 +96,8 @@ const Profile = () => {
 
   return (
     <div className={`z-50 bg-light-gray-bg dark:bg-black flex-1 min-h-screen overflow-y-auto overflow-x-hidden w-full relative  ${semi? 'px-[10rem]': ''}`} >
-      <TopBar/>
+      {!detached && <TopBar/>}
+      
       <div className="profile-content ">
         <div className=" w-[100%]  relative">
           {/* <---bg img---> */}

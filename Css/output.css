@@ -3290,6 +3290,11 @@ html {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-dark-bg-color{
+  --tw-bg-opacity: 1;
+  background-color: rgb(41 46 50 / var(--tw-bg-opacity));
+}
+
 .bg-\[url\(\'https\:\/\/themesbrand\.com\/velzon\/html\/default\/assets\/images\/profile-bg\.jpg\'\)\]{
   background-image: url('https://themesbrand.com/velzon/html/default/assets/images/profile-bg.jpg');
 }
@@ -4014,6 +4019,11 @@ html {
 .text-\[\#abb9ea\]{
   --tw-text-opacity: 1;
   color: rgb(171 185 234 / var(--tw-text-opacity));
+}
+
+.text-dark-header-color{
+  --tw-text-opacity: 1;
+  color: rgb(206 212 218 / var(--tw-text-opacity));
 }
 
 .text-opacity-50{

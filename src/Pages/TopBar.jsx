@@ -28,7 +28,7 @@ import SideBarHor from "./SideBarHor";
 // import spain from "../../Image/spain.svg";
 
 const TopBar = () => {
-  const { isSideOpen, setIsSideOpen, semi,hor,boxed,detached } = useContext(StateContext);
+  const { isSideOpen, setIsSideOpen, semi,hor,boxed,detached,lightTop,darkTop } = useContext(StateContext);
   const [category,setCategory] = useState(false)
   const [cart,setCart] = useState(false)
   const [notification,setNotification] = useState(false)
@@ -62,9 +62,9 @@ const TopBar = () => {
   }
 
   return (
-    <div className={`topbar bg-white dark:bg-dark-bg-color  sticky top-0 ${detached? 'z-[-10]': 'z-[99999]'}    w-full`}>
+    <div className={`topbar ${lightTop? 'bg-white': 'bg-dark-bg-color'} dark:bg-dark-bg-color  sticky top-0 ${detached? 'z-[9999999]': 'z-[99999]'}    w-full`}>
       <div
-      className={`bg-white dark:bg-dark-bg-color h-[70px] sticky top-0   w-full px-6 flex items-center justify-between z-[100] ${
+      className={`${lightTop? 'bg-white': 'bg-dark-bg-color'} dark:bg-dark-bg-color h-[70px] sticky top-0   w-full px-6 flex items-center justify-between z-[100] ${
         semi ? "mt-6" : "mt-0"
       }` }
     >
@@ -74,7 +74,7 @@ const TopBar = () => {
           onClick={() => setIsSideOpen(!isSideOpen)}
           className={`text-light-btn-color text-2xl cursor-pointer ${boxed ? 'hidden': ''}`}
         />
-        <div className="hidden md:flex items-center justify-start bg-light-gray-bg dark:bg-dark px-3 py-2 rounded-md gap-3  font-para">
+        <div className={` hidden md:flex items-center justify-start ${lightTop? 'bg-light-gray-bg ': 'bg-dark'}  dark:bg-dark px-3 py-2 rounded-md gap-3  font-para`}>
           <AiOutlineSearch className="text-light-btn-color text-xl font-semibold" />
           <input
             autoFocus
@@ -131,7 +131,7 @@ const TopBar = () => {
         <span className="bg-gr cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full relative">
           <BiCategoryAlt
             onClick={handleCategory}
-            className="text-[23px] dark:text-gray-400 font-normal hover:text-blue"
+            className={`text-[23px]  font-normal hover:text-blue ${lightTop? '': 'text-gray-400'}`}
           />
           <div
             className={
@@ -197,7 +197,7 @@ const TopBar = () => {
         </span>
         <span className="bg-gr cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full relative">
           <div className="" onClick={handleCart}>
-            <BiShoppingBag className="text-[23px] dark:text-gray-400 font-normal hover:text-blue " />
+            <BiShoppingBag className={`text-[23px]  font-normal hover:text-blue ${lightTop? '': 'text-gray-400'}`} />
             <span className="absolute top-[-2px] py-[0.25em] px-[0.60em] text-white right-[-2px] text-[10px] rounded-full bg-info">
               5
             </span>
@@ -350,14 +350,14 @@ const TopBar = () => {
         </span>
 
         <span className="cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full">
-          <BiFullscreen className="text-[23px] dark:text-gray-400 font-normal hover:text-blue" />
+          <BiFullscreen className={`text-[23px]  font-normal hover:text-blue ${lightTop? '': 'text-gray-400'}`} />
         </span>
 
         <ThemeSwitcher className="text-[23px] dark:text-gray-400 font-normal" />
 
          <span className=" cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full relative mr-1 md:mr-4">
           <div className="" onClick={handleNotification}>
-            <IoMdNotificationsOutline className="text-[23px] dark:text-gray-400 font-normal hover:text-blue" />
+            <IoMdNotificationsOutline className={`text-[23px]  font-normal hover:text-blue ${lightTop? '': 'text-gray-400'}`} />
             <span className="absolute top-[-2px] py-[0.25em] px-[0.60em] text-white right-[-2px] text-[10px] rounded-full bg-danger">
               3
             </span>
@@ -482,15 +482,15 @@ const TopBar = () => {
           </div>
         </span> 
 
-        <div className="flex items-center gap-3 px-4 py-1 bg-light-gray-bg dark:bg-dark h-[70px]">
+        <div className={`flex items-center gap-3 px-4 py-1 ${lightTop? 'bg-light-gray-bg': 'bg-dark'}  dark:bg-dark h-[70px]`}>
           <div className="w-8 h-8 rounded-full overflow-hidden">
             <img src={admin} alt="" />
           </div>
           <div className="font-para xl:block hidden">
-            <span className="text-light-header-color  dark:text-dark-header-color text-[13px] font-semibold -tracking-tighter">
+            <span className={`text-light-header-color ${lightTop? '': 'text-dark-header-color'}  dark:text-dark-header-color text-[13px] font-semibold -tracking-tighter`}>
               Anna Adame
             </span>
-            <p className="text-light-para-color text-[12px] font-medium -tracking-tighter">
+            <p className={`text-light-para-color text-[12px] font-medium -tracking-tighter`}>
               Founder
             </p>
           </div>

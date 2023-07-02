@@ -20,11 +20,13 @@ import { StateContext } from "../Context/StateContext";
 const ProfileSettings = () => {
   const [tab, setTab] = useState("PersonalDetails");
 
-  const {semi }= useContext(StateContext)
+  const {semi,detached }= useContext(StateContext)
 
   return (
     <div className={`z-50 bg-light-gray-bg dark:bg-dark-bg-color flex-1 font-header-regular min-h-screen overflow-y-auto  w-full relative  ${semi? 'px-[10rem]': ''}`} >
+      {!detached&&
       <TopBar/>
+      }
       
       <div className="relative md:h-[260px]">
         <img
