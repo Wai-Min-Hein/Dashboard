@@ -84,21 +84,10 @@ const SideBar = () => {
       <motion.div
       variants={!smPhone? Sidebar_animationR:Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
-      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}  md:w-[16rem] z-[9999] absolute  top-0 left-0  w-0 md:relative       ${detached? 'min-h-screen': 'max-h-screen'} overflow-y-auto sideBar ${img &&sideLight? 'bg-white  dark:bg-dark-side-bar-color': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray dark:bg-dark-side-bar-color': ''} ${img &&sideDark? 'bg-light-side-bar-color': ''} ${img && sideGradient? ' bg-sideGradient': ''}`}
+      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}   md:w-[16rem] z-[9999] absolute  top-0 left-0  w-0 md:relative       ${detached? 'min-h-screen': 'max-h-screen'} overflow-y-auto sideBar ${img &&sideLight? 'bg-white  dark:bg-dark-side-bar-color': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray dark:bg-dark-side-bar-color': ''} ${img &&sideDark? 'bg-light-side-bar-color': ''} ${img && sideGradient? ' bg-sideGradient': ''}`}
     >
-      {
-        (sideDark&& (
-
-          <div className="absolute top-0 left-0 h-full inset-0 bg-gradient-to-t from-[#171e32] to-[#405189] opacity-80 z-[-1]"></div>
-        ))|| (sideGradient&& (
-
-          <div className="absolute top-0 left-0 inset-0 h-full  bg-sideGradient opacity-80  z-[-1]"></div>
-        ))|| (sideLight&& (
-
-          <div className="absolute top-0 left-0 inset-0 h-full bg-gradient-to-t from-[#fff] to-[#fff] opacity-90 z-[-5]"></div>
-
-        ))
-      }
+      
+     
 
       <motion.div
       variants={!smPhone? Sidebar_animationR:Sidebar_animation}
@@ -108,21 +97,45 @@ const SideBar = () => {
       
       <aside
         id="default-sidebar"
-        className="   z-40 w-[275px]  "
+        className="   z-40 w-[275px] min-h-screen pt-5 relative"
         aria-label="Sidebar"
       >
+ {
+        (sideDark&& (
+
+          <div className="absolute  top-0 left-0 h-full inset-0 bg-gradient-to-t from-[#171e32] to-[#405189] opacity-80 z-[-1]"></div>
+        ))|| (sideGradient&& (
+
+          <div className="absolute  top-0 left-0 h-full inset-0   bg-sideGradient opacity-80  z-[-1]"></div>
+        ))|| (sideLight&& (
+
+          <div className="absolute  top-0 left-0 h-full inset-0 bg-gradient-to-t from-[#fff] to-[#fff] opacity-90 z-[-5]"></div>
+
+        ))
+      }
+
+
         <div className=" my-6 flex  items-center justify-center font-para text-4xl font-extrabold text-center">
+          {sideLight? (
+            <img
+            className="  h-[19px]"
+            src="https://themesbrand.com/velzon/html/default/assets/images/logo-dark.png"
+            alt=""
+          />
+          ): (
+
           <img
             className="  h-[19px]"
             src="https://themesbrand.com/velzon/html/default/assets/images/logo-light.png"
             alt=""
           />
+          )}
         </div>
         <div className="h-full px-3 py-4 overflow-y-auto  ">
           {/* Menu */}
-          <ul className="space-y-2 font-medium">
+          <ul className={`space-y-2 font-medium text-gray ${sideGradient? "text-[rgba(255,255,255,0.5)]": ""}`}>
             {
-              isSideOpen&&( <h1 className=" ms-1 mb-4 p-2 text-light-side-bar-menu-color  text-sm">
+              isSideOpen&&( <h1 className=" ms-1 mb-4 p-2 text-inherit  text-sm">
               Menu
             </h1>)
             }
@@ -133,8 +146,8 @@ const SideBar = () => {
 
               <button
                 type="button"
-                className={`flex items-center w-full p-2  transition duration-75 rounded-lg group text-gray   
-                ${sideLight? 'text-gray hover:text-gray': 'text-inherit'}`}
+                className={`flex items-center w-full p-2  transition duration-75 rounded-lg group text-inherit   
+                `}
                 aria-controls="dropdown-example"
                 data-collapse-toggle="dropdown-example"
               >
@@ -241,7 +254,7 @@ const SideBar = () => {
             <li>
             <button
                 type="button"
-                className="flex items-center w-full p-2 text-inherit transition duration-75 rounded-lg group   dark:hover:text-gray-700"
+                className="flex items-center w-full p-2 text-inherit transition duration-75 rounded-lg group  "
                 aria-controls="dropdown-example1"
                 data-collapse-toggle="dropdown-example1"
               >
@@ -249,7 +262,7 @@ const SideBar = () => {
                 <span
                   className={`${
                     isSideOpen ? "inline-block" : "hidden"
-                  }   flex-1 ml-3 text-left whitespace-nowrap text-gray`}
+                  }   flex-1 ml-3 text-left whitespace-nowrap text-inherit`}
                   sidebar-toggle-item="true"
                 >
                   App
@@ -270,7 +283,7 @@ const SideBar = () => {
                   ></path>
                 </svg>
               </button>
-              <ul id="dropdown-example1" className="hidden py-2 space-y-2 text-gray">
+              <ul id="dropdown-example1" className="hidden py-2 space-y-2 ">
                 <li className=" text-inherit  pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
@@ -1046,9 +1059,9 @@ const SideBar = () => {
           </ul>
 
           {/* Pages */}
-          <ul className=" pt-4 space-y-2 font-medium">
+          <ul className={`pt-4 space-y-2 font-medium text-gray ${sideGradient? "text-[rgba(255,255,255,0.5)]": ""}`}>
           {
-              isSideOpen&&( <h1 className=" ms-1 mb-4 p-2 text-light-side-bar-menu-color  text-sm">
+              isSideOpen&&( <h1 className=" ms-1 mb-4 p-2 text-inherit  text-sm">
               PAGES
             </h1>)
             }
@@ -1056,7 +1069,7 @@ const SideBar = () => {
             <li>
               <button
                 type="button"
-                className="flex items-center w-full p-2 text-inherit transition duration-75 rounded-lg group   dark:hover:text-gray-700"
+                className="flex items-center w-full p-2 text-inherit transition duration-75 rounded-lg group   "
                 aria-controls="dropdown-example11"
                 data-collapse-toggle="dropdown-example11"
               >
@@ -1073,7 +1086,7 @@ const SideBar = () => {
                   sidebar-toggle-item="true"
                   className={`${
                     isSideOpen ? "inline-block" : "hidden"
-                  } text-inherit text-inherit w-6 h-6`}
+                  } text-inherit w-6 h-6`}
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"

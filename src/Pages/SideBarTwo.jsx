@@ -86,7 +86,7 @@ const SideBarTwo = () => {
             )}
             className={`${dash ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
           >
-            <RiDashboard2Line className="text-[#abb9e8] text-2xl" />
+            <RiDashboard2Line className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
           </div>
           <div
             onClick={() => (
@@ -100,7 +100,7 @@ const SideBarTwo = () => {
             )}
             className={`${app ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
           >
-            <RiApps2Line className="text-[#abb9e8] text-2xl" />
+            <RiApps2Line className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
           </div>
           <div
             onClick={() => (
@@ -114,7 +114,7 @@ const SideBarTwo = () => {
             )}
             className={`${layout ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
           >
-            <RiLayout3Line className="text-[#abb9e8] text-2xl " />
+            <RiLayout3Line className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
           </div>
           <div
             onClick={() => (
@@ -128,7 +128,7 @@ const SideBarTwo = () => {
             )}
             className={`${auth ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
           >
-            <RiAuctionFill className="text-[#abb9e8] text-2xl " />
+            <RiAuctionFill className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
           </div>
           <div
             onClick={() => (
@@ -142,7 +142,7 @@ const SideBarTwo = () => {
             )}
             className={`${page ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
           >
-            <RiPagesLine className="text-[#abb9e8] text-2xl " />
+            <RiPagesLine className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
           </div>
           <div
             onClick={() => (
@@ -155,7 +155,7 @@ const SideBarTwo = () => {
             )}
             className={`${landing ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
           >
-            <RiLandscapeFill className="text-[#abb9e8] text-2xl " />
+            <RiLandscapeFill className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
           </div>
         </div>
       </div>
