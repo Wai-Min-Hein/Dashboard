@@ -39,7 +39,6 @@ const SideBarTwo = () => {
   };
 
   const nav = useNavigate()
-  console.log(detached)
 
   const BgImg = (img1&&`bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-1.jpg')]` )||  (img2&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-2.jpg')]`)|| (img3&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-3.jpg')]`)||  (img4&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-4.jpg')]`)
 

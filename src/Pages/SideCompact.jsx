@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 const SideCompact = () => {
   const nav = useNavigate();
-  const { isSideOpen, setIsSideOpen, semi, sideLight, sideDark, sideGradient } =
+  const { isSideOpen, sideLight, sideDark, sideGradient,img,img1,img2,img3,img4 } =
     useContext(StateContext);
 
   const isDesktop = useMediaQuery({
@@ -68,11 +68,35 @@ const SideCompact = () => {
     },
   };
 
+  
+ const BgImg = (img1&&`bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-1.jpg')]` )||  (img2&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-2.jpg')]`)|| (img3&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-3.jpg')]`)||  (img4&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-4.jpg')]`)
+
+
   return (
-    <div className=" bg-primary max-h-screen overflow-y-auto w-[12rem] side-compact">
+    <div className={`${BgImg? BgImg: 'bg-light-side-bar-color'} ${img &&sideLight? 'bg-white  dark:bg-dark-side-bar-color': ''} ${img &&sideDark? 'bg-light-side-bar-color': ''} ${img && sideGradient? ' bg-sideGradient': ''} relative max-h-screen overflow-y-auto w-[12rem] side-compact z-50`}>
+
+
+{
+        (sideDark&& (
+
+          <div className="absolute top-0 left-0 h-full inset-0 bg-gradient-to-t from-[#171e32] to-[#405189] opacity-80 z-[-1]"></div>
+        ))|| (sideGradient&& (
+
+          <div className="absolute top-0 left-0 inset-0 h-full  bg-sideGradient opacity-80  z-[-1]"></div>
+        ))|| (sideLight&& (
+
+          <div className="absolute top-0 left-0 inset-0 h-full bg-gradient-to-t from-[#fff] to-[#fff] opacity-90 z-[-5]"></div>
+
+        ))
+      }
+
+
+
+
+
       <aside
         id="default-sidebar"
-        className="   z-40 w-full h-screen "
+        className="   z-40 w-full "
         aria-label="Sidebar"
       >
         <div className=" my-6 flex  items-center justify-center font-para text-4xl font-extrabold text-center">
@@ -82,7 +106,7 @@ const SideCompact = () => {
             alt=""
           />
         </div>
-        <div className="h-full  py-4  bg-gray-50 dark:bg-gray-800">
+        <div className="  py-4  bg-gray-50 dark:bg-gray-800">
           <ul className="space-y-2 font-medium text-center">
             {isSideOpen && (
               <h1 className=" ms-1 mb-4 p-2 text-light-side-bar-menu-color  text-sm">

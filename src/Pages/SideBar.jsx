@@ -78,13 +78,13 @@ const SideBar = () => {
 
   return (
 
-<div className="">
+<>
   {
     (compact&& <SideCompact/>) || (smallHover && <SmallIconView/>) || (
       <motion.div
       variants={!smPhone? Sidebar_animationR:Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
-      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}  md:w-[16rem] z-[9999] absolute top-0 left-0  w-0 md:relative       ${detached? 'min-h-screen': 'max-h-screen'} overflow-y-auto sideBar ${img &&sideLight? 'bg-white  dark:bg-dark-side-bar-color': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray dark:bg-dark-side-bar-color': ''} ${img &&sideDark? 'bg-light-side-bar-color': ''} ${img && sideGradient? ' bg-sideGradient': ''}`}
+      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}  md:w-[16rem] z-[9999] absolute  top-0 left-0  w-0 md:relative       ${detached? 'min-h-screen': 'max-h-screen'} overflow-y-auto sideBar ${img &&sideLight? 'bg-white  dark:bg-dark-side-bar-color': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray dark:bg-dark-side-bar-color': ''} ${img &&sideDark? 'bg-light-side-bar-color': ''} ${img && sideGradient? ' bg-sideGradient': ''}`}
     >
       {
         (sideDark&& (
@@ -104,11 +104,11 @@ const SideBar = () => {
       variants={!smPhone? Sidebar_animationR:Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
       onClick={() =>setIsSideOpen(false)}
-      className=" bg-gray-btn-bg dark:bg-dark-side-bar-color z-[990] md:z-[-1] fixed md:scale-0 md:ml-0 ml-[16rem] top-0 left-0 w-full md:hidden h-full "></motion.div>
+      className=" bg-gray-btn-bg dark:bg-dark-side-bar-color z-[990] md:z-[-1] fixed  md:scale-0 md:ml-0 ml-[16rem] top-0 left-0 w-full md:hidden "></motion.div>
       
       <aside
         id="default-sidebar"
-        className="   z-40 w-[275px] h-screen "
+        className="   z-40 w-[275px]  "
         aria-label="Sidebar"
       >
         <div className=" my-6 flex  items-center justify-center font-para text-4xl font-extrabold text-center">
@@ -1837,7 +1837,7 @@ const SideBar = () => {
     </motion.div>
     )
   }
-</div>
+</>
      
   
 

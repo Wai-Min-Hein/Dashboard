@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Loader from "./Loader";
 
 const SettingBar = () => {
-  const { setting, setSetting,ver, setVer,hor, setHor,tCol, setTCol,semi, setSemi,lightTheme, setLightTheme,darkTheme, setDarkTheme,fluid, setFluid,boxed, setBoxed,fixed, setFixed,scrollable, setScrollable,lightTop, setLightTop,darkTop, setDarkTop,sizeDefault, setSizeDefault,compact, setCompact,smallIcon, setSmallIcon,smallHover, setSmallHover,viewDefault, setViewDefault,detached, setDetached,sideLight, setSideLight,sideDark, setSideDark,sideGradient, setSideGradient,img,setImg,img1, setImg1,img2, setImg2,img3, setImg3,img4, setImg4,disabled, setDisabled,enabled, setEnabled } = useContext(StateContext);
+  const { setting, setSetting,ver, setVer,hor, setHor,tCol, setTCol,semi, setSemi,lightTheme, setLightTheme,darkTheme, setDarkTheme,fluid, setFluid,boxed, setBoxed,fixed, setFixed,scrollable, setScrollable,lightTop, setLightTop,darkTop, setDarkTop,sizeDefault, setSizeDefault,compact, setCompact,smallIcon, setSmallIcon,smallHover, setSmallHover,viewDefault, setViewDefault,detached, setDetached,sideLight, setSideLight,sideDark, setSideDark,sideGradient, setSideGradient,img,setImg,img1, setImg1,img2, setImg2,img3, setImg3,img4, setImg4,disabled, setDisabled,enabled, setEnabled, setTheme } = useContext(StateContext);
   const barVariant = {
     open: { x: "0", opacity: 1, transition: { duration: 0.25 } },
     closed: { x: "100%", opacity: 0, transition: { duration: 0.25 } },
@@ -192,7 +192,7 @@ const SettingBar = () => {
 
           <div className="flex items-stretch justify-start gap-6  mt-4 flex-wrap">
             <div onClick={() => (
-              setLightTheme(true), setDarkTheme(false)
+              setLightTheme(true), setDarkTheme(false),setTheme('light')
             )} className="bg-white  basis-[30%] relative cursor-pointer">
               <span className="absolute top-[1rem] right-[1rem] radio-btn">
                 {
@@ -218,7 +218,7 @@ const SettingBar = () => {
               <p className="text-sm pt-2 text-center">Light</p>
             </div>
             <div onClick={() => (
-              setLightTheme(false), setDarkTheme(true)
+              setLightTheme(false), setDarkTheme(true),setTheme('dark')
             )} className="bg-dark  basis-[30%] relative cursor-pointer">
               <span className="absolute top-[1rem] right-[1rem] radio-btn">
                 {
@@ -340,10 +340,10 @@ const SettingBar = () => {
 
         <div className="top-bar-color  px-4 py-4">
         <h6 className="text-sm uppercase font-medium text-light-header-color">
-            Color Theme
+        TOPBAR COLOR
           </h6>
           <p className="text-xs tracking-wide font-normal text-light-header-color">
-          Light or Dark Scheme.
+          Choose Light or Dark Topbar Color.
           </p>
 
           <div className="flex items-stretch justify-start gap-6  mt-4 flex-wrap">
@@ -524,7 +524,7 @@ const SettingBar = () => {
                   <div className="bg-gray-300  px-1 py-1 "></div>
                 </div>
               </div>
-              <p className="text-sm pt-2 text-center">Small Hover View</p>
+              <p className="text-sm pt-2 text-center">Small Hover View (Not work)</p>
             </div>
             
           
@@ -858,7 +858,7 @@ const SettingBar = () => {
         onClick={() => setSetting(false)}
         className={`${
           setting
-            ? "block w-screen h-screen bg-[rgba(135,138,153,0.4)] dark:bg-[rgba(62,62,63,0.29)] fixed top-0 left-0 z-[1999]"
+            ? "block w-screen h-screen bg-[rgba(135,138,153,0.4)] dark:bg-[rgba(62,62,63,0.29)] fixed top-0 left-0 z-[1099]"
             : "hidden"
         }`}
       ></motion.div>

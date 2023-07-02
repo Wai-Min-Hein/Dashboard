@@ -2139,6 +2139,10 @@ html {
   z-index: 50;
 }
 
+.z-\[-10\]{
+  z-index: -10;
+}
+
 .z-\[-1\]{
   z-index: -1;
 }
@@ -2159,8 +2163,8 @@ html {
   z-index: 100;
 }
 
-.z-\[1999\]{
-  z-index: 1999;
+.z-\[1099\]{
+  z-index: 1099;
 }
 
 .z-\[1\]{
@@ -2560,6 +2564,38 @@ html {
   max-height: 100vh;
 }
 
+.max-h-full{
+  max-height: 100%;
+}
+
+.max-h-\[\]{
+  max-height: ;
+}
+
+.max-h-\[90vh\]{
+  max-height: 90vh;
+}
+
+.max-h-\[calc\]{
+  max-height: calc;
+}
+
+.max-h-\[calc\(\)\]{
+  max-height: calc();
+}
+
+.max-h-\[calc\(100vh-\)\]{
+  max-height: calc(100vh - );
+}
+
+.max-h-\[calc\(100vh-70px\)\]{
+  max-height: calc(100vh - 70px);
+}
+
+.max-h-\[calc\(100vh-700px\)\]{
+  max-height: calc(100vh - 700px);
+}
+
 .\!min-h-\[300px\]{
   min-height: 300px !important;
 }
@@ -2930,6 +2966,10 @@ html {
 
 .overflow-x-hidden{
   overflow-x: hidden;
+}
+
+.overflow-y-hidden{
+  overflow-y: hidden;
 }
 
 .overflow-y-scroll{
