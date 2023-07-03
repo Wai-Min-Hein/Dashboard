@@ -1,7 +1,10 @@
 import { createContext, useEffect, useMemo, useState } from "react"
+import { useMediaQuery } from "react-responsive";
 
 export const StateContext = createContext()
 const StateContextProvider = ({children}) => {
+
+ 
 
   const [isSideOpen, setIsSideOpen] = useState(true);
 

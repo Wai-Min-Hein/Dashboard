@@ -14,6 +14,7 @@ import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { StateContext } from "../Context/StateContext";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 const SideBarTwo = () => {
   const { isSideOpen,setIsSideOpen, tCol,sideLight,sideDark,sideGradient,detached,img,img1,img2,img3,img4  } = useContext(StateContext);
   const [dash, setDash] = useState(true);
@@ -42,13 +43,69 @@ const SideBarTwo = () => {
 
   const BgImg = (img1&&`bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-1.jpg')]` )||  (img2&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-2.jpg')]`)|| (img3&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-3.jpg')]`)||  (img4&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-4.jpg')]`)
 
+  
+  const isDesktop = useMediaQuery({
+    query: "(min-width: 1537px)",
+  });
+  const laptop = useMediaQuery({
+    query: "(min-width: 1280px)",
+  });
+  const tablet = useMediaQuery({
+    query: "(min-width: 1024px)",
+  });
+
+  const phone = useMediaQuery({
+    query: "(min-width: 768px)",
+  });
+
+  const smPhone = useMediaQuery({
+    query: "(min-width: 640px)",
+  });
+
+  const Sidebar_animation = {
+    open: {
+      width: "16rem",
+      transition: {
+        damping: 40,
+      },
+    },
+    closed: {
+      width: "5rem",
+      transition: {
+        damping: 40,
+      },
+    },
+  };
+
+  const Sidebar_animationR = {
+    open: {
+      width: "16rem",
+      x:0,
+      transition: {
+        damping: 40,
+      },
+    },
+    closed: {
+      width: "0",
+      x:'-100px',
+      transition: {
+        damping: 40,
+      },
+    },
+  };
+
 
   return (
     <motion.div
-      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}  z-[9999]    overflow-y-auto sideBar relative ${
+    variants={!tablet? Sidebar_animationR:Sidebar_animation}
+      animate={isSideOpen ? "open" : "closed"}
+      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}  z-[9999] absolute    overflow-y-auto sideBar lg:relative ${
         isSideOpen ? "!w-[18rem] " : "!w-[4rem] "
-      } flex justify-start items-stretch ${img&&sideLight? 'bg-white text-gray': ''} ${img&&sideDark? 'bg-light-side-bar-color dark:bg-dark-side-bar-color': ''} ${img&&sideGradient? ' bg-sideGradient': ''} ${detached? 'min-h-screen': 'max-h-screen'}`}
+      } flex justify-start items-stretch ${img&&sideLight? 'bg-white text-gray': ''} ${img&&sideDark? 'bg-light-side-bar-color dark:bg-dark-side-bar-color': ''} ${img&&sideGradient? ' bg-sideGradient': ''} ${detached? 'min-h-screen': 'h-screen'}`}
     >
+      <motion.div
+      onClick={() =>setIsSideOpen(false)}
+      className={`bg-gray-btn-bg  z-[990] lg:z-[-1] fixed  lg:scale-0 lg:ml-0 ml-[18rem] h-screen top-0 left-0  lg:hidden px-1 ${isSideOpen? '!w-full': 'w-0'}`}></motion.div>
 
 {
         (sideDark&& (

@@ -82,9 +82,9 @@ const SideBar = () => {
   {
     (compact&& <SideCompact/>) || (smallHover && <SmallIconView/>) || (
       <motion.div
-      variants={!smPhone? Sidebar_animationR:Sidebar_animation}
+      variants={!tablet? Sidebar_animationR:Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
-      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}   md:w-[16rem] z-[9999]   top-0 left-0  w-0 md:relative       ${detached? 'min-h-screen': 'max-h-screen'} overflow-y-auto sideBar ${img &&sideLight? 'bg-white  dark:bg-dark-side-bar-color': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray dark:bg-dark-side-bar-color': ''} ${img &&sideDark? 'bg-light-side-bar-color': ''} ${img && sideGradient? ' bg-sideGradient': ''}`}
+      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}   md:w-[16rem] z-[9999]  absolute  top-0 left-0  w-0 lg:relative       ${detached? 'min-h-screen': 'max-h-screen'} overflow-y-auto sideBar ${img &&sideLight? 'bg-white  dark:bg-dark-side-bar-color': ''} ${semi? 'ml-3 my-6 rounded-md bg-gray dark:bg-dark-side-bar-color': ''} ${img &&sideDark? 'bg-light-side-bar-color': ''} ${img && sideGradient? ' bg-sideGradient': ''}`}
     >
       
       {
@@ -102,10 +102,10 @@ const SideBar = () => {
       }
 
       <motion.div
-      variants={!smPhone? Sidebar_animationR:Sidebar_animation}
+      variants={!tablet? Sidebar_animationR:Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
       onClick={() =>setIsSideOpen(false)}
-      className=" bg-gray-btn-bg dark:bg-dark-side-bar-color z-[990] md:z-[-1] fixed  md:scale-0 md:ml-0 ml-[16rem] top-0 left-0 w-full md:hidden "></motion.div>
+      className=" bg-gray-btn-bg  z-[990] lg:z-[-1] fixed  lg:scale-0 lg:ml-0 ml-[16rem] h-screen top-0 left-0 !w-full lg:hidden px-1"></motion.div>
       
       <aside
         id="default-sidebar"
@@ -163,7 +163,7 @@ const SideBar = () => {
                 aria-controls="dropdown-example"
                 data-collapse-toggle="dropdown-example"
               >
-                  <RiDashboard2Line className=" text-inherit  text-2xl" />
+                  <RiDashboard2Line onClick={()=> setIsSideOpen(true)} className=" text-inherit  text-2xl" />
                 <span
                   className={`${
                     isSideOpen ? "inline-block" : "hidden"
@@ -188,7 +188,7 @@ const SideBar = () => {
                   ></path>
                 </svg>
               </button>
-              <ul id="dropdown-example" className="w-full  hidden py-2 space-y-2">
+              <ul id="dropdown-example" className={`w-full   py-2 space-y-2 ${isSideOpen? '': 'hidden'}`}>
                 <li className=" text-inherit  pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
@@ -270,7 +270,7 @@ const SideBar = () => {
                 aria-controls="dropdown-example1"
                 data-collapse-toggle="dropdown-example1"
               >
-                  <RiApps2Line className=" text-inherit  text-2xl" />
+                  <RiApps2Line  onClick={()=> setIsSideOpen(true)}  className=" text-inherit  text-2xl" />
                 <span
                   className={`${
                     isSideOpen ? "inline-block" : "hidden"
@@ -295,7 +295,7 @@ const SideBar = () => {
                   ></path>
                 </svg>
               </button>
-              <ul id="dropdown-example1" className="hidden py-2 space-y-2 ">
+              <ul id="dropdown-example1" className={`w-full   py-2 space-y-2 ${isSideOpen? '': 'hidden'}`}>
                 <li className=" text-inherit  pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
@@ -1050,7 +1050,7 @@ const SideBar = () => {
                 href="#"
                 className="flex items-center justify-start p-2 text-inherit rounded-lg dark:text-white  dark:hover:bg-gray-700"
               >
-                <RiLayout3Line className=" text-inherit text-inherit text-2xl" />
+                <RiLayout3Line  onClick={()=> setIsSideOpen(true)}  className="  text-inherit text-2xl" />
                 <span
                   className={`${
                     isSideOpen ? "inline-block" : "hidden"
@@ -1085,7 +1085,7 @@ const SideBar = () => {
                 aria-controls="dropdown-example11"
                 data-collapse-toggle="dropdown-example11"
               >
-                <RiAccountCircleLine className=" text-inherit  text-2xl" />
+                <RiAccountCircleLine  onClick={()=> setIsSideOpen(true)}  className=" text-inherit  text-2xl" />
                 <span
                   className={`${
                     isSideOpen ? "inline-block" : "hidden"
@@ -1110,7 +1110,7 @@ const SideBar = () => {
                   ></path>
                 </svg>
               </button>
-              <ul id="dropdown-example11" className="  hidden py-2 space-y-2">
+              <ul id="dropdown-example11" className={`w-full   py-2 space-y-2 ${isSideOpen? '': 'hidden'}`}>
                 <li>
                   <button
                     type="button"
@@ -1620,7 +1620,7 @@ const SideBar = () => {
                 aria-controls="dropdown-example12"
                 data-collapse-toggle="dropdown-example12"
               >
-                <RiPagesLine className="  text-inherit  text-2xl" />
+                <RiPagesLine  onClick={()=> setIsSideOpen(true)}  className="  text-inherit  text-2xl" />
                 <span
                   className={`${
                     isSideOpen ? "inline-block" : "hidden"
@@ -1645,7 +1645,7 @@ const SideBar = () => {
                   ></path>
                 </svg>
               </button>
-              <ul id="dropdown-example12" className="hidden py-2 space-y-2">
+              <ul id="dropdown-example12" className={`w-full   py-2 space-y-2 ${isSideOpen? '': 'hidden'}`}>
                 <li className=" text-inherit  pb-2 flex  w-1/3 items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a
@@ -1798,7 +1798,7 @@ const SideBar = () => {
                 aria-controls="dropdown-example40"
                 data-collapse-toggle="dropdown-example40"
               >
-                <RiRocketLine className=" text-inherit text-inherit text-2xl" />
+                <RiRocketLine  onClick={()=> setIsSideOpen(true)}  className=" ttext-inherit text-2xl" />
                 <span
                   className={`${
                     isSideOpen ? "inline-block" : "hidden"
@@ -1823,7 +1823,7 @@ const SideBar = () => {
                   ></path>
                 </svg>
               </button>
-              <ul id="dropdown-example40" className="  hidden py-2 space-y-2">
+              <ul id="dropdown-example40" className={`w-full   py-2 space-y-2 ${isSideOpen? '': 'hidden'}`}>
                 <li className=" text-inherit  pb-2 flex  w-full items-center">
                   <span className=" text-inherit ps-4">-</span>
                   <a

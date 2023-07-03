@@ -23,8 +23,13 @@ import SideCompact from "./Pages/SideCompact";
 import TopBar from "./Pages/TopBar";
 import SideBarHor from "./Pages/SideBarHor";
 import SmallIconView from "./Pages/SmallIconView";
+import { useMediaQuery } from "react-responsive";
 
 const App = () => {
+
+  const tablet = useMediaQuery({
+    query: "(min-width: 1024px)",
+  });
   const variant = {
     open: { rotate: 360, transition: { duration: 3, repeat: Infinity } },
     closed: { transition: { duration: 0 } },
@@ -53,19 +58,19 @@ const App = () => {
       className={`flex items-stretch justify-start   font-para relative bg-light-gray-bg  dark:bg-dark  ${boxed ? "mx-[6rem]" : ""}`}
     >
       
-        {
-        location.pathname == "/password-reset" ? (
-          <div className="w-0 h-0"></div>
-        ) : hor ? (
-          ""
-        ) : tCol ? (
-          <SideBarTwo />
-        ) : (
-          <SideBar />
-        )
-
-        
-      }
+      {
+  location.pathname == "/password-reset" ? (
+    <div className="w-0 h-0"></div>
+  ) : tablet? ((hor ? (
+    ""
+  ) : tCol ? (
+    <SideBarTwo />
+  ) : (
+    <SideBar />
+  )
+)): <SideBar/>
+  
+}
 
       <motion.span
         initial={"closed"}
@@ -100,14 +105,14 @@ className={`flex items-stretch justify-start max-h-screen  font-para relative bg
   {
   location.pathname == "/password-reset" ? (
     <div className="w-0 h-0"></div>
-  ) : hor ? (
+  ) : tablet? ((hor ? (
     ""
   ) : tCol ? (
     <SideBarTwo />
   ) : (
     <SideBar />
   )
-
+)): <SideBar/>
   
 }
 
@@ -116,7 +121,7 @@ className={`flex items-stretch justify-start max-h-screen  font-para relative bg
   animate={"open"}
   variants={variant}
   onClick={() => setSetting(!setting)}
-  className="fixed z-[1000] px-4 py-4 rounded-full bg-info bottom-[2rem] right-[2rem] cursor-pointer hidden md:block"
+  className="fixed z-[1000] px-4 py-4 rounded-full bg-info bottom-[2rem] right-[2rem] cursor-pointer hidden lg:block"
 >
   <FiSettings className=" text-white font-semibold text-xl " />
 </motion.span>
