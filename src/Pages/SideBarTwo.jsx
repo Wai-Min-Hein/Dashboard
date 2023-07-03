@@ -105,7 +105,7 @@ const SideBarTwo = () => {
     >
       <motion.div
       onClick={() =>setIsSideOpen(false)}
-      className={`bg-gray-btn-bg  z-[990] lg:z-[-1] fixed  lg:scale-0 lg:ml-0 ml-[18rem] h-screen top-0 left-0  lg:hidden px-1 ${isSideOpen? '!w-full': 'w-0'}`}></motion.div>
+      className={`bg-gray-btn-bg z-[-1] fixed  lg:scale-0 lg:ml-0 ml-[18rem] h-screen top-0 left-0  lg:hidden px-1 ${isSideOpen? '!w-full': 'w-0'}`}></motion.div>
 
 {
         (sideDark&& (

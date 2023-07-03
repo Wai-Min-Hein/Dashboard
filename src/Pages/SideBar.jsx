@@ -105,7 +105,7 @@ const SideBar = () => {
       variants={!tablet? Sidebar_animationR:Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
       onClick={() =>setIsSideOpen(false)}
-      className=" bg-gray-btn-bg  z-[990] lg:z-[-1] fixed  lg:scale-0 lg:ml-0 ml-[16rem] h-screen top-0 left-0 !w-full lg:hidden px-1"></motion.div>
+      className=" bg-gray-btn-bg z-[-1] fixed  lg:scale-0 lg:ml-0 ml-[16rem] h-screen top-0 left-0 !w-full lg:hidden px-1"></motion.div>
       
       <aside
         id="default-sidebar"
