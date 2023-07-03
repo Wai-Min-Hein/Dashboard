@@ -72,7 +72,7 @@ const TopBar = () => {
       <div className="flex items-center gap-4">
         <HiOutlineMenuAlt2
           onClick={() => setIsSideOpen(!isSideOpen)}
-          className={`text-light-btn-color text-2xl cursor-pointer ${boxed ? 'hidden': ''}`}
+          className={`text-light-btn-color text-2xl cursor-pointer ${boxed ? '': ''}`}
         />
         <div className={` hidden md:flex items-center justify-start ${lightTop? 'bg-light-gray-bg ': 'bg-dark'}  dark:bg-dark px-3 py-2 rounded-md gap-3  font-para`}>
           <AiOutlineSearch className="text-light-btn-color text-xl font-semibold" />

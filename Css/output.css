@@ -3542,6 +3542,11 @@ html {
   padding-bottom: 0.35em;
 }
 
+.px-\[6rem\]{
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
 .pb-2{
   padding-bottom: 0.5rem;
 }

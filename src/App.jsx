@@ -55,7 +55,7 @@ const App = () => {
       <div className="max-h-screen">
       <TopBar/>
       <div
-      className={`flex items-stretch justify-start   font-para relative bg-light-gray-bg  dark:bg-dark  ${boxed ? "mx-[6rem]" : ""}`}
+      className={`flex items-stretch justify-start   font-para relative bg-light-gray-bg  dark:bg-dark  ${boxed ? "px-[6rem]" : ""}`}
     >
       
       {
@@ -99,7 +99,7 @@ const App = () => {
     ): (
 
 <div
-className={`flex items-stretch justify-start max-h-screen  font-para relative bg-light-gray-bg  dark:bg-dark  ${boxed ? "mx-[6rem]" : ""}`}
+className={`flex items-stretch justify-start max-h-screen  font-para relative bg-light-gray-bg  dark:bg-dark  ${boxed ? "px-[6rem]" : ""}`}
 >
 
   {
