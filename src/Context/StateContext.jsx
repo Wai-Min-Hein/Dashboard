@@ -14,7 +14,7 @@ const states = JSON.parse(localStorage.getItem('states'))
 const [theme, setTheme] = useState('light')
 useEffect(() => {
 states?.theme? setTheme(states.theme): setTheme('light')
-}, [theme])
+}, [])
 
     const [sideBar, setSideBar] = useState(true)
     const [setting, setSetting] = useState(false)
