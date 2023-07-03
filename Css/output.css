@@ -2249,11 +2249,6 @@ html {
   margin-right: 0rem;
 }
 
-.mx-\[6rem\]{
-  margin-left: 6rem;
-  margin-right: 6rem;
-}
-
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -2371,6 +2366,10 @@ html {
   margin-left: 16rem;
 }
 
+.ml-\[18rem\]{
+  margin-left: 18rem;
+}
+
 .ml-\[4rem\]{
   margin-left: 4rem;
 }
@@ -2430,10 +2429,6 @@ html {
 
 .mt-8{
   margin-top: 2rem;
-}
-
-.ml-\[18rem\]{
-  margin-left: 18rem;
 }
 
 .block{
@@ -2528,10 +2523,6 @@ html {
   height: 2.35rem;
 }
 
-.h-\[20rem\]{
-  height: 20rem;
-}
-
 .h-\[280px\]{
   height: 280px;
 }
@@ -2586,6 +2577,10 @@ html {
 
 .\!w-\[4rem\]{
   width: 4rem !important;
+}
+
+.\!w-full{
+  width: 100% !important;
 }
 
 .w-0{
@@ -2730,10 +2725,6 @@ html {
 
 .w-screen{
   width: 100vw;
-}
-
-.\!w-full{
-  width: 100% !important;
 }
 
 .min-w-full{
@@ -3492,6 +3483,11 @@ html {
   padding-right: 5rem;
 }
 
+.px-\[6rem\]{
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
 .px-\[9rem\]{
   padding-left: 9rem;
   padding-right: 9rem;
@@ -3540,11 +3536,6 @@ html {
 .py-\[0\.35em\]{
   padding-top: 0.35em;
   padding-bottom: 0.35em;
-}
-
-.px-\[6rem\]{
-  padding-left: 6rem;
-  padding-right: 6rem;
 }
 
 .pb-2{
@@ -4421,11 +4412,6 @@ th{
   outline-offset: 2px;
 }
 
-:is(.dark .dark\:border-dark){
-  --tw-border-opacity: 1;
-  border-color: rgb(33 37 41 / var(--tw-border-opacity));
-}
-
 :is(.dark .dark\:border-dark-side-bar-color){
   --tw-border-opacity: 1;
   border-color: rgb(33 37 41 / var(--tw-border-opacity));
@@ -4434,6 +4420,11 @@ th{
 :is(.dark .dark\:border-gray-700){
   --tw-border-opacity: 1;
   border-color: rgb(73 80 87 / var(--tw-border-opacity));
+}
+
+:is(.dark .dark\:border-gray-800){
+  --tw-border-opacity: 1;
+  border-color: rgb(52 58 64 / var(--tw-border-opacity));
 }
 
 :is(.dark .dark\:border-gray-dark){
@@ -4602,10 +4593,6 @@ th{
 }
 
 @media (min-width: 640px){
-  .sm\:relative{
-    position: relative;
-  }
-
   .sm\:mx-0{
     margin-left: 0px;
     margin-right: 0px;
@@ -4622,10 +4609,6 @@ th{
 
   .sm\:mt-96{
     margin-top: 24rem;
-  }
-
-  .sm\:hidden{
-    display: none;
   }
 
   .sm\:h-\[380px\]{
@@ -4805,12 +4788,12 @@ th{
     position: relative;
   }
 
-  .lg\:z-\[-1\]{
-    z-index: -1;
-  }
-
   .lg\:mb-0{
     margin-bottom: 0px;
+  }
+
+  .lg\:ml-0{
+    margin-left: 0px;
   }
 
   .lg\:mt-0{
@@ -4819,10 +4802,6 @@ th{
 
   .lg\:mt-4{
     margin-top: 1rem;
-  }
-
-  .lg\:ml-0{
-    margin-left: 0px;
   }
 
   .lg\:block{
