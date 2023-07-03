@@ -72,6 +72,10 @@ const states = JSON.parse(localStorage.getItem('states'))
 }, [LsStates]) 
 
 
+
+
+
+
     const data = {isSideOpen, setIsSideOpen,theme, setTheme,sideBar, setSideBar,setting, setSetting,ver, setVer,hor, setHor,tCol, setTCol,semi, setSemi,lightTheme, setLightTheme,darkTheme, setDarkTheme,fluid, setFluid,boxed, setBoxed,fixed, setFixed,scrollable, setScrollable,lightTop, setLightTop,darkTop, setDarkTop,sizeDefault, setSizeDefault,compact, setCompact,smallIcon, setSmallIcon,smallHover, setSmallHover,viewDefault, setViewDefault,detached, setDetached,sideLight, setSideLight,sideDark, setSideDark,sideGradient, setSideGradient,img, setImg,img1, setImg1,img2, setImg2,img3, setImg3,img4, setImg4,disabled, setDisabled,enabled, setEnabled}
 
   return (

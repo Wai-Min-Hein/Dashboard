@@ -196,12 +196,12 @@ const SideBarTwo = () => {
             onClick={() => nav('/')}
             className=" text-inherit pb-2 flex  w-1/3 items-center">
                 <span className=" text-inherit ps-4">-</span>
-                <apan
+                <span
                 
                 className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary"
                 >
                 Ecommerce
-                </apan>
+                </span>
             </li>
             <li className=" text-inherit pb-2 flex  w-1/3 items-center">
                 <span className=" text-inherit ps-4">-</span>

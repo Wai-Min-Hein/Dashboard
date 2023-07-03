@@ -5,9 +5,10 @@ import { BiSolidCheckCircle } from "react-icons/bi";
 import { StateContext } from "../Context/StateContext";
 import { motion } from "framer-motion";
 import Loader from "./Loader";
+import { theme } from "flowbite-react";
 
 const SettingBar = () => {
-  const { setting, setSetting,ver, setVer,hor, setHor,tCol, setTCol,semi, setSemi,lightTheme, setLightTheme,darkTheme, setDarkTheme,fluid, setFluid,boxed, setBoxed,fixed, setFixed,scrollable, setScrollable,lightTop, setLightTop,darkTop, setDarkTop,sizeDefault, setSizeDefault,compact, setCompact,smallIcon, setSmallIcon,smallHover, setSmallHover,viewDefault, setViewDefault,detached, setDetached,sideLight, setSideLight,sideDark, setSideDark,sideGradient, setSideGradient,img,setImg,img1, setImg1,img2, setImg2,img3, setImg3,img4, setImg4,disabled, setDisabled,enabled, setEnabled, setTheme } = useContext(StateContext);
+  const { setting, setSetting,ver, setVer,hor, setHor,tCol, setTCol,semi, setSemi,lightTheme, setLightTheme,darkTheme, setDarkTheme,fluid, setFluid,boxed, setBoxed,fixed, setFixed,scrollable, setScrollable,lightTop, setLightTop,darkTop, setDarkTop,sizeDefault, setSizeDefault,compact, setCompact,smallIcon, setSmallIcon,smallHover, setSmallHover,viewDefault, setViewDefault,detached, setDetached,sideLight, setSideLight,sideDark, setSideDark,sideGradient, setSideGradient,img,setImg,img1, setImg1,img2, setImg2,img3, setImg3,img4, setImg4,disabled, setDisabled,enabled, setEnabled, setTheme,theme } = useContext(StateContext);
   const barVariant = {
     open: { x: "0", opacity: 1, transition: { duration: 0.25 } },
     closed: { x: "100%", opacity: 0, transition: { duration: 0.25 } },
@@ -17,8 +18,9 @@ const SettingBar = () => {
     closed: { opacity: 0, transition: { duration: 0.25 } },
   };
 
-  
-
+useEffect(() => {
+  theme=='light'?(setLightTheme(true), setDarkTheme(false)): (setLightTheme(false), setDarkTheme(true))
+}, [theme])
   // useEffect(() => {
   //   const obj= {ver,hor,tCol,semi,lightTheme,darkTheme,fluid,boxed,fixed,scrollable,lightTop,darkTop,sizeDefault,compact,smallIcon,smallHover,viewDefault,detached,sideLight,sideDark,sideGradient}
   //   localStorage.setItem('states', JSON.stringify(obj))
