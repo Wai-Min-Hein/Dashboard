@@ -131,7 +131,7 @@ const TopBar = () => {
         <span className="bg-gr cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full relative">
           <BiCategoryAlt
             onClick={handleCategory}
-            className={`text-[23px]  font-normal hover:text-blue ${lightTop? '': 'text-gray-400'}`}
+            className={`text-[23px] dark:text-gray-400 font-normal hover:text-blue ${lightTop? '': 'text-gray-400 '}`}
           />
           <div
             className={
