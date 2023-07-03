@@ -197,7 +197,7 @@ const TopBar = () => {
         </span>
         <span className="bg-gr cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full relative">
           <div className="" onClick={handleCart}>
-            <BiShoppingBag className={`text-[23px]  font-normal hover:text-blue ${lightTop? '': 'text-gray-400'}`} />
+            <BiShoppingBag className={`text-[23px] dark:text-gray-400 font-normal hover:text-blue ${lightTop? '': 'text-gray-400 '}`} />
             <span className="absolute top-[-2px] py-[0.25em] px-[0.60em] text-white right-[-2px] text-[10px] rounded-full bg-info">
               5
             </span>
@@ -350,14 +350,14 @@ const TopBar = () => {
         </span>
 
         <span className="cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full">
-          <BiFullscreen className={`text-[23px]  font-normal hover:text-blue ${lightTop? '': 'text-gray-400'}`} />
+          <BiFullscreen className={`text-[23px] dark:text-gray-400 font-normal hover:text-blue ${lightTop? '': 'text-gray-400 '}`} />
         </span>
 
         <ThemeSwitcher className="text-[23px] dark:text-gray-400 font-normal" />
 
          <span className=" cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full relative mr-1 md:mr-4">
           <div className="" onClick={handleNotification}>
-            <IoMdNotificationsOutline className={`text-[23px]  font-normal hover:text-blue ${lightTop? '': 'text-gray-400'}`} />
+            <IoMdNotificationsOutline className={`text-[23px] dark:text-gray-400 font-normal hover:text-blue ${lightTop? '': 'text-gray-400 '}`} />
             <span className="absolute top-[-2px] py-[0.25em] px-[0.60em] text-white right-[-2px] text-[10px] rounded-full bg-danger">
               3
             </span>
