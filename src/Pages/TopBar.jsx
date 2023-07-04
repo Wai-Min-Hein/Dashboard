@@ -2,7 +2,7 @@ import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BiCategoryAlt, BiBadgeCheck } from "react-icons/bi";
 import { BiShoppingBag, BiMessageSquareDots } from "react-icons/bi";
-import { BiFullscreen } from "react-icons/bi";
+import { BiFullscreen,BiExitFullscreen } from "react-icons/bi";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import {
   RiArrowRightSLine,
@@ -12,7 +12,7 @@ import {
 import { RxClock } from "react-icons/rx";
 import admin from "../../Image/admin.jpg";
 import ThemeSwitcher from "../Common/ThemeSwitcher";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StateContext } from "../Context/StateContext";
 import "../../Css/Topbar.css";
 import SideBarHor from "./SideBarHor";
@@ -33,7 +33,7 @@ const TopBar = () => {
   const [cart,setCart] = useState(false)
   const [notification,setNotification] = useState(false)
   const [flags,setFlags] = useState(false)
-
+  const [isFullScreen,setIsFullScreen] = useState(true)
     
   const handleCart = ()=>{
     setCategory(false)
@@ -60,6 +60,14 @@ const TopBar = () => {
     setNotification(false)
     setFlags(!flags)
   }
+    const onFullScreenChange = ()=>{
+      setIsFullScreen(!isFullScreen)
+      if(isFullScreen === true){
+          document.documentElement.requestFullscreen()
+      }else{
+        document.exitFullscreen()
+      }
+    }
 
   return (
     <div className={`topbar ${lightTop? 'bg-white': 'bg-dark-bg-color'} dark:bg-dark-bg-color  sticky top-0 ${detached? 'z-[9999999]': 'z-[99999]'}    w-full`}>
@@ -349,8 +357,15 @@ const TopBar = () => {
           </div>
         </span>
 
-        <span className="cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full">
-          <BiFullscreen className={`text-[23px] dark:text-gray-400 font-normal hover:text-blue ${lightTop? '': 'text-gray-400 '}`} />
+        <span onClick={onFullScreenChange} className="cursor-pointer hover:bg-blue-btn-bg px-1 md:px-3 py-3 rounded-full">
+          {
+            isFullScreen ? (
+              <BiFullscreen className={`text-[23px] dark:text-gray-400 font-normal hover:text-blue ${lightTop? '': 'text-gray-400 '}`} />
+
+            ) : (
+              <BiExitFullscreen className={`text-[23px] dark:text-gray-400 font-normal hover:text-blue ${lightTop? '': 'text-gray-400 '}`} />
+            )
+          }
         </span>
 
         <ThemeSwitcher className="text-[23px] dark:text-gray-400 font-normal" />
