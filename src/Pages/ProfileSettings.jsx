@@ -166,27 +166,27 @@ const ProfileSettings = () => {
                 <ul className="flex cursor-pointer text-light-side-bar-color dark:text-light ps-2">
                   <motion.li
                     onClick={(e) => setTab("PersonalDetails")}
-                    className={`p-3  ${tab === "PersonalDetails" && "active"}`}
+                    className={`p-3  ${tab === "PersonalDetails" && "active dark:text-light-side-bar-text-color"}`}
                     transition={{ delay: 1 }}
                   >
                     Personal Detail
                   </motion.li>
                   <motion.li
                     onClick={(e) => setTab("ChangePassword")}
-                    className={`p-3  ${tab === "ChangePassword" && "active"}`}
+                    className={`p-3  ${tab === "ChangePassword" && "active dark:text-light-side-bar-text-color"}`}
                     transition={{ delay: 1 }}
                   >
                     Change Password
                   </motion.li>
                   <li
                     onClick={(e) => setTab("Experience")}
-                    className={`p-3  ${tab === "Experience" && "active"}`}
+                    className={`p-3  ${tab === "Experience" && "active dark:text-light-side-bar-text-color"}`}
                   >
                     Experience
                   </li>
                   <li
                     onClick={(e) => setTab("PrivacyPolicy")}
-                    className={`p-3  ${tab === "PrivacyPolicy" && "active"}`}
+                    className={`p-3  ${tab === "PrivacyPolicy" && "active dark:text-light-side-bar-text-color"}`}
                   >
                     Privacy Policy
                   </li>
