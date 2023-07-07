@@ -213,6 +213,18 @@ table td{
 .projects a{
     font-size: 13px ;
 }
+
+.doc table td {
+    color: inherit !important;
+    padding: 0.75rem 0.6rem;
+}
+.doc .dropdown-divider {
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #e9ebec !important;
+    opacity: 1;
+}
 footer {
     bottom: 0;
     padding: 20px calc(1.5rem * .5);
