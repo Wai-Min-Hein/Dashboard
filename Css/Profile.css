@@ -22,6 +22,9 @@ h1,h2{
     color: #495057;
     font-size: 16px !important;
 }
+h6{
+    font-size: 13px;
+}
 p{
     font-size: 13px;
     /* color: rgba(255,255,255,.5); */
@@ -61,6 +64,7 @@ p{
 .anna{
     font-size: calc(1.2671875rem + .20625vw);
 }
+
 .profile-content .card{
     margin-bottom: 1.5rem;
     box-shadow: 0 1px 2px rgba(56,65,74,.15);
@@ -93,11 +97,18 @@ p{
     cursor: pointer;
 }
 .nav-edite li{
+    transition: all .4s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
     transform: translateX(-10);
+    border-radius: 5px;
 }
 .nav-edite li:hover{
     background: #ffffff1a;
-    border-radius: 5px;
+}
+.nav-edite .active{
+    background-color: #ffffff1a;
 }
 .nav-link:hover{
     color: #fff;
@@ -197,6 +208,10 @@ table td{
 .profile-project-card {
     border: 1px solid #e9ebec;
     border-left: 3px solid #e9ebec;
+}
+/* projects  */
+.projects a{
+    font-size: 13px ;
 }
 footer {
     bottom: 0;
