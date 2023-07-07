@@ -24,6 +24,10 @@ import TopBar from "./Pages/TopBar";
 import SideBarHor from "./Pages/SideBarHor";
 import SmallIconView from "./Pages/SmallIconView";
 import { useMediaQuery } from "react-responsive";
+import Overview from "./Pages/Profile/Overview";
+import Activities from "./Pages/Profile/Activities";
+import Projects from "./Pages/Profile/Projects";
+import Docu from "./Pages/Profile/Docu";
 
 const App = () => {
 
@@ -133,7 +137,12 @@ className={`flex items-stretch justify-start max-h-screen  font-para relative bg
   <Route path="/test" element={<Test />} />
 
   {/* <Route path="/" element={<Home />} /> */}
-  <Route path="/profile" element={<Profile />} />
+  <Route exact path="/profile" element={<Profile />} >
+    <Route index element={<Overview/>}/>
+    <Route path="activities" element={<Activities/>   }/>
+    <Route path="projects" element={<Projects/>}/>
+    <Route path="documents" element={<Docu/>}/>
+  </Route>
   <Route path="/password-reset" element={<PasswordReset />} />
   <Route path="/" element={<Ecommerce />} />
 </Routes>

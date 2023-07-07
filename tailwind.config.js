@@ -97,6 +97,13 @@ export default {
         info: "#299cdb",
         warning: "#f7b84b",
         danger: "#f06548",
+        bgsuccess: "#0ab39c2e",
+        bgprimary : "#4051892e",
+        bgsecondary : "#3577f12e",
+        bginfo : "#299cdb2e",
+        bgdanger : "#f065482e",
+        bggreen : "#0ab39c1a",
+        bgyellow : "#f7b84b1a",
       },
       backgroundImage: {
         // 'black': 'linear-gradient(rgba(15, 14, 23, 0.5), rgba(15, 14, 23, 0.5))',
