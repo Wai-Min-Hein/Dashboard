@@ -699,7 +699,7 @@ const Overview = () => {
       <div className=" card dark:bg-dark-side-bar-color border dark:border-dark-side-bar-color border-white">
         <div className="card-body">
           <div className="flex justify-between items-center mb-2">
-            <h1 className="text-black dark:text-white">Projects</h1>
+            <h1 className=" dark:text-white">Projects</h1>
             <div className="flex gap-2" >
               <button className="avatar-title text-lg rounded p-1" onClick={previous}>
                 <RiArrowLeftSLine className="" />
