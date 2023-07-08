@@ -5,6 +5,9 @@ export default {
   theme: {
 
     extend: {
+      animation:{
+        'spin-slow': 'spin 2s linear infinite',
+      },
       fontFamily: {
         'header-light': ['HkGroteskLight', 'sans-serif'],
         'header-medium': ['HkGroteskMedium', 'sans-serif'],

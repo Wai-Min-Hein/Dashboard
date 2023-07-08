@@ -1,6 +1,8 @@
 import React from 'react'
 import "../../../Css/Profile.css"
-import {RiUpload2Fill,RiFileZipFill,RiEqualizerFill} from "react-icons/ri"
+import {RiUpload2Fill,RiFileZipFill,RiEqualizerFill,RiFilePdfFill,RiImage2Fill,
+  RiEyeFill,RiDeleteBinFill,RiVideoLine,RiFileExcelFill,RiFolderLine} from "react-icons/ri"
+import {AiOutlineLoading} from 'react-icons/ai'
 
 const Docu = () => {
   return (
@@ -65,17 +67,19 @@ const Docu = () => {
                               <label tabIndex={0} className="btn px-3 dark:bg-gray-800 rounded focus:bg-gray-500  dark:focus:bg-gray-400 dark:focus:text-dark transition duration-500 bg-light">
                                 <RiEqualizerFill className=''/>
                               </label>
-                              <ul tabIndex={0} className="dropdown-content z-[1] menu py-2 bg-white shadow-md items-center dark:bg-gray-800 rounded-md text-gray-500   text-xs min-w-[10rem]">
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-
+                              <ul tabIndex={0} className="dropdown-content z-[1] menu py-2 bg-white shadow-md items-start dark:bg-gray-800 rounded-md dark:text-gray-500 text-gray-900 text-xs min-w-[10rem]">
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiEyeFill className='!text-gray'/>
                                   View  
                                 </a></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Download  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiUpload2Fill className='!text-gray'/> 
+                                    Download  
                                 </a></li>
                                 <li className='border-t w-full border-t-gray-200 dark:border-t-gray-700 my-2 '></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Delete  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiDeleteBinFill className="!text-gray"/>
+                                    Delete  
                                 </a></li>
                               </ul>
                             </div>
@@ -85,7 +89,7 @@ const Docu = () => {
                         <tr className="text-dark dark:text-white">
                             <td scope="row" className="p-3 font-medium flex items-center whitespace-nowrap">
                               <div className=" flex-shrink-0 text-danger bg-bgdanger text-[20px] p-3">
-                                <RiFileZipFill className=""/>
+                                <RiFilePdfFill className=""/>
                               </div>
                               <div className='ml-4 flex-1'>
                                 <h6 className='mb-0 text-[15px] '>
@@ -107,17 +111,19 @@ const Docu = () => {
                               <label tabIndex={1} className="btn px-3 dark:bg-gray-800 rounded focus:bg-gray-500  dark:focus:bg-gray-400 dark:focus:text-dark transition duration-500 bg-light">
                                 <RiEqualizerFill className=''/>
                               </label>
-                              <ul tabIndex={1} className="dropdown-content z-[1] menu py-2 bg-white shadow-md items-center dark:bg-gray-800 text-gray-500 rounded-md text-xs min-w-[10rem]">
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-
+                              <ul tabIndex={1} className="dropdown-content z-[1] menu py-2 bg-white shadow-md items-start dark:bg-gray-800 rounded-md dark:text-gray-500 text-gray-900 text-xs min-w-[10rem]">
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiEyeFill className='!text-gray'/>
                                   View  
                                 </a></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Download  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiUpload2Fill className='!text-gray'/> 
+                                    Download  
                                 </a></li>
                                 <li className='border-t w-full border-t-gray-200 dark:border-t-gray-700 my-2 '></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Delete  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiDeleteBinFill className="!text-gray"/>
+                                    Delete  
                                 </a></li>
                               </ul>
                             </div>
@@ -127,7 +133,7 @@ const Docu = () => {
                         <tr className="text-dark dark:text-white">
                             <td scope="row" className="p-3 font-medium flex items-center whitespace-nowrap">
                               <div className=" flex-shrink-0 text-info bg-bginfo text-[20px] p-3">
-                                <RiFileZipFill className=""/>
+                                <RiVideoLine className=""/>
                               </div>
                               <div className='ml-4 flex-1'>
                                 <h6 className='mb-0 text-[15px] '>
@@ -149,17 +155,19 @@ const Docu = () => {
                               <label tabIndex={0} className="btn px-3 dark:bg-gray-800 rounded focus:bg-gray-500  dark:focus:bg-gray-400 dark:focus:text-dark transition duration-500 bg-light">
                                 <RiEqualizerFill className=''/>
                               </label>
-                              <ul tabIndex={0} className="dropdown-content z-[1] menu py-2 bg-white shadow-md items-center dark:bg-gray-800 rounded-md text-gray-500 text-xs min-w-[10rem]">
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-
+                              <ul tabIndex={1} className="dropdown-content z-[1] menu py-2 bg-white shadow-md items-start dark:bg-gray-800 rounded-md dark:text-gray-500 text-gray-900 text-xs min-w-[10rem]">
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiEyeFill className='!text-gray'/>
                                   View  
                                 </a></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Download  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiUpload2Fill className='!text-gray'/> 
+                                    Download  
                                 </a></li>
                                 <li className='border-t w-full border-t-gray-200 dark:border-t-gray-700 my-2 '></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Delete  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiDeleteBinFill className="!text-gray"/>
+                                    Delete  
                                 </a></li>
                               </ul>
                             </div>
@@ -169,7 +177,7 @@ const Docu = () => {
                         <tr className="text-dark dark:text-white">
                             <td scope="row" className="p-3 font-medium flex items-center whitespace-nowrap">
                               <div className=" flex-shrink-0 text-success bg-bgsuccess text-[20px] p-3">
-                                <RiFileZipFill className=""/>
+                                <RiFileExcelFill className=""/>
                               </div>
                               <div className='ml-4 flex-1'>
                                 <h6 className='mb-0 text-[15px] '>
@@ -188,20 +196,22 @@ const Docu = () => {
                             </td>
                             <td className=''>
                             <div className="dropdown dropdown-end">
-                              <label tabIndex={0} className="btn px-3 dark:bg-gray-800 rounded focus:bg-gray-500  dark:focus:bg-gray-400 dark:focus:text-dark transition duration-500 bg-light">
+                              <label tabIndex={2} className="btn px-3 dark:bg-gray-800 rounded focus:bg-gray-500  dark:focus:bg-gray-400 dark:focus:text-dark transition duration-500 bg-light">
                                 <RiEqualizerFill className=''/>
                               </label>
-                              <ul tabIndex={0} className="dropdown-content z-[1] menu py-2 bg-white shadow-md items-center dark:bg-gray-800 rounded-md text-gray-500 text-xs min-w-[10rem]">
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-
+                              <ul tabIndex={2} className="dropdown-content z-[1] menu py-2 bg-white shadow-md items-start dark:bg-gray-800 rounded-md dark:text-gray-500 text-gray-900 text-xs min-w-[10rem]">
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiEyeFill className='!text-gray'/>
                                   View  
                                 </a></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Download  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiUpload2Fill className='!text-gray'/> 
+                                    Download  
                                 </a></li>
                                 <li className='border-t w-full border-t-gray-200 dark:border-t-gray-700 my-2 '></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Delete  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiDeleteBinFill className="!text-gray"/>
+                                    Delete  
                                 </a></li>
                               </ul>
                             </div>
@@ -211,7 +221,7 @@ const Docu = () => {
                         <tr className="text-dark dark:text-white">
                             <td scope="row" className="p-3 font-medium flex items-center whitespace-nowrap">
                               <div className=" flex-shrink-0 text-success bg-bgsuccess text-[20px] p-3">
-                                <RiFileZipFill className=""/>
+                                <RiFolderLine className=""/>
                               </div>
                               <div className='ml-4 flex-1'>
                                 <h6 className='mb-0 text-[15px] '>
@@ -230,19 +240,21 @@ const Docu = () => {
                             </td>
                             <td className=''>
                             <div className="dropdown dropdown-top dropdown-end">
-                              <label tabIndex={0} className="btn px-3 dark:bg-gray-800 rounded focus:bg-gray-500  dark:focus:bg-gray-400 dark:focus:text-dark transition duration-500 bg-light">
+                              <label tabIndex={3} className="btn px-3 dark:bg-gray-800 rounded focus:bg-gray-500  dark:focus:bg-gray-400 dark:focus:text-dark transition duration-500 bg-light">
                                 <RiEqualizerFill className=''/>
                               </label>
-                              <ul tabIndex={0} className="dropdown-content z-[1] menu py-2 bg-white shadow-md items-center dark:bg-gray-800 rounded-md text-gray-500 text-xs min-w-[10rem]">
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-
+                              <ul tabIndex={3} className="dropdown-content z-[1] menu py-2 bg-white shadow-md items-start dark:bg-gray-800 rounded-md dark:text-gray-500 text-gray-900 text-xs min-w-[10rem]">
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiEyeFill className='!text-gray'/>
                                   View  
                                 </a></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Download  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiUpload2Fill className='!text-gray'/> 
+                                    Download  
                                 </a></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Delete  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiDeleteBinFill className="!text-gray"/>
+                                    Delete  
                                 </a></li>
                               </ul>
                             </div>
@@ -252,7 +264,7 @@ const Docu = () => {
                         <tr className="text-dark dark:text-white">
                             <td scope="row" className="p-3 font-medium flex items-center whitespace-nowrap">
                               <div className=" flex-shrink-0 text-danger bg-bgdanger text-[20px] p-3">
-                                <RiFileZipFill className=""/>
+                                <RiImage2Fill className=""/>
                               </div>
                               <div className='ml-4 flex-1'>
                                 <h6 className='mb-0 text-[15px] '>
@@ -271,19 +283,21 @@ const Docu = () => {
                             </td>
                             <td className=''>
                             <div className="dropdown dropdown-top dropdown-end">
-                              <label tabIndex={0} className="btn px-3 dark:bg-gray-800 rounded focus:bg-gray-500  dark:focus:bg-gray-400 dark:focus:text-dark transition duration-500 bg-light">
+                              <label tabIndex={4} className="btn px-3 dark:bg-gray-800 rounded focus:bg-gray-500  dark:focus:bg-gray-400 dark:focus:text-dark transition duration-500 bg-light">
                                 <RiEqualizerFill className=''/>
                               </label>
-                              <ul tabIndex={0} className="dropdown-content z-[1] text-gray-500 menu py-2 bg-white shadow-md items-center dark:bg-gray-800 rounded-md text-xs min-w-[10rem]">
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-
+                              <ul tabIndex={4} className="dropdown-content z-[1] menu py-2 bg-white shadow-md items-start dark:bg-gray-800 rounded-md dark:text-gray-500 text-gray-900 text-xs min-w-[10rem]">
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiEyeFill className='!text-gray'/>
                                   View  
                                 </a></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Download  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiUpload2Fill className='!text-gray'/> 
+                                    Download  
                                 </a></li>
-                                <li><a className='py-[0.35rem] px-[1.2rem] w-full block font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
-                                Delete  
+                                <li><a className='py-[0.35rem] px-[1.2rem] w-full flex items-center font-normal whitespace-nowrap bg-transparent border-0 clear-both'>
+                                  <RiDeleteBinFill className="!text-gray"/>
+                                    Delete  
                                 </a></li>
                               </ul>
                             </div>
@@ -292,8 +306,8 @@ const Docu = () => {
                     </tbody>
                 </table>
             </div>
-            <div>
-              <a href="#" className='text-success'>Load more</a>
+            <div className='flex justify-center items-center'>
+              <a href="#" className='text-success flex'><AiOutlineLoading className="animate-spin-slow mr-2 text-xl"/>{" "} Load more</a>
             </div>
           </div>
         </div>
