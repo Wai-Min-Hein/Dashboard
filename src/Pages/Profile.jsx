@@ -13,7 +13,7 @@ import {
   RiPriceTagLine,
   RiFolder4Line,
 } from "react-icons/ri";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { StateContext } from "../Context/StateContext";
 import TopBar from "./TopBar";
 
@@ -21,7 +21,7 @@ import TopBar from "./TopBar";
 
 const Profile = () => {
   
-
+  const nav = useNavigate()
   const {semi,detached} = useContext(StateContext)
   const location = useLocation()
 
