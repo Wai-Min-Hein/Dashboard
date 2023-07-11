@@ -28,6 +28,8 @@ import Overview from "./Pages/Profile/Overview";
 import Activities from "./Pages/Profile/Activities";
 import Projects from "./Pages/Profile/Projects";
 import Docu from "./Pages/Profile/Docu";
+import Logout from "./Pages/Logout";
+import Addblog from "./Pages/Addblog";
 
 const App = () => {
 
@@ -144,6 +146,8 @@ className={`flex items-stretch justify-start max-h-screen  font-para relative bg
     <Route path="documents" element={<Docu/>}/>
   </Route>
   <Route path="/password-reset" element={<PasswordReset />} />
+  <Route path="/logout" element={<Logout/>}/>
+  <Route path="/addblog" element={<Addblog/>}/>
   <Route path="/" element={<Ecommerce />} />
 </Routes>
   

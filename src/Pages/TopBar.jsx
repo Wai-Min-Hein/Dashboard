@@ -1,21 +1,27 @@
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch,AiOutlineSetting } from "react-icons/ai";
 import { BiCategoryAlt, BiBadgeCheck } from "react-icons/bi";
-import { BiShoppingBag, BiMessageSquareDots } from "react-icons/bi";
-import { BiFullscreen,BiExitFullscreen } from "react-icons/bi";
+import { BiShoppingBag, BiMessageSquareDots,BiMessageDetail } from "react-icons/bi";
+import { BiFullscreen,BiExitFullscreen,BiSolidWalletAlt,BiSolidLock } from "react-icons/bi";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import {
   RiArrowRightSLine,
   RiCloseFill,
   RiArrowRightLine,
+  RiCalendarCheckLine,
 } from "react-icons/ri";
 import { RxClock } from "react-icons/rx";
+import {FaUserCircle} from "react-icons/fa"
+import {PiLifebuoyBold} from "react-icons/pi"
+import {TbLogout} from "react-icons/tb"
 import admin from "../../Image/admin.jpg";
 import ThemeSwitcher from "../Common/ThemeSwitcher";
 import { useContext, useEffect, useState } from "react";
 import { StateContext } from "../Context/StateContext";
 import "../../Css/Topbar.css";
 import SideBarHor from "./SideBarHor";
+import { Link } from "react-router-dom";
+
 
 
 // import english from "../../Image/English.svg";
@@ -34,23 +40,27 @@ const TopBar = () => {
   const [notification,setNotification] = useState(false)
   const [flags,setFlags] = useState(false)
   const [isFullScreen,setIsFullScreen] = useState(true)
+  const [isAdmin,setIsAdmin] = useState(false)
     
   const handleCart = ()=>{
     setCategory(false)
     setFlags(false)
     setNotification(false)
+    setIsAdmin(false)
     setCart(!cart)
   }
   const handleNotification = ()=>{
     setCart(false)
     setCategory(false)
     setFlags(false)
+    setIsAdmin(false)
     setNotification(!notification)
   }
   const handleCategory = ()=>{
     setCart(false)
     setFlags(false)
     setNotification(false)
+    setIsAdmin(false)
     setCategory(!category)
 
   }
@@ -58,7 +68,17 @@ const TopBar = () => {
     setCategory(false)
     setCart(false)
     setNotification(false)
+    setIsAdmin(false)
     setFlags(!flags)
+  }
+
+  const handleAdmin = () =>{
+    setIsAdmin(!isAdmin)
+    setCategory(false)
+    setCart(false)
+    setNotification(false)
+    setFlags(false)
+
   }
     const onFullScreenChange = ()=>{
       setIsFullScreen(!isFullScreen)
@@ -497,7 +517,7 @@ const TopBar = () => {
           </div>
         </span> 
 
-        <div className={`flex items-center gap-3 px-4 py-1 ${lightTop? 'bg-light-gray-bg': 'bg-dark'}  dark:bg-dark h-[70px]`}>
+        <div onClick={handleAdmin} className={`flex items-center gap-3 px-4 py-1 ${lightTop? 'bg-light-gray-bg': 'bg-dark'}  dark:bg-dark h-[70px]`}>
           <div className="w-8 h-8 rounded-full overflow-hidden">
             <img src={admin} alt="" />
           </div>
@@ -510,6 +530,63 @@ const TopBar = () => {
             </p>
           </div>
         </div>
+        <div
+            className={isAdmin ? "dropdown-menu w-[190px] left-42 block" : "hidden"}>
+            <div className="flex justify-between items-center px-4 py-2 border-b border-dashed border-b-gray-300">
+              <p className="text-xs text-black">Welcome Anna!</p>
+            </div>
+            <div className="max-h-[300px] overflow-y-scroll overflow-x-hidden border-b border-b-gray-300">
+            <ul>
+              <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
+                <Link to={'/profile'} className="flex">
+                <FaUserCircle className="text-gray mr-2 text-base"/>
+                <p className="text-black">Profile</p>
+                </Link>
+              </li>
+              <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
+                <BiMessageDetail className="text-gray mr-2 text-base"/>
+                <p className="text-black">Messages</p>
+              </li>
+              <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
+                <RiCalendarCheckLine className="text-gray mr-2 text-base"/>
+                <p className="text-black">Taskboard</p>
+              </li>
+              <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
+                <PiLifebuoyBold className="text-gray mr-2 text-base"/>
+                <p className="text-black">Help</p>
+              </li>
+            </ul>
+            
+            </div>
+            <div className="max-h-[300px] overflow-y-scroll overflow-x-hidden">
+            <ul>
+              <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
+                <BiSolidWalletAlt className="text-gray mr-2 text-base"/>
+                <p className="text-black">Balance: {" "} <small className="text-black text-xs font-semibold">$5971.67</small></p>
+              </li>
+              <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
+                <AiOutlineSetting className="text-gray mr-2 text-base"/>
+                <div className="flex justify-between w-full items-center">
+                  <Link to={'/profile/settings'} className="flex">
+                  <p className="text-black">Settings</p>
+                  <small className="text-green bg-bggreen px-2 font-semibold">New</small>
+                  </Link>
+                </div>
+              </li>
+              <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
+                <BiSolidLock className="text-gray mr-2 text-base"/>
+                <p className="text-black">Lock screen</p>
+              </li>
+              <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
+                  <Link to={'/logout'} className="flex ">
+                  <TbLogout className="text-gray mr-2 text-base"/>
+                  <p className="text-black">Logout</p>
+                  </Link>
+              </li>
+            </ul>
+            
+            </div>
+          </div>
       </div>
     </div>
     {hor && <SideBarHor/>}
