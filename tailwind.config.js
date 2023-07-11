@@ -5,6 +5,9 @@ export default {
   theme: {
 
     extend: {
+      animation:{
+        'spin-slow': 'spin 2s linear infinite',
+      },
       fontFamily: {
         'header-light': ['HkGroteskLight', 'sans-serif'],
         'header-medium': ['HkGroteskMedium', 'sans-serif'],
@@ -142,7 +145,8 @@ export default {
       // => @media (min-width: 1537px) { ... }
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui")],
 
   daisyui: {
     themes: true, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
