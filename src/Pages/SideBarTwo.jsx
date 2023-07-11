@@ -8,21 +8,41 @@ import {
   RiRocketLine,
   RiAuctionFill,
   RiLandscapeFill,
+  RiLockPasswordLine
 } from "react-icons/ri";
-import { AiOutlineArrowRight } from "react-icons/ai";
+
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { FaWpforms } from "react-icons/fa";
+
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { StateContext } from "../Context/StateContext";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 const SideBarTwo = () => {
-  const { isSideOpen,setIsSideOpen, tCol,sideLight,sideDark,sideGradient,detached,img,img1,img2,img3,img4  } = useContext(StateContext);
+  const {
+    isSideOpen,
+    setIsSideOpen,
+    sideLight,
+    sideDark,
+    sideGradient,
+    detached,
+    img,
+    img1,
+    img2,
+    img3,
+    img4,
+  } = useContext(StateContext);
   const [dash, setDash] = useState(true);
-  const [app, setApp] = useState(false);
+  const [form, setForm] = useState(false);
   const [layout, setLayout] = useState(false);
   const [auth, setAuth] = useState(false);
   const [page, setPage] = useState(false);
   const [landing, setLanding] = useState(false);
+
+
 
   const sideVariant = {
     open: {
@@ -39,11 +59,18 @@ const SideBarTwo = () => {
     },
   };
 
-  const nav = useNavigate()
+  const nav = useNavigate();
 
-  const BgImg = (img1&&`bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-1.jpg')]` )||  (img2&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-2.jpg')]`)|| (img3&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-3.jpg')]`)||  (img4&& `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-4.jpg')]`)
+  const BgImg =
+    (img1 &&
+      `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-1.jpg')]`) ||
+    (img2 &&
+      `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-2.jpg')]`) ||
+    (img3 &&
+      `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-3.jpg')]`) ||
+    (img4 &&
+      `bg-[url('https://themesbrand.com/velzon/html/default/assets/images/sidebar/img-4.jpg')]`);
 
-  
   const isDesktop = useMediaQuery({
     query: "(min-width: 1537px)",
   });
@@ -80,48 +107,64 @@ const SideBarTwo = () => {
   const Sidebar_animationR = {
     open: {
       width: "16rem",
-      x:0,
+      x: 0,
       transition: {
         damping: 40,
       },
     },
     closed: {
       width: "0",
-      x:'-100px',
+      x: "-100px",
       transition: {
         damping: 40,
       },
     },
   };
 
+  const [profile, setProfile] = useState(false);
 
   return (
     <motion.div
-    variants={!tablet? Sidebar_animationR:Sidebar_animation}
+      variants={!tablet ? Sidebar_animationR : Sidebar_animation}
       animate={isSideOpen ? "open" : "closed"}
-      className={`${BgImg? BgImg: 'bg-light-side-bar-color'}  z-[9999] absolute    overflow-y-auto sideBar lg:relative ${
+      className={`${
+        BgImg ? BgImg : "bg-light-side-bar-color"
+      }  z-[9999] absolute    overflow-y-auto sideBar lg:relative ${
         isSideOpen ? "!w-[18rem] " : "!w-[4rem] "
-      } flex justify-start items-stretch ${img&&sideLight? 'bg-white text-gray': ''} ${img&&sideDark? 'bg-light-side-bar-color dark:bg-dark-side-bar-color': ''} ${img&&sideGradient? ' bg-sideGradient': ''} ${detached? 'min-h-screen': 'h-screen'}`}
+      } flex justify-start items-stretch ${
+        img && sideLight ? "bg-white text-gray" : ""
+      } ${
+        img && sideDark
+          ? "bg-light-side-bar-color dark:bg-dark-side-bar-color"
+          : ""
+      } ${img && sideGradient ? " bg-sideGradient" : ""} ${
+        detached ? "min-h-screen" : "h-screen"
+      }`}
     >
       <motion.div
-      onClick={() =>setIsSideOpen(false)}
-      className={`bg-gray-btn-bg z-[-1] fixed  lg:scale-0 lg:ml-0 ml-[18rem] h-screen top-0 left-0  lg:hidden px-1 ${isSideOpen? '!w-full': 'w-0'}`}></motion.div>
+        onClick={() => setIsSideOpen(false)}
+        className={`bg-gray-btn-bg z-[-1] fixed  lg:scale-0 lg:ml-0 ml-[18rem] h-screen top-0 left-0  lg:hidden px-1 ${
+          isSideOpen ? "!w-full" : "w-0"
+        }`}
+      ></motion.div>
 
-{
-        (sideDark&& (
-
-          <div className="absolute inset-0 h-full bg-gradient-to-t from-[#171e32] to-[#405189] opacity-80 z-[-1]"></div>
-        ))|| (sideGradient&& (
-
+      {(sideDark && (
+        <div className="absolute inset-0 h-full bg-gradient-to-t from-[#171e32] to-[#405189] opacity-80 z-[-1]"></div>
+      )) ||
+        (sideGradient && (
           <div className="absolute inset-0  h-full bg-sideGradient opacity-80  z-[-1]"></div>
-        ))|| (sideLight&& (
-
+        )) ||
+        (sideLight && (
           <div className="absolute inset-0 h-full bg-gradient-to-t from-[#fff] to-[#fff] opacity-90 z-[-5]"></div>
+        ))}
 
-        ))
-      }
-
-      <div className={`w-[4rem]  h-full sideBar   ${sideLight? 'bg-white text-gray': ''} ${sideDark? 'bg-[#3a4b84] dark:bg-dark-side-bar-color': ''} ${sideGradient? ' bg-sideGradient': ''}`}>
+      <div
+        className={`w-[4rem]  h-full    ${
+          sideLight ? "bg-white text-gray" : ""
+        } ${sideDark ? "bg-[#3a4b84] dark:bg-dark-side-bar-color" : ""} ${
+          sideGradient ? " bg-sideGradient" : ""
+        }`}
+      >
         <div className=" grid place-items-center py-6 mb-4">
           <img
             src="https://themesbrand.com/velzon/html/default/assets/images/logo-sm.png"
@@ -133,94 +176,90 @@ const SideBarTwo = () => {
           <div
             onClick={() => (
               setDash(true),
-              setApp(false),
               setLayout(false),
               setAuth(false),
               setPage(false),
-              setLanding(false)
-              ,setIsSideOpen(true)
-              
+              setLanding(false),
+              setIsSideOpen(true),
+              setForm(false)
             )}
-            className={`${dash ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
+            className={`${
+              dash ? "bg-gray-btn-bg rounded-md" : ""
+            } cursor-pointer p-2`}
           >
-            <RiDashboard2Line className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
+            <RiDashboard2Line
+              className={` text-2xl ${
+                !sideLight ? "text-[#abb9ea] " : "text-gray-500"
+              }`}
+            />
           </div>
+
           <div
             onClick={() => (
               setDash(false),
-              setApp(true),
-              setLayout(false),
-              setAuth(false),
-              setPage(false),
-              setLanding(false)
-              ,setIsSideOpen(true)
-            )}
-            className={`${app ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
-          >
-            <RiApps2Line className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
-          </div>
-          <div
-            onClick={() => (
-              setDash(false),
-              setApp(false),
-              setLayout(true),
-              setAuth(false),
-              setPage(false),
-              setLanding(false)
-              ,setIsSideOpen(true)
-            )}
-            className={`${layout ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
-          >
-            <RiLayout3Line className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
-          </div>
-          <div
-            onClick={() => (
-              setDash(false),
-              setApp(false),
               setLayout(false),
               setAuth(true),
               setPage(false),
-              setLanding(false)
-              ,setIsSideOpen(true)
+              setLanding(false),
+              setIsSideOpen(true),
+              setForm(false)
             )}
-            className={`${auth ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
+            className={`${
+              auth ? "bg-gray-btn-bg rounded-md" : ""
+            } cursor-pointer p-2`}
           >
-            <RiAuctionFill className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
+            <RiLockPasswordLine
+              className={` text-2xl ${
+                !sideLight ? "text-[#abb9ea] " : "text-gray-500"
+              }`}
+            />
           </div>
           <div
             onClick={() => (
               setDash(false),
-              setApp(false),
               setLayout(false),
               setAuth(false),
               setPage(true),
-              setLanding(false)
-              ,setIsSideOpen(true)
+              setLanding(false),
+              setIsSideOpen(true),
+              setForm(false)
             )}
-            className={`${page ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
+            className={`${
+              page ? "bg-gray-btn-bg rounded-md" : ""
+            } cursor-pointer p-2`}
           >
-            <RiPagesLine className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
+            <RiPagesLine
+              className={` text-2xl ${
+                !sideLight ? "text-[#abb9ea] " : "text-gray-500"
+              }`}
+            />
           </div>
           <div
             onClick={() => (
               setDash(false),
-              setApp(false),
               setLayout(false),
               setAuth(false),
               setPage(false),
-              setLanding(true)
+              setForm(true)
             )}
-            className={`${landing ? "bg-gray-btn-bg rounded-md" : ""} cursor-pointer p-2`}
+            className={`${
+              form ? "bg-gray-btn-bg rounded-md" : ""
+            } cursor-pointer p-2`}
           >
-            <RiLandscapeFill className={` text-2xl ${!sideLight?"text-[#abb9ea] ": 'text-gray-500'}`} />
+            <FaWpforms
+              className={` text-2xl ${
+                !sideLight ? "text-[#abb9ea] " : "text-gray-500"
+              }`}
+            />
           </div>
         </div>
       </div>
+      
 
       <div
-        className={` ${detached? 'min-h-screen': 'max-h-screen'} overflow-y-auto sideBar flex-1 ${
-          isSideOpen ? "block" : "hidden"
-        }`}
+        className={` ${
+          detached ? "min-h-screen" : "max-h-screen"
+        } overflow-y-auto sideBar flex-1 ${isSideOpen ? "block" : "hidden"}`}
       >
         <div className=" grid place-items-center py-6 mb-4">
           <img
@@ -229,1543 +268,111 @@ const SideBarTwo = () => {
             alt=""
           />
         </div>
-        <div className={`${sideDark|| sideGradient ? 'text-white': ''}`}>
-            <ul id="dropdown-example" className={`w-full   py-2 space-y-2 ${dash?'block': 'hidden'}`}>
-            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                <span className=" text-inherit ps-4">-</span>
-                <a
-                href="#"
-                className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                >
-                Analytics
-                </a>
-            </li>
-            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                <span className=" text-inherit ps-4">-</span>
-                <a
-                href="#"
-                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                >
-                CRM
-                </a>
-            </li>
+        <div className={`${sideDark || sideGradient ? "text-white" : ""}`}>
+          <ul
+            id="dropdown-example"
+            className={`w-full   py-2 space-y-2 ${dash ? "block" : "hidden"}`}
+          >
             <li
-            onClick={() => nav('/')}
-            className=" text-inherit pb-2 flex  w-1/3 items-center">
-                <span className=" text-inherit ps-4">-</span>
-                <span
-                
-                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary"
-                >
+              onClick={() => nav("/")}
+              className=" text-inherit pb-2 flex  w-1/3 items-center"
+            >
+              <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal px-2`}>
                 Ecommerce
+              </span>
+            </li>
+          </ul>
+          <ul
+            id="dropdown-example"
+            className={`w-full   py-2 space-y-2 ${auth ? "block" : "hidden"}`}
+          >
+            <li
+              onClick={() => nav("/password-reset")}
+              className=" text-inherit pb-2 flex   items-center cursor-pointer"
+            >
+              <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal px-2`}>
+                Password Reset
+              </span>
+            </li>
+          </ul>
+
+          <ul
+            id="dropdown-example12"
+            className={`w-full   py-2 space-y-2 ${page ? "block" : "hidden"}`}
+          >
+            <button className=" w-full mt-4 relative group">
+              <div
+                onClick={() => setProfile(!profile)}
+                className="flex items-center justify-between w-full"
+              >
+                <span
+                  className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal px-2`}
+                >
+                  Profile
                 </span>
+                {profile ? (
+                  <MdOutlineKeyboardArrowDown
+                    className={`${
+                      sideLight ? "text-light-side-bar-color" : "text-light-side-bar-text-color duration-200 group-hover:text-white"
+                    }  text-xl ${!isSideOpen ? "hidden" : "inline-block"}`}
+                  />
+                ) : (
+                  <MdOutlineKeyboardArrowRight
+                    className={`${
+                      sideLight ? "text-light-side-bar-color" : "text-white"
+                    }  text-xl ${!isSideOpen ? "hidden" : "inline-block"}`}
+                  />
+                )}
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: -60, display: "none" }}
+                animate={
+                  profile
+                    ? { opacity: 1, y: 0, display: "block" }
+                    : { opacity: 0, y: -60, display: "none" }
+                }
+                transition={{
+                  duration: 0.4,
+                }}
+                className="mt-2"
+              >
+                <div className=" text-start px-10">
+                  <span
+                    onClick={() => nav("/profile")}
+                    className={`${
+                      sideLight ? "text-light-side-bar-color" : "text-light-side-bar-text-color duration-200 hover:text-white"
+                    } text-[.95rem]`}
+                  >
+                    simple page
+                  </span>
+                </div>
+                <div className=" text-start px-10">
+                  <span
+                    onClick={() => nav("/profile/settings")}
+                    className={`${
+                      sideLight ? "text-light-side-bar-color" : "text-light-side-bar-text-color duration-200 hover:text-white pt-2"
+                    } text-[.95rem] mt-3`}
+                  >
+                    profile setting
+                  </span>
+                </div>
+              </motion.div>
+            </button>
+          </ul>
+          <ul
+            id="dropdown-example"
+            className={`w-full   py-2 space-y-2 ${form ? "block" : "hidden"}`}
+          >
+            <li
+              // onClick={() => nav("/")}
+              className=" text-inherit pb-2 flex   items-center cursor-pointer"
+            >
+              <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal px-2`}>
+                New form
+              </span>
             </li>
-            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                <span className=" text-inherit ps-4">-</span>
-                <a
-                href="#"
-                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                >
-                Crypto
-                </a>
-            </li>
-            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                <span className=" text-inherit ps-4">-</span>
-                <a
-                href="#"
-                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                >
-                Projects
-                </a>
-            </li>
-            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                <span className=" text-inherit ps-4">-</span>
-                <a
-                href="#"
-                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                >
-                NFT
-                </a>
-            </li>
-            <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                <span className=" text-inherit ps-4">-</span>
-                <a
-                href="#"
-                className="flex items-center text-sm   transition duration-75 rounded-lg pl-6 group  text-inherit"
-                >
-                Job
-                </a>
-            </li>
-            </ul>
-            <ul id="dropdown-example1" className={`w-full   py-2 space-y-2 ${app?'block': 'hidden'}`}>
-                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Calendar
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Chat
-                  </a>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example2"
-                    data-collapse-toggle="dropdown-example2"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Email
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example2"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Mailbox
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Email Templates
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example3"
-                    data-collapse-toggle="dropdown-example3"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Ecommerce
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example3"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Products
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Product Details
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Create Product
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Orders
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Order Details
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Customers
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Shopping Carts
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Checkout
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Seller
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Seller Details
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example4"
-                    data-collapse-toggle="dropdown-example4"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Projects
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example4"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        List
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Overview
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Create Project
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example5"
-                    data-collapse-toggle="dropdown-example5"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Tasks
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example5"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Kanban Board
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        List View
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Task Details
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example6"
-                    data-collapse-toggle="dropdown-example6"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      CRM
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example6"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Contacts
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Companies
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Deals
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Leads
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example7"
-                    data-collapse-toggle="dropdown-example7"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Crypto
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example7"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Transaction
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Buy & Sell
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Orders
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        My Wallet
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        ICO Lists
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        KYC Application
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example8"
-                    data-collapse-toggle="dropdown-example8"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Invoices
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example8"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        List View
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Details
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Create Invoice
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example9"
-                    data-collapse-toggle="dropdown-example9"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Support Tickets
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example9"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        List View
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Ticket Details
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example10"
-                    data-collapse-toggle="dropdown-example10"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      NFT Marketplace
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example10"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Marketplace
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Explore now
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Live Auction
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Item Details
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Collections
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Creators
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Ranking
-                      </a>
-                    </li>
-
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Wallet Connect
-                      </a>
-                    </li>
-
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Create NFT
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-full items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    File Manager
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-full items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    To do
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex items-center ">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                  >
-                    Jobs
-                    <span className="  px-2 py-1   text-xs font-medium rounded-lg  text-white  bg-emerald-950  dark:bg-gray-700 dark:text-gray-300">
-                      New
-                    </span>
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex items-center ">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                  >
-                    API Keys
-                    <span className=" px-2 py-1  ml-22 text-xs font-medium rounded-lg  text-white  bg-emerald-950  dark:bg-gray-700 dark:text-gray-300">
-                      New
-                    </span>
-                  </a>
-                </li>
-              </ul>
-
-              <ul id="dropdown-example" className={`w-full   py-2 space-y-2 ${layout?'block': 'hidden'}`}>
-            <li className=" text-inherit pb-2 flex  w-full items-center">
-                <span className=" text-inherit ps-4">-</span>
-                <a
-                href="#"
-                className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                >
-                Horizontal
-                </a>
-            </li>
-            <li className=" text-inherit pb-2 flex  w-full items-center">
-                <span className=" text-inherit ps-4">-</span>
-                <a
-                href="#"
-                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                >
-                Detached
-                </a>
-            </li>
-            <li className=" text-inherit pb-2 flex  w-full items-center">
-                <span className=" text-inherit ps-4">-</span>
-                <a
-                href="#"
-                className=" text-sm   transition duration-75 rounded-lg pl-6 group  text-inherit"
-                >
-                Two Column
-                </a>
-            </li>
-            <li className=" text-inherit pb-2 flex  w-full items-center">
-                <span className=" text-inherit ps-4">-</span>
-                <a
-                href="#"
-                className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                >
-                Hovered
-                </a>
-            </li>
-            </ul>
-
-            <ul id="dropdown-example11" className={`w-full   py-2 space-y-2 ${auth?'block': 'hidden'}`}>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example20"
-                    data-collapse-toggle="dropdown-example20"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Sign In
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example20"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Basic
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Cover
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example21"
-                    data-collapse-toggle="dropdown-example21"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Sign Up
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example21"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Basic
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Cover
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                  
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example22"
-                    data-collapse-toggle="dropdown-example22"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-secondary"
-                      sidebar-toggle-item="true"
-                    >
-                      Password Reset
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example22"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li
-                    onClick={() => nav('/password-reset')}
-                    className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <span
-                      
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary cursor-pointer"
-                      >
-                        Basic
-                      </span>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Cover
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example23"
-                    data-collapse-toggle="dropdown-example23"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Password Create
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example23"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Basic
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Cover
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example24"
-                    data-collapse-toggle="dropdown-example24"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Lock Screen
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example24"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Basic
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Cover
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example25"
-                    data-collapse-toggle="dropdown-example25"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Logout
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example25"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Basic
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Cover
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example26"
-                    data-collapse-toggle="dropdown-example26"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Success Message
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example26"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Basic
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Cover
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example27"
-                    data-collapse-toggle="dropdown-example27"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Two Steps Verification
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example27"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Basic
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Cover
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example28"
-                    data-collapse-toggle="dropdown-example28"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                      sidebar-toggle-item="true"
-                    >
-                      Error
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example28"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        404 Basic
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        404 Cover
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        404 Alt
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        500
-                      </a>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                      <span className=" text-xs  text-inherit ps-12">o</span>
-                      <a
-                        href="#"
-                        className="flex  text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                      >
-                        Offline Page
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <ul id="dropdown-example12" className={`w-full   py-2 space-y-2 ${page?'block': 'hidden'}`}>
-                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Starter
-                  </a>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="  text-inherit flex items-center p-2 w-full transition duration-75 rounded-lg group  0"
-                    aria-controls="dropdown-example30"
-                    data-collapse-toggle="dropdown-example30"
-                  >
-                    <span className=" text-inherit ps-2">-</span>
-                    <span
-                      className="flex-1 text-sm  items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-secondary"
-                      sidebar-toggle-item="true"
-                    >
-                      Profile
-                    </span>
-                    <svg
-                      sidebar-toggle-item="true"
-                      className="  w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <ul
-                    id="dropdown-example30"
-                    className="  list-disc   py-2 space-y-2"
-                  >
-                    <li onClick={() => nav('/profile')} className="cur cursor-pointer text-inherit pb-2 flex  w-full items-center">
-                 <span className=" text-xs  text-inherit ps-12">o</span>
-
-                      <span
-                       
-                        className="flex text-xs  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary"
-                      >
-                        Simple Page
-                      </span>
-                    </li>
-                    <li className=" text-inherit pb-2 flex  w-full items-center">
-                 <span className=" text-xs  text-inherit ps-12">o</span>
-
-                      <span 
-                      onClick={() => nav('/profile/settings')}
-                        href="#"
-                        className="flex  text-xs cursor-pointer  items-center  transition duration-75 rounded-lg pl-6 group  text-secondary"
-                      >
-                        Settings
-                      </span>
-                    </li>
-                  </ul>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Team
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Timeline
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    FAQs
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Pricing
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Gallery
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-1/3 items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Maintainance
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-full items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Coming Soon
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-full items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Sitemap
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-full items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    Search Result
-                  </a>
-                </li>
-              </ul>
-              <ul id="dropdown-example40" className={`w-full   py-2 space-y-2 ${landing?'block': 'hidden'}`}>
-                <li className=" text-inherit pb-2 flex  w-full items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    One Page
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 flex  w-full items-center">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className="flex text-sm  items-center  transition duration-75 rounded-lg pl-6 group  text-inherit"
-                  >
-                    NFT Landing
-                  </a>
-                </li>
-                <li className=" text-inherit pb-2 w-full flex  items-center ">
-                  <span className=" text-inherit ps-4">-</span>
-                  <a
-                    href="#"
-                    className=" text-sm flex-1 flex justify-between items-center text-left  transition duration-75 rounded-lg ml-6 group whitespace-nowrap text-inherit"
-                  >
-                    Jobs
-                    <span className="  px-2 py-1   text-xs font-medium rounded-lg  text-white  bg-emerald-950  dark:bg-gray-700 dark:text-gray-300">
-                      New
-                    </span>
-                  </a>
-                </li>
-              </ul>
+          </ul>
         </div>
-        
       </div>
     </motion.div>
   );
