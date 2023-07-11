@@ -138,7 +138,7 @@ const Profile = () => {
           </div>
 
           {/* <----profile container----> */}
-          <div className="pf px-4 mt-6 lg:mt-4 ">
+          <div className={`pf  mt-6 lg:mt-4 ${semi? 'px-0': 'px-4'}`}>
             {/* <div className="flex justify-between items-center">
               <ul className="flex nav-edite">
                 <li className="">

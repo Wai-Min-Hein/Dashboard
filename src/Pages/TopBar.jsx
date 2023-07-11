@@ -16,6 +16,7 @@ import { useContext, useEffect, useState } from "react";
 import { StateContext } from "../Context/StateContext";
 import "../../Css/Topbar.css";
 import SideBarHor from "./SideBarHor";
+import { useNavigate } from "react-router-dom";
 
 
 // import english from "../../Image/English.svg";
@@ -28,6 +29,10 @@ import SideBarHor from "./SideBarHor";
 // import spain from "../../Image/spain.svg";
 
 const TopBar = () => {
+
+  const nav = useNavigate()
+
+
   const { isSideOpen, setIsSideOpen, semi,hor,boxed,detached,lightTop,darkTop } = useContext(StateContext);
   const [category,setCategory] = useState(false)
   const [cart,setCart] = useState(false)
@@ -497,7 +502,7 @@ const TopBar = () => {
           </div>
         </span> 
 
-        <div className={`flex items-center gap-3 px-4 py-1 ${lightTop? 'bg-light-gray-bg': 'bg-dark'}  dark:bg-dark h-[70px]`}>
+        <div onClick={() => nav('/profile')} className={`flex items-center gap-3 cursor-pointer px-4 py-1 ${lightTop? 'bg-light-gray-bg': 'bg-dark'}  dark:bg-dark h-[70px]`}>
           <div className="w-8 h-8 rounded-full overflow-hidden">
             <img src={admin} alt="" />
           </div>
