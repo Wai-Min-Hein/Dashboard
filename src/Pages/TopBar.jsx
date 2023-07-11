@@ -8,7 +8,7 @@ import {
   RiArrowRightSLine,
   RiCloseFill,
   RiArrowRightLine,
-  RiCalendarCheckLine,
+  RiAddCircleLine,
 } from "react-icons/ri";
 import { RxClock } from "react-icons/rx";
 import {FaUserCircle} from "react-icons/fa"
@@ -538,7 +538,7 @@ const TopBar = () => {
             <div className="max-h-[300px] overflow-y-scroll overflow-x-hidden border-b border-b-gray-300">
             <ul>
               <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
-                <Link to={'/profile'} className="flex">
+                <Link to={'/profile'} className="flex transition duration-100">
                 <FaUserCircle className="text-gray mr-2 text-base"/>
                 <p className="text-black">Profile</p>
                 </Link>
@@ -548,8 +548,10 @@ const TopBar = () => {
                 <p className="text-black">Messages</p>
               </li>
               <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
-                <RiCalendarCheckLine className="text-gray mr-2 text-base"/>
-                <p className="text-black">Taskboard</p>
+                <Link to={'/addblog'} className="flex transition duration-100">
+                <RiAddCircleLine className="text-gray mr-2 text-base"/>
+                <p className="text-black">Add Blog</p>
+                </Link>
               </li>
               <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
                 <PiLifebuoyBold className="text-gray mr-2 text-base"/>
@@ -565,20 +567,20 @@ const TopBar = () => {
                 <p className="text-black">Balance: {" "} <small className="text-black text-xs font-semibold">$5971.67</small></p>
               </li>
               <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
+              <Link to={'/profile/settings'} className="flex">
                 <AiOutlineSetting className="text-gray mr-2 text-base"/>
                 <div className="flex justify-between w-full items-center">
-                  <Link to={'/profile/settings'} className="flex">
                   <p className="text-black">Settings</p>
                   <small className="text-green bg-bggreen px-2 font-semibold">New</small>
-                  </Link>
                 </div>
+              </Link>
               </li>
               <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
                 <BiSolidLock className="text-gray mr-2 text-base"/>
                 <p className="text-black">Lock screen</p>
               </li>
               <li className="flex items-center px-4 py-2 transition duration-500 hover:bg-light-gray-bg">
-                  <Link to={'/logout'} className="flex ">
+                  <Link to={'/logout'} className="flex transition duration-100">
                   <TbLogout className="text-gray mr-2 text-base"/>
                   <p className="text-black">Logout</p>
                   </Link>
