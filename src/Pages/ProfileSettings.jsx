@@ -20,15 +20,19 @@ import { StateContext } from "../Context/StateContext";
 const ProfileSettings = () => {
   const [tab, setTab] = useState("PersonalDetails");
 
-  const {semi,detached }= useContext(StateContext)
+  const { semi, detached } = useContext(StateContext);
 
   return (
-    <div className={`z-50 bg-light-gray-bg dark:bg-dark-bg-color flex-1  min-h-screen overflow-y-auto  w-full relative  ${semi? 'px-[10rem]': ''}`} >
-      {!detached&&
-      <TopBar/>
-      }
-      
-      <div className="relative md:h-[260px]">
+
+    <div
+      className={`z-50 bg-light-gray-bg dark:bg-dark-bg-color flex-1 font-header-regular min-h-screen overflow-y-auto  w-full relative  ${
+        semi ? "px-[10rem]" : ""
+      }`}
+    >
+      {!detached && <TopBar />}
+
+      <div className="relative md:h-[260px] font-para">
+
         <img
           src="https://themesbrand.com/velzon/html/default/assets/images/profile-bg.jpg"
           alt="Cover"
@@ -41,7 +45,7 @@ const ProfileSettings = () => {
         </button>
       </div>
 
-      <div className=" lg:flex bg-light-gray-bg dark:bg-dark-bg-color">
+      <div className=" lg:flex bg-light-gray-bg dark:bg-dark-bg-color font-para">
         <aside className="w-full lg:w-1/4 flex flex-col items-center p-4 gap-16 mb-10 lg:mb-0">
           <div className="w-full p-4 relative text-center bg-white dark:bg-gray-900 rounded-lg -mt-10">
             <div className="relative inline-block my-3">
@@ -164,29 +168,41 @@ const ProfileSettings = () => {
             <nav className="w-full border-b-[1px] border-gray-300 dark:border-gray-dark">
               <AnimatePresence>
                 <ul className="flex cursor-pointer text-light-side-bar-color dark:text-light ps-2">
-                  <motion.li
+                  <li
                     onClick={(e) => setTab("PersonalDetails")}
-                    className={`p-3  ${tab === "PersonalDetails" && "active dark:text-light-side-bar-text-color"}`}
+                    className={`p-3   ${
+                      tab === "PersonalDetails" &&
+                      "active dark:text-light-side-bar-text-color"
+                    }`}
                     transition={{ delay: 1 }}
                   >
-                    Personal Detail
-                  </motion.li>
-                  <motion.li
+                    <p>Personal Detail</p>
+                  </li>
+                  <li
                     onClick={(e) => setTab("ChangePassword")}
-                    className={`p-3  ${tab === "ChangePassword" && "active dark:text-light-side-bar-text-color"}`}
+                    className={`p-3  ${
+                      tab === "ChangePassword" &&
+                      "active dark:text-light-side-bar-text-color"
+                    }`}
                     transition={{ delay: 1 }}
                   >
                     Change Password
-                  </motion.li>
+                  </li>
                   <li
                     onClick={(e) => setTab("Experience")}
-                    className={`p-3  ${tab === "Experience" && "active dark:text-light-side-bar-text-color"}`}
+                    className={`p-3  ${
+                      tab === "Experience" &&
+                      "active dark:text-light-side-bar-text-color"
+                    }`}
                   >
                     Experience
                   </li>
                   <li
                     onClick={(e) => setTab("PrivacyPolicy")}
-                    className={`p-3  ${tab === "PrivacyPolicy" && "active dark:text-light-side-bar-text-color"}`}
+                    className={`p-3  ${
+                      tab === "PrivacyPolicy" &&
+                      "active dark:text-light-side-bar-text-color"
+                    }`}
                   >
                     Privacy Policy
                   </li>

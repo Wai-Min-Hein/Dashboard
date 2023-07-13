@@ -2,8 +2,8 @@ import React from "react";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="p-4">
-      <h2 className="underline mb-4 text-xl">Security:</h2>
+    <div className="p-4 dark:text-light">
+      <h2 className="underline mb-4 text-xl dark:text-light">Security:</h2>
       {/* two-factor authentication */}
       <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-3">
         <div className="">
@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
       </div>
 
       <br />
-      <h2 className="underline mb-4 text-xl">Application Notifications:</h2>
+      <h2 className="underline mb-4 text-xl dark:text-light">Application Notifications:</h2>
       {/* direct message */}
       <div className="w-full flex justify-between items-start gap-3 mb-3">
         <div className="">
@@ -63,8 +63,8 @@ const PrivacyPolicy = () => {
               className="relative flex items-center cursor-pointer"
             >
               <input type="checkbox" id="directMsg" className="sr-only" />
-              <div className="bgtoggle block bg-white border border-gray w-7 h-5 rounded-full"></div>
-              <div className="dot absolute left-1 top-1 bg-gray w-3 h-3 rounded-full transition"></div>
+              <div className="bgtoggle block bg-white dark:bg-gray-800 border border-gray w-7 h-5 rounded-full"></div>
+              <div className="dot absolute left-1 top-1 bg-gray dark:bg-white w-3 h-3 rounded-full transition"></div>
             </label>
           </div>
         </div>
@@ -86,8 +86,8 @@ const PrivacyPolicy = () => {
               className="relative flex items-center cursor-pointer"
             >
               <input type="checkbox" id="desktopNoti" className="sr-only" />
-              <div className="bgtoggle block bg-white border border-gray w-7 h-5 rounded-full"></div>
-              <div className="dot absolute left-1 top-1 bg-gray w-3 h-3 rounded-full transition"></div>
+              <div className="bgtoggle block bg-white dark:bg-gray-800 border border-gray w-7 h-5 rounded-full"></div>
+              <div className="dot absolute left-1 top-1 bg-gray dark:bg-white w-3 h-3 rounded-full transition"></div>
             </label>
           </div>
         </div>
@@ -109,8 +109,8 @@ const PrivacyPolicy = () => {
               className="relative flex items-center cursor-pointer"
             >
               <input type="checkbox" id="emailNoti" className="sr-only" />
-              <div className="bgtoggle block bg-white border border-gray w-7 h-5 rounded-full"></div>
-              <div className="dot absolute left-1 top-1 bg-gray w-3 h-3 rounded-full transition"></div>
+              <div className="bgtoggle block bg-white dark:bg-gray-800 border border-gray w-7 h-5 rounded-full"></div>
+              <div className="dot absolute left-1 top-1 bg-gray dark:bg-white w-3 h-3 rounded-full transition"></div>
             </label>
           </div>
         </div>
@@ -132,8 +132,8 @@ const PrivacyPolicy = () => {
               className="relative flex items-center cursor-pointer"
             >
               <input type="checkbox" id="chatNoti" className="sr-only" />
-              <div className="bgtoggle block bg-white border border-gray w-7 h-5 rounded-full"></div>
-              <div className="dot absolute left-1 top-1 bg-gray w-3 h-3 rounded-full transition"></div>
+              <div className="bgtoggle block bg-white dark:bg-gray-800 border border-gray w-7 h-5 rounded-full"></div>
+              <div className="dot absolute left-1 top-1 bg-gray dark:bg-white w-3 h-3 rounded-full transition"></div>
             </label>
           </div>
         </div>
@@ -155,14 +155,14 @@ const PrivacyPolicy = () => {
               className="relative flex items-center cursor-pointer"
             >
               <input type="checkbox" id="purchaseNoti" className="sr-only" />
-              <div className="bgtoggle block bg-white border border-gray w-7 h-5 rounded-full"></div>
-              <div className="dot absolute left-1 top-1 bg-gray w-3 h-3 rounded-full transition"></div>
+              <div className="bgtoggle block bg-white dark:bg-gray-800 border border-gray w-7 h-5 rounded-full"></div>
+              <div className="dot absolute left-1 top-1 bg-gray dark:bg-white w-3 h-3 rounded-full transition"></div>
             </label>
           </div>
         </div>
       </div>
 
-      <h2 className="underline mb-4 text-xl">Delete This Account:</h2>
+      <h2 className="underline mb-4 text-xl dark:text-light">Delete This Account:</h2>
       <p className="opacity-70">
         Go to the Data & Privacy section of your profile Account. Scroll to
         "Your data & privacy options." Delete your Profile Account. Follow the
@@ -171,17 +171,18 @@ const PrivacyPolicy = () => {
       <form className=" my-3">
         <div className="w-full md:w-1/3 mb-6 md:mb-0">
           <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             id="grid-first-name"
             type="password"
+            value="hayhoware"
             placeholder="Enter your password"
           />
         </div>
         <div className="flex gap-3">
-          <button className="text-red p-2 bg-light-gray-bg rounded">
+          <button className=" font-semibold text-red p-2 bg-light-gray-bg dark:bg-gray-800 rounded">
             Close & Delete This Account
           </button>
-          <button className="p-2 bg-light-gray-bg rounded">Cancel</button>
+          <button className="p-2 bg-light-gray-bg dark:bg-gray-800 rounded">Cancel</button>
         </div>
       </form>
     </div>
