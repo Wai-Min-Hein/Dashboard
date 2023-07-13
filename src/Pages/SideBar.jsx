@@ -146,10 +146,10 @@ const SideBar = () => {
             variants={!tablet ? Sidebar_animationR : Sidebar_animation}
             animate={isSideOpen ? "open" : "closed"}
             onClick={() => setIsSideOpen(false)}
-            className=" bg-gray-btn-bg z-[-1] fixed  lg:scale-0 lg:ml-0 ml-[16rem] h-screen top-0 left-0 !w-full lg:hidden px-1 min-h-screen"
+            className=" bg-[rgba(0,0,0,0.4)] z-[-10000] fixed  lg:scale-0 lg:ml-0 ml-[16rem] h-screen top-0 left-0 !w-full block lg:hidden px-1 min-h-screen"
           ></motion.div>
 
-          <div className="">
+          <div className="min-h-screen">
             <div onClick={() => nav('/')} className=" cursor-pointer pt-8">
               {
                 !isSideOpen? (
@@ -165,20 +165,20 @@ const SideBar = () => {
             </div>
             <div className="px-5 mt-8">
             <button className="flex items-center justify-start gap-4 group ">
-                <RiDashboard2Line className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
+                <RiDashboard2Line  onClick={() => setIsSideOpen(true)} className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
                 <span  onClick={() => nav('/')} className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal ${!isSideOpen? 'hidden': 'inline-block'}`}>
                   Ecommerce
                 </span>
               </button>
               <button   className="flex items-center justify-start gap-4 group my-4">
-                <RiLockPasswordLine className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
+                <RiLockPasswordLine  onClick={() => setIsSideOpen(true)} className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
                 <span onClick={() => nav('/password-reset')} className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal ${!isSideOpen? 'hidden': 'inline-block'}`}>
                   Password Reset
                 </span>
               </button>
 
               <button className="flex items-center justify-start gap-4 group">
-                <FaWpforms className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
+                <FaWpforms  onClick={() => setIsSideOpen(true)} className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
                 <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal ${!isSideOpen? 'hidden': 'inline-block'}`}>
                   New Blog
                 </span>
@@ -187,7 +187,7 @@ const SideBar = () => {
               <button className=" w-full mt-4 relative group">
                 <div onClick={() => setProfile(!profile)} className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-start gap-4 group">
-                    <RiPagesLine className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
+                    <RiPagesLine  onClick={() => setIsSideOpen(true)} className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
                     <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal ${!isSideOpen? 'hidden': 'inline-block'}`}>
                       Profile
                     </span>

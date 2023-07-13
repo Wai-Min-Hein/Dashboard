@@ -58,7 +58,7 @@ const SmallIconView = () => {
       },
     },
     closed: {
-      width: "5rem",
+      width: "16rem",
       transition: {
         damping: 40,
       },
@@ -131,34 +131,31 @@ const SmallIconView = () => {
       <div className={`${semi? 'h-[93vh]': 'h-screen'}`}>
             <div className=" pt-8">
               {
-                !isSideOpen? (
-                  <img src='https://themesbrand.com/velzon/html/default/assets/images/logo-sm.png' className="w-[2rem] mx-auto" alt="" />
-
-                ): (
+                
 
                   sideLight? (
                     <img src='https://themesbrand.com/velzon/html/default/assets/images/logo-dark.png' className="w-[6rem] mx-auto" alt="" />
                   ):(<img src='https://themesbrand.com/velzon/html/default/assets/images/logo-light.png' className="w-[6rem] mx-auto" alt="" />)
-                )
+                
               }
             </div>
             <div className="px-5 mt-8">
             <button className="flex items-center justify-start gap-4 group ">
                 <RiDashboard2Line className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
-                <span  onClick={() => nav('/')} className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal ${!isSideOpen? 'hidden': 'inline-block'}`}>
+                <span  onClick={() => nav('/')} className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal `}>
                   Ecommerce
                 </span>
               </button>
               <button   className="flex items-center justify-start gap-4 group my-4">
                 <RiLockPasswordLine className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
-                <span onClick={() => nav('/password-reset')} className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal ${!isSideOpen? 'hidden': 'inline-block'}`}>
+                <span onClick={() => nav('/password-reset')} className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal `}>
                   Password Reset
                 </span>
               </button>
 
               <button className="flex items-center justify-start gap-4 group">
                 <FaWpforms className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
-                <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal ${!isSideOpen? 'hidden': 'inline-block'}`}>
+                <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal `}>
                   New Blog
                 </span>
               </button>
@@ -167,12 +164,12 @@ const SmallIconView = () => {
                 <div onClick={() => setProfile(!profile)} className="flex items-center justify-between w-full">
                   <div className="flex items-center justify-start gap-4 group">
                     <RiPagesLine className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
-                    <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal ${!isSideOpen? 'hidden': 'inline-block'}`}>
+                    <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal `}>
                       Profile
                     </span>
                   </div>
-                  {profile? <MdOutlineKeyboardArrowDown  className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'}  text-xl ${!isSideOpen? 'hidden': 'inline-block'}`}/>:
-                  <MdOutlineKeyboardArrowRight className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'}  text-xl ${!isSideOpen? 'hidden': 'inline-block'}`} />
+                  {profile? <MdOutlineKeyboardArrowDown  className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'}  text-xl `}/>:
+                  <MdOutlineKeyboardArrowRight className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'}  text-xl `} />
                   }
                 </div>
                 <motion.div 

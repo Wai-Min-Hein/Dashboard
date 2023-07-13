@@ -4,6 +4,12 @@ import { useMediaQuery } from "react-responsive";
 export const StateContext = createContext()
 const StateContextProvider = ({children}) => {
 
+  const tablet = useMediaQuery({
+    query: "(min-width: 1024px)",
+  });
+
+  const [isTablet, setIsTablet] = useState(tablet?true:false)
+
  
 
   const [isSideOpen, setIsSideOpen] = useState(true);
@@ -63,6 +69,21 @@ states?.theme? setTheme(states.theme): setTheme('light')
     const [enabled, setEnabled] = useState(states?.enabled)
 
     let LsStates = {theme,ver,hor,tCol,semi,lightTheme,darkTheme,fluid,boxed,fixed,boxed,fixed,scrollable,lightTop,darkTop,sizeDefault,compact,smallIcon,smallHover,viewDefault,detached,sideLight,sideDark,sideGradient,img,img1,img2,img3,img4,disabled,enabled}
+
+
+    useEffect(() => {
+
+
+      tablet? setIsTablet(true): setIsTablet(false)
+    }, [tablet])
+
+    useEffect(() => {
+      !isTablet&&(
+        setVer(true),setHor(false), setTCol(false), setSemi(false), setFluid(true), setBoxed(false),setSizeDefault(true), setCompact(false),setSmallHover(false), setSmallIcon(false)
+      )
+    }, [isTablet])
+
+
 
     useMemo(() => {
       localStorage.setItem('states',JSON.stringify( LsStates))
