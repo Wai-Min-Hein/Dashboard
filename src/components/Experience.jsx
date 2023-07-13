@@ -7,15 +7,16 @@ const Experience = () => {
         {/* jobTitle */}
         <div className="w-full px-3">
           <label
-            className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
+            className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
             for="jobTitle"
           >
             Job Title
           </label>
           <input
-            className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+            className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             id="jobTitle"
             type="text"
+            value="Lead Designer / Developer"
             placeholder="Job title"
           />
         </div>
@@ -24,22 +25,23 @@ const Experience = () => {
           {/* companyName */}
           <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0">
             <label
-              className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
+              className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
               for="companyName"
             >
               Company Name
             </label>
             <input
-              className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+              className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
               id="companyName"
               type="text"
+              value="Themesbrand"
               placeholder="Company name"
             />
           </div>
           {/* Experience */}
           <div className="w-full md:w-2/4 px-3">
             <label
-              className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
+              className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
               for="fromExp"
             >
               Experience Years
@@ -47,7 +49,8 @@ const Experience = () => {
             <div className="flex ">
               <select
                 id="fromExp"
-                class="bg-gray-50 border border-gray-300 focus:outline-none text-sm rounded block w-full p-2.5 "
+                value="2017"
+                class="bg-gray-50 border dark:text-light dark:bg-gray-800 border-gray-300 dark:border-gray-800 focus:outline-none text-sm rounded block w-full p-2.5 "
               >
                 <option selected>Select years</option>
                 <option value="2001">2001</option>
@@ -77,7 +80,8 @@ const Experience = () => {
               <p className="p-3">to</p>
               <select
                 id="toExp"
-                class="bg-gray-50 border border-gray-300 focus:outline-none text-sm rounded block w-full p-2.5 "
+                value="2020"
+                class="bg-gray-50 dark:bg-gray-800 dark:text-light border border-gray-300 dark:border-gray-800 focus:outline-none text-sm rounded block w-full p-2.5 "
               >
                 <option selected>Select years</option>
                 <option value="2001">2001</option>
@@ -111,15 +115,16 @@ const Experience = () => {
         <div className="w-full flex flex-wrap mb-6">
           <div className="w-full px-3">
             <label
-              className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
+              className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
               for="jobDescription"
             >
               Job Description
             </label>
             <textarea
-              className="appearance-none block w-full text-sm bg-white text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
+              className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
               id="jobDescription"
               placeholder="Enter description"
+              value="You always want to make sure that your fonts work well together and try to limit the number of fonts you use to three or less. Experiment and play around with the fonts that you already have in the software you're working with reputable font websites. "
               rows={3}
             />
             <div className="flex justify-end">
