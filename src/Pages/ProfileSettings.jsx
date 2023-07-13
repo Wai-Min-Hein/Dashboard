@@ -23,7 +23,7 @@ const ProfileSettings = () => {
   const {semi,detached }= useContext(StateContext)
 
   return (
-    <div className={`z-50 bg-light-gray-bg dark:bg-dark-bg-color flex-1 font-header-regular min-h-screen overflow-y-auto  w-full relative  ${semi? 'px-[10rem]': ''}`} >
+    <div className={`z-50 bg-light-gray-bg dark:bg-dark-bg-color flex-1  min-h-screen overflow-y-auto  w-full relative  ${semi? 'px-[10rem]': ''}`} >
       {!detached&&
       <TopBar/>
       }

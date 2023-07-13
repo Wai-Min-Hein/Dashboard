@@ -100,21 +100,18 @@ const SideCompact = () => {
 <div className="">
             <div className=" pt-8">
               {
-                !isSideOpen? (
-                  <img src='https://themesbrand.com/velzon/html/default/assets/images/logo-sm.png' className="w-[2rem] mx-auto" alt="" />
-
-                ): (
+                
 
                   sideLight? (
                     <img src='https://themesbrand.com/velzon/html/default/assets/images/logo-dark.png' className="w-[6rem] mx-auto" alt="" />
                   ):(<img src='https://themesbrand.com/velzon/html/default/assets/images/logo-light.png' className="w-[6rem] mx-auto" alt="" />)
-                )
+                
               }
             </div>
             <div className="px-5 mt-8">
             <button onClick={() => nav('/')} className="flex flex-col group items-center justify-start gap-2 mx-auto">
                 <RiDashboard2Line className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
-                <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium ${!isSideOpen? 'hidden': 'inline-block'}`}>
+                <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium `}>
                   Ecommerce
                 </span>
               </button>
@@ -122,14 +119,14 @@ const SideCompact = () => {
 
               <button  onClick={() => nav('/password-reset')} className="flex flex-col group items-center justify-start gap-2 mt-2 mx-auto">
                 <RiLockPasswordLine className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
-                <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'}  text-[1.1rem] font-header-medium ${!isSideOpen? 'hidden': 'inline-block'}`}>
+                <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'}  text-[1.1rem] font-header-medium `}>
                   Password Reset
                 </span>
               </button>
 
               <button className="flex flex-col group items-center justify-start gap-2 mt-2 mx-auto">
                 <FaWpforms className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
-                <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'}  text-[1.1rem] font-header-medium ${!isSideOpen? 'hidden': 'inline-block'}`}>
+                <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'}  text-[1.1rem] font-header-medium `}>
                   New Blog
                 </span>
               </button>
@@ -138,7 +135,7 @@ const SideCompact = () => {
                 <div onClick={() => setProfile(!profile)} className="flex items-center justify-between mx-auto">
                   <div className="flex flex-col group items-center justify-start gap-2">
                     <RiPagesLine className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
-                    <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'}  text-[1.1rem] font-header-medium ${!isSideOpen? 'hidden': 'inline-block'}`}>
+                    <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'}  text-[1.1rem] font-header-medium `}>
                       Profile
                     </span>
                   </div>

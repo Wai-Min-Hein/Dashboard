@@ -8,7 +8,7 @@ const ChangePassword = () => {
         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
           <label
             className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="oldPassword"
+            htmlFor="oldPassword"
           >
             Old Password*
           </label>
@@ -22,7 +22,7 @@ const ChangePassword = () => {
         <div className="w-full md:w-1/3 px-3">
           <label
             className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="newPassword"
+            htmlFor="newPassword"
           >
             New Password*
           </label>
@@ -36,7 +36,7 @@ const ChangePassword = () => {
         <div className="w-full md:w-1/3 px-3">
           <label
             className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="confirmPassword"
+            htmlFor="confirmPassword"
           >
             Confirm Password
           </label>
