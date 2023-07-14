@@ -22,10 +22,10 @@ const Addblog = () => {
       <section className="bg-white dark:bg-dark-bg-color p-6 shadow">
         <form action="" className="mx-[5rem] md:mx-[5rem] lg:mx-[15rem]">
             <div className="border-b border-b-[rgba(0,0,0,0.2)]">
-            <label htmlFor="image" className="w-40 h-40 rounded-full bg-bggreen dark:bg-success dark:text-gray-200 flex justify-center items-center">
+            <label htmlFor="image" className="w-40 h-40 rounded-full overflow-hidden bg-bggreen dark:bg-success dark:text-gray-200 flex justify-center items-center">
                 {isImage ? (
                     <img src={URL.createObjectURL(isImage)}
-                    alt=""  className="w-full h-full"/>
+                    alt=""  className=" block"/>
                 ) : (
                     <RiImageEditLine className="text-4xl"/>
                 )}
