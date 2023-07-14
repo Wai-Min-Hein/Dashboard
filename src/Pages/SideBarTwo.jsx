@@ -364,11 +364,11 @@ const SideBarTwo = () => {
             className={`w-full   py-2 space-y-2 ${form ? "block" : "hidden"}`}
           >
             <li
-              // onClick={() => nav("/")}
+               onClick={() => nav('/add-blog')}
               className=" text-inherit pb-2 flex   items-center cursor-pointer"
             >
               <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal px-2`}>
-                New form
+                New Blog
               </span>
             </li>
           </ul>

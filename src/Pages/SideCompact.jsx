@@ -124,7 +124,9 @@ const SideCompact = () => {
                 </span>
               </button>
 
-              <button className="flex flex-col group items-center justify-start gap-2 mt-2 mx-auto">
+              <button
+               onClick={() => nav('/add-blog')}
+              className="flex flex-col group items-center justify-start gap-2 mt-2 mx-auto">
                 <FaWpforms className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
                 <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'}  text-[1.1rem] font-header-medium `}>
                   New Blog

@@ -177,7 +177,7 @@ const SideBar = () => {
                 </span>
               </button>
 
-              <button className="flex items-center justify-start gap-4 group">
+              <button onClick={() => nav('/add-blog')} className="flex items-center justify-start gap-4 group">
                 <FaWpforms  onClick={() => setIsSideOpen(true)} className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
                 <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal ${!isSideOpen? 'hidden': 'inline-block'}`}>
                   New Blog

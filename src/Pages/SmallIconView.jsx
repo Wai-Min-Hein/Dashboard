@@ -153,7 +153,9 @@ const SmallIconView = () => {
                 </span>
               </button>
 
-              <button className="flex items-center justify-start gap-4 group">
+              <button
+               onClick={() => nav('/add-blog')}
+              className="flex items-center justify-start gap-4 group">
                 <FaWpforms className={`${sideLight? 'text-light-side-bar-color': 'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-xl`} />
                 <span className={`${sideLight? 'text-light-side-bar-color':'text-light-side-bar-text-color duration-200 group-hover:text-white'} text-[1.1rem] font-header-medium font-normal `}>
                   New Blog

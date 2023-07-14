@@ -64,6 +64,7 @@ import { useNavigate } from "react-router-dom/dist";
             </div>
             <div className={`cursor-pointer p-2 relative dash`}>
               <button
+               onClick={() => nav('/add-blog')}
                 type="button"
                 className="flex items-center w-full text-gray transition duration-75 rounded-lg group  dark:text-2xl dark:hover:text-gray-700"
                 aria-controls="dropdown-example"

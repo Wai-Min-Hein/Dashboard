@@ -31,6 +31,7 @@ import Docu from "./Pages/Profile/Docu";
 import Login from "./Pages/Login";
 import Logout from "./Pages/Logout";
 import SignUp from "./Pages/SignUp";
+import Addblog from "./Pages/AddBlog";
 
 const App = () => {
   const tablet = useMediaQuery({
@@ -99,6 +100,8 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/" element={<Ecommerce />} />
+            <Route path="/add-blog" element={<Addblog />} />
+
             </Routes>
           </div>
         </div>
@@ -151,6 +154,7 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
             <Route path="/password-reset" element={<PasswordReset />} />
             <Route path="/" element={<Ecommerce />} />
+            <Route path="/add-blog" element={<Addblog />} />
           </Routes>
         </div>
       )}
