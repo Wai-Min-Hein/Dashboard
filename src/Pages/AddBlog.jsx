@@ -34,17 +34,17 @@ const Addblog = () => {
             </div>
             <div className="title my-6 flex flex-col">
                 <label htmlFor="title" className="text-xl mb-2 font- font-para dark:text-light-para-color">Blog Title</label>
-                <input type="text" id="title" className="border-gray-400 dark:bg-dark-bg-color dark:border-gray-500 h-10 border focus:outline-none px-4 rounded-md " />
+                <input type="text" id="title" className="font font-para text-[.9rem] border-gray-400 dark:bg-dark-bg-color dark:border-gray-500 h-10 border focus:outline-none px-4 rounded-md " />
             </div>
             <div className="time mb-6">
-                <label htmlFor="date" className="text-xl  font-para  dark:text-light-para-color">
+                <label htmlFor="date" className="text-xl   font font-para text-[.9rem] dark:text-light-para-color">
                     Date
                 </label>
                 <input type="date" className="h-8 border border-gray-300 text-light-para-color  dark:bg-dark-bg-color dark:border-gray-500 rounded-sm dark:text-light-para-color  font-para  focus:outline-none p-2 ml-6" id="date"/>
             </div>
             <div className="description flex flex-col">
                 <label htmlFor="description" className="text-xl mb-2  font-para  dark:text-light-para-color">Blog Description</label>
-                <textarea name="description" id="description" cols="30" rows="10"  className="border border-gray-400  dark:bg-dark-bg-color dark:border-gray-500 focus:outline-none rounded-md p-4 break-words"></textarea>
+                <textarea name="description" id="description" cols="30" rows="10"  className="border border-gray-400 font font-para text-[.9rem] dark:bg-dark-bg-color dark:border-gray-500 focus:outline-none rounded-md p-4 break-words"></textarea>
             </div>
 
             <div className="w-full text-end">

@@ -4333,6 +4333,14 @@ html {
   color: rgb(247 184 75 / var(--tw-text-opacity));
 }
 
+.text-\[\]{
+  color: ;
+}
+
+.text-\[rem\]{
+  color: rem;
+}
+
 .text-opacity-50{
   --tw-text-opacity: 0.5;
 }
