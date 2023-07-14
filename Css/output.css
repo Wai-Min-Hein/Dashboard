@@ -2280,6 +2280,10 @@ html {
   z-index: 50;
 }
 
+.z-\[-10000\]{
+  z-index: -10000;
+}
+
 .z-\[-1\]{
   z-index: -1;
 }
@@ -2342,10 +2346,6 @@ html {
 
 .z-\[999\]{
   z-index: 999;
-}
-
-.z-\[-10000\]{
-  z-index: -10000;
 }
 
 .col-start-1{
@@ -2431,6 +2431,11 @@ html {
 .my-\[\.6rem\]{
   margin-top: .6rem;
   margin-bottom: .6rem;
+}
+
+.mx-0{
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .-ms-2{
@@ -2575,6 +2580,10 @@ html {
   margin-top: 2rem;
 }
 
+.mt-auto{
+  margin-top: auto;
+}
+
 .block{
   display: block;
 }
@@ -2695,12 +2704,28 @@ html {
   height: 100vh;
 }
 
+.h-\[\]{
+  height: ;
+}
+
+.h-\[180px\]{
+  height: 180px;
+}
+
 .max-h-\[300px\]{
   max-height: 300px;
 }
 
 .max-h-screen{
   max-height: 100vh;
+}
+
+.max-h-\[\]{
+  max-height: ;
+}
+
+.max-h-\[90vh\]{
+  max-height: 90vh;
 }
 
 .\!min-h-\[300px\]{
@@ -2861,6 +2886,22 @@ html {
 
 .w-screen{
   width: 100vw;
+}
+
+.w-\[30rem\]{
+  width: 30rem;
+}
+
+.w-\[26rem\]{
+  width: 26rem;
+}
+
+.w-36{
+  width: 9rem;
+}
+
+.w-\[180px\]{
+  width: 180px;
 }
 
 .min-w-\[10rem\]{
@@ -3341,6 +3382,10 @@ html {
   background-color: rgb(253 253 254 / var(--tw-bg-opacity));
 }
 
+.bg-\[rgba\(0\2c 0\2c 0\2c 0\.4\)\]{
+  background-color: rgba(0,0,0,0.4);
+}
+
 .bg-\[rgba\(135\2c 138\2c 153\2c 0\.4\)\]{
   background-color: rgba(135,138,153,0.4);
 }
@@ -3507,26 +3552,13 @@ html {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[\]{
-  background-color: ;
+.bg-\[0ab39c\]{
+  background-color: 0ab39c;
 }
 
-.bg-\[\#000\]{
+.bg-blue{
   --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-\[rgb\(0\2c 0\2c 0\)\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-\[rgba\(0\2c 0\2c 0\2c 0\.64\)\]{
-  background-color: rgba(0,0,0,0.64);
-}
-
-.bg-\[rgba\(0\2c 0\2c 0\2c 0\.4\)\]{
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(53 119 241 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'https\:\/\/themesbrand\.com\/velzon\/html\/default\/assets\/images\/profile-bg\.jpg\'\)\]{
@@ -3881,6 +3913,10 @@ html {
   font-size: .95rem;
 }
 
+.text-\[\.9rem\]{
+  font-size: .9rem;
+}
+
 .text-\[0\.88rem\]{
   font-size: 0.88rem;
 }
@@ -3941,6 +3977,11 @@ html {
   font-size: 23px;
 }
 
+.text-base{
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .text-lg{
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -3961,8 +4002,8 @@ html {
   line-height: 1rem;
 }
 
-.text-\[\.9rem\]{
-  font-size: .9rem;
+.text-\[1rem\]{
+  font-size: 1rem;
 }
 
 .font-\[500\]{
@@ -4233,10 +4274,6 @@ html {
 .text-yellow{
   --tw-text-opacity: 1;
   color: rgb(247 184 75 / var(--tw-text-opacity));
-}
-
-.text-\[\.9m\]{
-  color: .9m;
 }
 
 .text-opacity-50{
@@ -4840,6 +4877,11 @@ th{
   color: rgb(206 212 218 / var(--tw-text-opacity));
 }
 
+:is(.dark .dark\:text-dark-para-color){
+  --tw-text-opacity: 1;
+  color: rgb(135 138 153 / var(--tw-text-opacity));
+}
+
 :is(.dark .dark\:text-gray){
   --tw-text-opacity: 1;
   color: rgb(135 138 153 / var(--tw-text-opacity));
@@ -4868,11 +4910,6 @@ th{
 :is(.dark .dark\:text-white){
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-:is(.dark .dark\:text-dark-para-color){
-  --tw-text-opacity: 1;
-  color: rgb(135 138 153 / var(--tw-text-opacity));
 }
 
 :is(.dark .before\:dark\:border-gray-700)::before{
@@ -4931,6 +4968,10 @@ th{
 
   .sm\:w-\[32rem\]{
     width: 32rem;
+  }
+
+  .sm\:w-\[30rem\]{
+    width: 30rem;
   }
 
   .sm\:basis-1\/4{
@@ -5012,10 +5053,6 @@ th{
 
   .md\:h-\[260px\]{
     height: 260px;
-  }
-
-  .md\:max-h-screen{
-    max-height: 100vh;
   }
 
   .md\:w-1\/2{
