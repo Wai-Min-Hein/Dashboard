@@ -4,9 +4,25 @@ import { BiLogoFacebook,BiLogoGithub } from "react-icons/bi";
 import lottie from "lottie-web";
 import { defineElement } from "lord-icon-element";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useRegisterMutation } from "../Api/AuthApi";
 defineElement(lottie.loadAnimation);
 const SignUp = () => {
   const nav = useNavigate();
+  const [name,setName] = useState('')
+  const [email,setEmail] = useState('')
+  const [password,setPassword] = useState('')
+  const [passwordConfirmation,SetpasswordConfirmation] = useState('')
+
+  const [register] = useRegisterMutation()
+
+  const handleRegister = async(e) => {
+    e.preventDefault()
+    const user = {name,email,password,password_confirmation:passwordConfirmation}
+    const data = await register(user)
+if(data?.data?.success == true) nav('/login')
+if(data?.error?.data.message) console.log(data?.error?.data.message)
+  }
   return (
     <div className="w-full h-screen bg-[#f3f3f9]">
       <header className=" absolute w-full h-[280px] sm:h-[380px]">
@@ -58,37 +74,52 @@ const SignUp = () => {
 
             <div className=" w-full flex flex-col items-center px-4">
               <div className="w-full text-start text-sm  px-1 sm:px-6 py-4 ">
-                <div className="">
-                  <label className="mb-2">Email</label>
-                  <input
-                    className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
-                    type="text"
-                    placeholder="Enter Your Email"
-                  />
-                </div>
-                <div className="">
+              <div className="">
                   <label className="mb-2">User Name</label>
                   <input
+                  onChange={(e) => setName(e.target.value)}
                     className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
                     type="text"
                     placeholder="Enter Username"
                   />
                 </div>
                 <div className="">
+                  <label className="mb-2">Email</label>
+                  <input
+                  onChange={(e) => setEmail(e.target.value)}
+                    className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
+                    type="text"
+                    placeholder="Enter Your Email"
+                  />
+                </div>
+                
+                <div className="">
                   <div className="flex items-center justify-between">
                     <label className="mb-1">Password</label>
                     <label onClick={() => nav('/password-reset')} className="mb-1 cursor-pointer">Forget Password?</label>
                   </div>
                   <input
+                  onChange={(e) => setPassword(e.target.value)}
                     className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
                     type="text"
                     placeholder="Enter Password"
                   />
                 </div>
+                <div className="">
+                  <div className="flex items-center justify-between">
+                    <label className="mb-1">Confirm Password</label>
+                  </div>
+                  <input
+                  onChange={(e) => SetpasswordConfirmation(e.target.value)}
+                    className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
+                    type="text"
+                    placeholder="Confirm Password"
+                  />
+                </div>
                 <div className=" mb-6">
                     <p>By registering you agree to the Velzon <button>Terms of Use</button> </p>
                 </div>
-                <button className="w-full bg-green text-white py-2 rounded">
+                <button onClick={handleRegister} type="submit" className="w-full bg-green text-white py-2 rounded">
                   Sign up
                 </button>
               </div>

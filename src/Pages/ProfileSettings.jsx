@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import TopBar from "./TopBar";
 import {
   RiImageEditLine,
@@ -16,11 +16,18 @@ import PersonalDetails from "../components/PersonalDetails";
 import PrivacyPolicy from "../components/PrivacyPolicy";
 import { motion, AnimatePresence } from "framer-motion";
 import { StateContext } from "../Context/StateContext";
+import { useNavigate } from "react-router-dom";
 
 const ProfileSettings = () => {
   const [tab, setTab] = useState("PersonalDetails");
 
   const { semi, detached } = useContext(StateContext);
+  const nav = useNavigate()
+
+  const token = localStorage.getItem("token");
+useEffect(()=>{
+  !token&& nav('/logout')
+},[])
 
   return (
 

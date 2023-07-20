@@ -26,6 +26,7 @@ import { useContext, useEffect, useState } from "react";
 import { motion, transform } from "framer-motion";
 import SettingBar from "../Components/SettingBar";
 import { StateContext } from "../Context/StateContext";
+import { useNavigate } from "react-router-dom";
 
 const Ecommerce = () => {
   const options = {
@@ -152,6 +153,12 @@ const Ecommerce = () => {
   const [sort, setSort] = useState(false);
   const [report, setReport] = useState(false);
   
+  const nav = useNavigate()
+
+  const token = localStorage.getItem("token");
+useEffect(()=>{
+  !token&& nav('/logout')
+},[])
   
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import TopBar from "./TopBar";
 import {
   RiImageEditLine,
@@ -6,12 +6,19 @@ import {
 } from "react-icons/ri";
 import { motion, AnimatePresence } from "framer-motion";
 import { StateContext } from "../Context/StateContext";
+import { useNavigate } from "react-router-dom";
 
 const Addblog = () => {
   const [tab, setTab] = useState("PersonalDetails");
 
   const {semi,detached }= useContext(StateContext)
   const [isImage,setIsImage] = useState(null)
+  const nav = useNavigate()
+
+  const token = localStorage.getItem("token");
+useEffect(()=>{
+  !token&& nav('/logout')
+},[])
 
   return (
     <div className={`z-50 bg-light-gray-bg dark:bg-dark-bg-color flex-1 font-header-regular min-h-screen overflow-y-auto  w-full relative  ${semi? 'px-[10rem]': ''} `} >
