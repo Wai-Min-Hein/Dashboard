@@ -24,20 +24,16 @@ import "../../Css/Topbar.css";
 import SideBarHor from "./SideBarHor";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useLogoutMutation } from "../Api/AuthApi";
 
 
 
-// import english from "../../Image/English.svg";
-// import ae from "../../Image/ae.svg";
-// import china from "../../Image/china.svg";
-// import french from "../../Image/french.svg";
-// import germany from "../../Image/germany.svg";
-// import italy from "../../Image/italy.svg";
-// import russia from "../../Image/russia.svg";
-// import spain from "../../Image/spain.svg";
 
 const TopBar = () => {
   const nav = useNavigate();
+
+  const token = localStorage.getItem('token')
+
 
   const {
     isSideOpen,
@@ -89,6 +85,16 @@ const TopBar = () => {
   };
 
   const [profileModal, setProfileModal] = useState(false);
+
+  const [logout] = useLogoutMutation()
+
+  const handleLogout =async () => {
+    const {data} = await logout(token)
+    if(data.success == true) {
+      nav('/logout')
+      localStorage.removeItem('token')
+    }
+  }
 
   return (
     <div
@@ -654,7 +660,7 @@ const TopBar = () => {
                   Setting
                 </span>
               </div>
-              <div  onClick={() => nav('/logout')} className="flex items-center justify-start gap-2 px-6 hover:bg-light-gray-bg duration-150 py-1 cursor-pointer">
+              <div  onClick={handleLogout} className="flex items-center justify-start gap-2 px-6 hover:bg-light-gray-bg duration-150 py-1 cursor-pointer">
                 <TbLogout className="text-light-header-color dark:text-dark-para-color text-[.9rem]" />
                 
                 <span className="text-light-header-color  dark:text-dark-para-color font-medium text-[.8rem] capitalize">

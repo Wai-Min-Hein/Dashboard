@@ -22,6 +22,11 @@ import TopBar from "./TopBar";
 const Profile = () => {
   
   const nav = useNavigate()
+
+  const token = localStorage.getItem("token");
+useEffect(()=>{
+  !token&& nav('/logout')
+},[])
   const {semi,detached} = useContext(StateContext)
   const location = useLocation()
 

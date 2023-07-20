@@ -1,4 +1,4 @@
-import React from 'react'
+import  { useEffect } from 'react'
 import {RiArrowLeftSLine,RiArrowRightSLine} from "react-icons/ri"
 import "../../../Css/Profile.css"
 import admin from "../../../Image/admin.jpg"
@@ -9,8 +9,15 @@ import john from "../../../Image/activity/avatar-6.jpg";
 import jac from "../../../Image/user/avatar-4.jpg";
 import geo from "../../../Image/user/avatar-5.jpg";
 import jacqueline from "../../../Image/rece/avatar-2.jpg";
+import { useNavigate } from 'react-router-dom';
 
 const Projects = () => {
+  const nav = useNavigate()
+
+  const token = localStorage.getItem("token");
+useEffect(()=>{
+  !token&& nav('/logout')
+},[])
   return (
     <div className='pt-6'>
       <div className="card dark:bg-dark-side-bar-color">

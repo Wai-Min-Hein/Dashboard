@@ -4,9 +4,33 @@ import { BiLogoFacebook,BiLogoGithub } from "react-icons/bi";
 import lottie from "lottie-web";
 import { defineElement } from "lord-icon-element";
 import { useNavigate } from "react-router-dom";
+import { useLoginMutation } from "../Api/AuthApi";
+import { useState } from "react";
 defineElement(lottie.loadAnimation);
+
 const Login = () => {
   const nav = useNavigate();
+  const [email,setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const [login]= useLoginMutation()
+
+  const handleLogin=async (e) => {
+
+    e.preventDefault()
+    const user= {email,password}
+    const data = await login(user)
+    console.log(data)
+    if(data?.data?.success == false) console.log(data?.data?.message)
+      if(data?.data?.success == true){
+        localStorage.setItem('token', data?.data?.token)
+        nav('/')
+      } 
+        
+  }
+  
+
+  
   return (
     <div className="w-full h-screen bg-[#f3f3f9]">
       <header className=" absolute w-full h-[280px] sm:h-[380px]">
@@ -59,11 +83,12 @@ const Login = () => {
             <div className=" w-full flex flex-col items-center px-4">
               <div className="w-full text-start text-sm  px-1 sm:px-6 py-4 ">
                 <div className="">
-                  <label className="mb-2">User Name</label>
+                  <label className="mb-2">Email</label>
                   <input
+                  onChange={(e) => setEmail(e.target.value)}
                     className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
                     type="text"
-                    placeholder="Enter Username"
+                    placeholder="Enter Email"
                   />
                 </div>
                 <div className="">
@@ -72,6 +97,8 @@ const Login = () => {
                     <label onClick={() => nav('/password-reset')} className="mb-1 cursor-pointer">Forget Password?</label>
                   </div>
                   <input
+                  
+                  onChange={(e) => setPassword(e.target.value)}
                     className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
                     type="text"
                     placeholder="Enter Password"
@@ -81,7 +108,7 @@ const Login = () => {
                     <input type="checkbox" id="check" />
                     <label className="pl-2" htmlFor="check">Remember me</label>
                 </div>
-                <button className="w-full bg-green text-white py-2 rounded">
+                <button type="submit" onClick={handleLogin} className="w-full bg-green text-white py-2 rounded">
                   Sign in
                 </button>
               </div>

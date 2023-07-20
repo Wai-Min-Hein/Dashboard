@@ -29,6 +29,12 @@ import {  RiGithubFill,
     import "slick-carousel/slick/slick.css"; 
     import "slick-carousel/slick/slick-theme.css";
 const Overview = () => {
+  const nav = useNavigate()
+
+  const token = localStorage.getItem("token");
+useEffect(()=>{
+  !token&& nav('/logout')
+},[])
     const [suggestions, setSuggestions] = useState(false);
     const [popular, setPopular] = useState(false);
     const [currentProgress,setCurrentProgress] = useState(0)
@@ -67,7 +73,6 @@ const Overview = () => {
     };
   
   
-    const nav = useNavigate()
     useEffect(()=>{
       const timer = setInterval(()=>setCurrentProgress(30),500)
       return()=>{
