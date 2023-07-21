@@ -78,7 +78,7 @@ if(data?.error?.data.message) console.log(data?.error?.data.message)
                   <label className="mb-2">User Name</label>
                   <input
                   onChange={(e) => setName(e.target.value)}
-                    className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
+                    className=" w-full rounded focus:outline-none border border-gray-300 mb-4 p-2 mt-2"
                     type="text"
                     placeholder="Enter Username"
                   />
@@ -87,7 +87,7 @@ if(data?.error?.data.message) console.log(data?.error?.data.message)
                   <label className="mb-2">Email</label>
                   <input
                   onChange={(e) => setEmail(e.target.value)}
-                    className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
+                    className=" w-full rounded focus:outline-none border border-gray-300 mb-4 p-2 mt-2"
                     type="text"
                     placeholder="Enter Your Email"
                   />
@@ -100,7 +100,7 @@ if(data?.error?.data.message) console.log(data?.error?.data.message)
                   </div>
                   <input
                   onChange={(e) => setPassword(e.target.value)}
-                    className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
+                    className=" w-full rounded focus:outline-none border border-gray-300 mb-4 p-2 mt-2"
                     type="text"
                     placeholder="Enter Password"
                   />
@@ -111,7 +111,7 @@ if(data?.error?.data.message) console.log(data?.error?.data.message)
                   </div>
                   <input
                   onChange={(e) => SetpasswordConfirmation(e.target.value)}
-                    className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
+                    className=" w-full rounded focus:outline-none border border-gray-300 mb-4 p-2 mt-2"
                     type="text"
                     placeholder="Confirm Password"
                   />
@@ -123,7 +123,9 @@ if(data?.error?.data.message) console.log(data?.error?.data.message)
                   Sign up
                 </button>
               </div>
-              <p className="my-4">Create account with</p>
+              <p className="my-4 w-full relative before:content-[''] before:w-full before:h-[1px]  before:border before:border-[rgba(230,224,224,0.5)] before:border-dashed before:absolute before:top-[50%] before:left-[50%] before:translate-x-[-50%] before:translate-y-[-50%]">
+                <span className="bg-white z-50 relative px-2">Create account with</span>
+              </p>
               <div className="flex items-center justify-center gap-2 mb-4 mt-2">
                 <span className="bg-primary px-3 py-3 rounded-md">
                     <BiLogoFacebook className="text-white text-lg"/>

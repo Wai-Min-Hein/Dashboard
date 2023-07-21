@@ -96,24 +96,24 @@ const App = () => {
             <SettingBar />
 
             <Routes>
-              {/* <Route path="/" element={<Home />} /> */}
-              <Route path="/profile/settings" element={<ProfileSettings />} />
-              <Route path="/test" element={<Test />} />
+            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/profile/settings" element={<ProfileSettings />} />
+            <Route path="/test" element={<Test />} />
 
-              {/* <Route path="/" element={<Home />} /> */}
-              <Route exact path="/profile" element={<Profile />}>
-                <Route index element={<Overview />} />
-                <Route path="activities" element={<Activities />} />
-                <Route path="projects" element={<Projects />} />
-                <Route path="documents" element={<Docu />} />
-              </Route>
-              <Route path="/login" element={<Login />} />
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/password-reset" element={<PasswordReset />} />
-              <Route path="/" element={<Ecommerce />} />
-              <Route path="/add-blog" element={<Addblog />} />
-            </Routes>
+            {/* <Route path="/" element={<Home />} /> */}
+            <Route exact path="/profile" element={<Profile />}>
+              <Route index element={<Overview />} />
+              <Route path="activities" element={<Activities />} />
+              <Route path="projects" element={<Projects />} />
+              <Route path="documents" element={<Docu />} />
+            </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/password-reset" element={<PasswordReset />} />
+            <Route path="/" element={<Ecommerce />} />
+            <Route path="/add-blog" element={<Addblog />} />
+          </Routes>
           </div>
         </div>
       ) : (
@@ -149,13 +149,7 @@ const App = () => {
             <FiSettings className=" text-white font-semibold text-xl " />
           </motion.span>
           <SettingBar />
-          {
-            token? (
-              console.log('yes')
-            ):(
-              console.log('no')
-            )
-          }
+          
 
           <Routes>
             {/* <Route path="/" element={<Home />} /> */}

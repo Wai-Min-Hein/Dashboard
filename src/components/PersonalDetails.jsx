@@ -5,6 +5,10 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const PersonalDetails = () => {
   const [startDate, setStartDate] = useState(new Date());
+
+  const [firstName,setFirstName] = useState('Adame')
+  const [lastName,setLastName] = useState('Adame')
+  const [phone,setPhone] = useState('Adame')
   return (
     <form className="w-full px-4 py-6">
       {/* names */}
@@ -12,13 +16,15 @@ const PersonalDetails = () => {
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="grid-first-name"
+            htmlFor="grid-first-name"
           >
             First Name
           </label>
           <input
             className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
-            value="Dave"
+            defaultValue={firstName}
+            readOnly
+            onChange={(e) => setFirstName(e.target.value)}
             id="grid-first-name"
             type="text"
             placeholder="Enter your firstname"
@@ -27,13 +33,16 @@ const PersonalDetails = () => {
         <div className="w-full md:w-1/2 px-3">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="grid-last-name"
+
+            htmlFor="grid-last-name"
           >
             Last Name
           </label>
           <input
             className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
-            value="Adame"
+            defaultValue={lastName}
+            readOnly
+            onChange={(e) => setLastName(e.target.value)}
             id="grid-last-name"
             type="text"
             placeholder="Enter your lastname"
@@ -45,13 +54,14 @@ const PersonalDetails = () => {
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="phoneNumber"
+            htmlFor="phoneNumber"
           >
             Phone Number
           </label>
           <input
             className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
-            value="+(1) 987 6543"
+            defaultValue="+(1) 987 6543"
+            readOnly
             id="phoneNumber"
             type="text"
             placeholder="Enter your phone number"
@@ -60,14 +70,15 @@ const PersonalDetails = () => {
         <div className="w-full md:w-1/2 px-3">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="emailAddress"
+            htmlFor="emailAddress"
           >
             Email Address
           </label>
           <input
             className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             id="emailAddress"
-            value="daveadame@velzon.com"
+            defaultValue="daveadame@velzon.com"
+            readOnly
             type="text"
             placeholder="Enter your email"
           />
@@ -78,14 +89,15 @@ const PersonalDetails = () => {
         <div className="w-full px-3">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="joiningDate"
+            htmlFor="joiningDate"
           >
             Joining Date
           </label>
           {/* <input
             className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             id="joiningDate"
-            value="24 Nov, 2021"
+            defaultValue="24 Nov, 2021"
+            readOnly
             type="text"
             placeholder="Select Date"
           /> */}
@@ -101,7 +113,7 @@ const PersonalDetails = () => {
         <div className="w-full px-3">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="skillsSelect"
+            htmlFor="skillsSelect"
           >
             Skills
           </label>
@@ -113,13 +125,14 @@ const PersonalDetails = () => {
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="designation"
+            htmlFor="designation"
           >
             Designation
           </label>
           <input
             className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
-            value="Lead Designer / Developer"
+            defaultValue="Lead Designer / Developer"
+            readOnly
             id="designation"
             type="text"
             placeholder="Designation"
@@ -128,14 +141,15 @@ const PersonalDetails = () => {
         <div className="w-full md:w-1/2 px-3">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="website"
+            htmlFor="website"
           >
             Website
           </label>
           <input
             className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
             id="website"
-            value="www.velzon.com"
+            defaultValue="www.velzon.com"
+            readOnly
             type="text"
             placeholder="www.example.com"
           />
@@ -146,13 +160,14 @@ const PersonalDetails = () => {
         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="city"
+            htmlFor="city"
           >
             City
           </label>
           <input
             className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
-            value="California"
+            defaultValue="California"
+            readOnly
             id="city"
             type="text"
             placeholder="City"
@@ -161,13 +176,14 @@ const PersonalDetails = () => {
         <div className="w-full md:w-1/3 px-3">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="country"
+            htmlFor="country"
           >
             Country
           </label>
           <input
             className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
-            value="United States"
+            defaultValue="United States"
+            readOnly
             id="country"
             type="text"
             placeholder="Country"
@@ -176,13 +192,14 @@ const PersonalDetails = () => {
         <div className="w-full md:w-1/3 px-3">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="zipCode"
+            htmlFor="zipCode"
           >
             Zip Code
           </label>
           <input
             className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
-            value="90011"
+            defaultValue="90011"
+            readOnly
             id="zipCode"
             type="text"
             placeholder="Enter zipcode"
@@ -194,13 +211,14 @@ const PersonalDetails = () => {
         <div className="w-full px-3">
           <label
             className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
-            for="description"
+            htmlFor="description"
           >
             Description
           </label>
           <textarea
             className="appearance-none block w-full text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-light border border-gray-300 dark:border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400"
-            value="Hi I'm Anna Adame,It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is European languages are members of the same family."
+            defaultValue="Hi I'm Anna Adame,It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is European languages are members of the same family."
+            readOnly
             id="description"
             placeholder="Enter your description"
             rows={3}

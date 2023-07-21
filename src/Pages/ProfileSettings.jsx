@@ -22,15 +22,14 @@ const ProfileSettings = () => {
   const [tab, setTab] = useState("PersonalDetails");
 
   const { semi, detached } = useContext(StateContext);
-  const nav = useNavigate()
+  const nav = useNavigate();
 
   const token = localStorage.getItem("token");
-useEffect(()=>{
-  !token&& nav('/logout')
-},[])
+  useEffect(() => {
+    !token && nav("/logout");
+  }, []);
 
   return (
-
     <div
       className={`z-50 bg-light-gray-bg dark:bg-dark-bg-color flex-1 font-header-regular min-h-screen overflow-y-auto  w-full relative  ${
         semi ? "px-[10rem]" : ""
@@ -39,7 +38,6 @@ useEffect(()=>{
       {!detached && <TopBar />}
 
       <div className="relative md:h-[260px] font-para">
-
         <img
           src="https://themesbrand.com/velzon/html/default/assets/images/profile-bg.jpg"
           alt="Cover"

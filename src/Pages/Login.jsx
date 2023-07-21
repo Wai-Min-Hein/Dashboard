@@ -10,8 +10,8 @@ defineElement(lottie.loadAnimation);
 
 const Login = () => {
   const nav = useNavigate();
-  const [email,setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email,setEmail] = useState('waimin@gmail.com')
+  const [password, setPassword] = useState('11111111')
 
   const [login]= useLoginMutation()
 
@@ -85,8 +85,10 @@ const Login = () => {
                 <div className="">
                   <label className="mb-2">Email</label>
                   <input
+                  value={email}
+
                   onChange={(e) => setEmail(e.target.value)}
-                    className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
+                    className=" w-full rounded border focus:outline-none border-gray-300 mb-4 p-2 mt-2"
                     type="text"
                     placeholder="Enter Email"
                   />
@@ -97,9 +99,10 @@ const Login = () => {
                     <label onClick={() => nav('/password-reset')} className="mb-1 cursor-pointer">Forget Password?</label>
                   </div>
                   <input
+                  value={password}
                   
                   onChange={(e) => setPassword(e.target.value)}
-                    className=" w-full rounded border border-gray-300 mb-4 p-2 mt-2"
+                    className=" w-full rounded border focus:outline-none border-gray-300 mb-4 p-2 mt-2"
                     type="text"
                     placeholder="Enter Password"
                   />
@@ -112,7 +115,9 @@ const Login = () => {
                   Sign in
                 </button>
               </div>
-              <p className="my-4">Sign in with</p>
+              <p className="my-4 w-full relative before:content-[''] before:w-full before:h-[1px]  before:border before:border-[rgba(230,224,224,0.5)] before:border-dashed before:absolute before:top-[50%] before:left-[50%] before:translate-x-[-50%] before:translate-y-[-50%]">
+                <span className="bg-white z-50 relative px-2">Sign in with</span>
+              </p>
               <div className="flex items-center justify-center gap-2 mb-4 mt-2">
                 <span className="bg-primary px-3 py-3 rounded-md">
                     <BiLogoFacebook className="text-white text-lg"/>
