@@ -112,7 +112,7 @@ const PersonalDetails = () => {
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full px-3">
           <label
-            className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2"
+            className="block tracking-wide text-gray-700 dark:text-light text-xs font-bold mb-2 focus:bg-transparent"
             htmlFor="skillsSelect"
           >
             Skills
