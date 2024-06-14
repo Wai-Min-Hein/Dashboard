@@ -3,58 +3,42 @@ export default {
   darkMode: "class",
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-
     extend: {
-      animation:{
-        'spin-slow': 'spin 2s linear infinite',
+      animation: {
+        "spin-slow": "spin 2s linear infinite",
       },
       fontFamily: {
-        'header-light': ['HkGroteskLight', 'sans-serif'],
-        'header-medium': ['HkGroteskMedium', 'sans-serif'],
-        'header-regular': ['HkGroteskRegular', 'sans-serif'],
-        'header-regular-legacy': ['HkGroteskRegularLegacy', 'sans-serif'],
-        'para': ['Poppins', 'sans-serif'],
-        
+        "header-light": ["HkGroteskLight", "sans-serif"],
+        "header-medium": ["HkGroteskMedium", "sans-serif"],
+        "header-regular": ["HkGroteskRegular", "sans-serif"],
+        "header-regular-legacy": ["HkGroteskRegularLegacy", "sans-serif"],
+        para: ["Poppins", "sans-serif"],
       },
       backgroundImage: {
-        'sale-gradient': "linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)",
+        "sale-gradient":
+          "linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)",
       },
 
       colors: {
         //Light Theme
 
+        "light-side-bar-color": "#405189",
+        "light-gray-bg": "#f3f3f9",
+        "light-white-bg": "#ffffff",
+        "light-body-text-color": "#212529",
+        "light-side-bar-text-color": "#abb9e8",
+        "light-side-bar-menu-color": "#838fb9",
 
-        'light-side-bar-color': '#405189',
-        'light-gray-bg': '#f3f3f9',
-        'light-white-bg': '#ffffff',
-        'light-body-text-color': '#212529',
-        'light-side-bar-text-color': '#abb9e8',
-        'light-side-bar-menu-color': '#838fb9',
-        
+        "light-card-heading-text-color": "#878a99",
+        "light-btn-color": "#878a99",
 
-        'light-card-heading-text-color': '#878a99',
-        'light-btn-color': '#878a99',
+        "light-header-color": "#495057",
+        "light-para-color": "#878a99",
 
-        'light-header-color' : '#495057',
-        'light-para-color' : '#878a99',
-
-        'blue-btn-bg': 'rgba(41, 156, 219, 0.1)',
-        'green-btn-bg': 'rgba(10, 179, 156, 0.1)',
-        'orange-btn-bg': 'rgba(241, 150, 59, 0.1)',
-        'gray-btn-bg': 'rgba(255, 255, 255, 0.15)',
-
-        
-
-        
-
-
-
-
-        
-
-
-
-
+        "blue-btn-bg": "rgba(41, 156, 219, 0.1)",
+        "green-btn-bg": "rgba(10, 179, 156, 0.1)",
+        "orange-btn-bg": "rgba(241, 150, 59, 0.1)",
+        "gray-btn-bg": "rgba(255, 255, 255, 0.15)",
 
         //Dark Theme
 
@@ -64,11 +48,6 @@ export default {
         "dark-header-color": "#ced4da",
         "dark-para-color": "#878a99",
         "dark-bg-color": "#292e32",
-
-
-
-
-
 
         light: "#f3f6f9",
         dark: "#212529",
@@ -100,27 +79,23 @@ export default {
         warning: "#f7b84b",
         danger: "#f06548",
         bgsuccess: "#0ab39c2e",
-        bgprimary : "#4051892e",
-        bgsecondary : "#3577f12e",
-        bginfo : "#299cdb2e",
-        bgdanger : "#f065482e",
-        bggreen : "#0ab39c1a",
-        bgyellow : "#f7b84b1a",
+        bgprimary: "#4051892e",
+        bgsecondary: "#3577f12e",
+        bginfo: "#299cdb2e",
+        bgdanger: "#f065482e",
+        bggreen: "#0ab39c1a",
+        bgyellow: "#f7b84b1a",
       },
-      backgroundImage: {
+      backgroundImage1: {
         // 'black': 'linear-gradient(rgba(15, 14, 23, 0.5), rgba(15, 14, 23, 0.5))',
 
+        //   'background': ' linear-gradient(3deg, rgb(237,242,244),rgb(247,237,226));'
 
-      //   'background': ' linear-gradient(3deg, rgb(237,242,244),rgb(247,237,226));'
-
-      // }
-
+        // }
 
         // 'background': ' linear-gradient(3deg, rgb(237,242,244),rgb(247,237,226))',
-        'sideGradient': 'linear-gradient(to right,#405189,#0ab39c)'
-        
-      }
-
+        sideGradient: "linear-gradient(to right,#405189,#0ab39c)",
+      },
     },
     screens: {
       sm: "640px",
@@ -129,12 +104,11 @@ export default {
       md: "768px",
       // => @media (min-width: 768px) { ... }
 
-
-      'slg': '990px',
-      'lg': '1024px',
+      slg: "990px",
+      lg: "1024px",
 
       // => @media (min-width: 1024px) { ... }
-      'sxl': '1200px',
+      sxl: "1200px",
       // => @media (min-width: 1280px) { ... }
 
       xl: "1280px",
@@ -144,8 +118,7 @@ export default {
       // => @media (min-width: 1537px) { ... }
     },
   },
-  plugins: [
-    require("daisyui")],
+  plugins: [require("daisyui")],
 
   daisyui: {
     themes: true, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
@@ -157,5 +130,4 @@ export default {
     prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
   },
-
 };
