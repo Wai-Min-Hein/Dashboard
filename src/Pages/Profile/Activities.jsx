@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import '../../../Css/Profile.css'
 import admin from '../../../Image/admin.jpg'
 import james from "../../../Image/user/avatar-3.jpg";
@@ -11,14 +10,8 @@ import acpeople from "../../../Image/activity/img-2.jpg"
 import erica from "../../../Image/rece/erica.jpg";
 import lewis from "../../../Image/rece/avatar-7.jpg";
 import {RiLineChartLine,RiFileTextLine,RiShoppingBagLine} from 'react-icons/ri'
-import { useNavigate } from 'react-router-dom';
 const Activities = () => {
-  const nav = useNavigate()
 
-  const token = localStorage.getItem("token");
-useEffect(()=>{
-  !token&& nav('/logout')
-},[])
   return (
     <div className='pt-6'>
         <div className=" card dark:bg-dark-side-bar-color border dark:border-dark-side-bar-color border-white">

@@ -1,7 +1,6 @@
 
 import { useContext, useEffect } from "react";
 import "../../Css/Profile.css";
-import bg from "../../Image/profile-bg.jpg";
 import user from "../../Image/admin.jpg";
 
 import {
@@ -20,13 +19,10 @@ import TopBar from "./TopBar";
 
 
 const Profile = () => {
-  
-  const nav = useNavigate()
 
-  const token = localStorage.getItem("token");
-useEffect(()=>{
-  !token&& nav('/logout')
-},[])
+  const nav = useNavigate()
+  
+
   const {semi,detached} = useContext(StateContext)
   const location = useLocation()
 

@@ -12,7 +12,7 @@ const SignUp = () => {
   const [name,setName] = useState('')
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
-  const [passwordConfirmation,SetpasswordConfirmation] = useState('')
+  const [passwordConfirmation,SetPasswordConfirmation] = useState('')
 
   const [register] = useRegisterMutation()
 
@@ -110,7 +110,7 @@ if(data?.error?.data.message) console.log(data?.error?.data.message)
                     <label className="mb-1">Confirm Password</label>
                   </div>
                   <input
-                  onChange={(e) => SetpasswordConfirmation(e.target.value)}
+                  onChange={(e) => SetPasswordConfirmation(e.target.value)}
                     className=" w-full rounded focus:outline-none border border-gray-300 mb-4 p-2 mt-2"
                     type="text"
                     placeholder="Confirm Password"

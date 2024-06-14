@@ -1,4 +1,3 @@
-import  { useEffect } from 'react'
 import {RiArrowLeftSLine,RiArrowRightSLine} from "react-icons/ri"
 import "../../../Css/Profile.css"
 import admin from "../../../Image/admin.jpg"
@@ -9,15 +8,10 @@ import john from "../../../Image/activity/avatar-6.jpg";
 import jac from "../../../Image/user/avatar-4.jpg";
 import geo from "../../../Image/user/avatar-5.jpg";
 import jacqueline from "../../../Image/rece/avatar-2.jpg";
-import { useNavigate } from 'react-router-dom';
 
 const Projects = () => {
-  const nav = useNavigate()
 
-  const token = localStorage.getItem("token");
-useEffect(()=>{
-  !token&& nav('/logout')
-},[])
+
   return (
     <div className='pt-6'>
       <div className="card dark:bg-dark-side-bar-color">
@@ -645,7 +639,7 @@ useEffect(()=>{
                 </a>
               </li>
               <li>
-                <a href="#" ria-current="page"  className="rounded-md  bg-primary flex items-center justify-center px-3 h-9 leading-tight text-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                <a href="#"  className="rounded-md  bg-primary flex items-center justify-center px-3 h-9 leading-tight text-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
               </li>
               <li>
                 <a href="#" className="rounded-md flex items-center justify-center px-3 h-9 leading-tight text-primary bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>

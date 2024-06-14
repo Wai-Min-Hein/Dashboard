@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { BiSolidCheckCircle } from "react-icons/bi";
 
 import { StateContext } from "../Context/StateContext";
 import { motion } from "framer-motion";
 import Loader from "./Loader";
-import { theme } from "flowbite-react";
 
 const SettingBar = () => {
   const { setting, setSetting,ver, setVer,hor, setHor,tCol, setTCol,semi, setSemi,lightTheme, setLightTheme,darkTheme, setDarkTheme,fluid, setFluid,boxed, setBoxed,fixed, setFixed,scrollable, setScrollable,lightTop, setLightTop,darkTop, setDarkTop,sizeDefault, setSizeDefault,compact, setCompact,smallIcon, setSmallIcon,smallHover, setSmallHover,viewDefault, setViewDefault,detached, setDetached,sideLight, setSideLight,sideDark, setSideDark,sideGradient, setSideGradient,img,setImg,img1, setImg1,img2, setImg2,img3, setImg3,img4, setImg4,disabled, setDisabled,enabled, setEnabled, setTheme,theme } = useContext(StateContext);

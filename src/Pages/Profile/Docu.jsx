@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react'
 import "../../../Css/Profile.css"
 import {RiUpload2Fill,RiFileZipFill,RiEqualizerFill,RiFilePdfFill,RiImage2Fill,
   RiEyeFill,RiDeleteBinFill,RiVideoLine,RiFileExcelFill,RiFolderLine} from "react-icons/ri"
 import {AiOutlineLoading} from 'react-icons/ai'
-import { useNavigate } from 'react-router-dom'
 
 const Docu = () => {
-  const nav = useNavigate()
 
-  const token = localStorage.getItem("token");
-useEffect(()=>{
-  !token&& nav('/logout')
-},[])
+ 
   return (
     <div className='pt-6'>
       <div className="card doc bg-white dark:bg-dark-side-bar-color">

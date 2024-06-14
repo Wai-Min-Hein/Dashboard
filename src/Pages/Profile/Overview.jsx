@@ -1,4 +1,4 @@
-import React,{ useEffect, useRef, useState} from 'react'
+import { useEffect, useRef, useState} from 'react'
 import james from "../../../Image/user/avatar-3.jpg";
 import jac from "../../../Image/user/avatar-4.jpg";
 import geo from "../../../Image/user/avatar-5.jpg";
@@ -8,7 +8,6 @@ import work from "../../../Image/popular/img-6.jpg";
 import jacqueline from "../../../Image/rece/avatar-2.jpg";
 import erica from "../../../Image/rece/erica.jpg";
 import lewis from "../../../Image/rece/avatar-7.jpg";
-import { useNavigate } from "react-router-dom/dist";
 import '../../../Css/Profile.css'
 import {  RiGithubFill,
     RiGlobalFill,
@@ -29,12 +28,7 @@ import {  RiGithubFill,
     import "slick-carousel/slick/slick.css"; 
     import "slick-carousel/slick/slick-theme.css";
 const Overview = () => {
-  const nav = useNavigate()
 
-  const token = localStorage.getItem("token");
-useEffect(()=>{
-  !token&& nav('/logout')
-},[])
     const [suggestions, setSuggestions] = useState(false);
     const [popular, setPopular] = useState(false);
     const [currentProgress,setCurrentProgress] = useState(0)
@@ -425,7 +419,7 @@ useEffect(()=>{
         <div className="card-body">
           <h1 className=" text-dark-side-bar-color dark:text-white mb-6">About</h1>
           <p className="text-gray">
-            Hi I'm Anna Adame, It will be as simple as Occidental; in
+            Hi {"I'm"} Anna Adame, It will be as simple as Occidental; in
             fact, it will be Occidental. To an English person, it will
             seem like simplified English, as a skeptical Cambridge
             friend of mine told me what Occidental is European
@@ -633,12 +627,12 @@ useEffect(()=>{
             </div>
             <div className="collapse-content">
               <div className="ml-2 pl-12 italic text-gray py-4 px-5">
-                "A wonderful serenity has taken possession og my
+                A wonderful serenity has taken possession og my
                 entire soul, like these sweet mornings of sring which
                 I enjoy with my whole heart. Each design is a new,
                 unique piece of art birthed into this world, and while
                 you have the opportunity to be creative and make your
-                own style choices."
+                own style choices.
               </div>
             </div>
           </div>

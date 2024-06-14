@@ -23,10 +23,8 @@ import RangeCalendar from "./Date";
 import WorldMap from "./WorldMap";
 import Donut from "../Components/Donut";
 import { useContext, useEffect, useState } from "react";
-import { motion, transform } from "framer-motion";
-import SettingBar from "../Components/SettingBar";
+import { motion } from "framer-motion";
 import { StateContext } from "../Context/StateContext";
-import { useNavigate } from "react-router-dom";
 
 const Ecommerce = () => {
   const options = {
@@ -153,12 +151,7 @@ const Ecommerce = () => {
   const [sort, setSort] = useState(false);
   const [report, setReport] = useState(false);
   
-  const nav = useNavigate()
-
-  const token = localStorage.getItem("token");
-useEffect(()=>{
-  !token&& nav('/logout')
-},[])
+ 
   
 
   useEffect(() => {
@@ -298,7 +291,7 @@ useEffect(()=>{
             Good Morning, Anna!
           </h2>
           <p className="text-light-para-color text-[13px] mt-1">
-            Here's what's happening with your store today.
+           {" Here's what's"} happening with your store today.
           </p>
         </div>
         <div className="flex items-center justify-start slg:justify-end gap-4 ">

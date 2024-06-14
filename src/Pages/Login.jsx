@@ -21,11 +21,11 @@ const Login = () => {
     const user= {email,password}
     const data = await login(user)
     console.log(data)
-    if(data?.data?.success == false) console.log(data?.data?.message)
-      if(data?.data?.success == true){
-        localStorage.setItem('token', data?.data?.token)
-        nav('/')
-      } 
+    // if(data?.data?.success == false) console.log(data?.data?.message)
+    //   if(data?.data?.success == true){
+    //     localStorage.setItem('token', data?.data?.token)
+    //     } 
+      nav('/')
         
   }
   
@@ -136,7 +136,7 @@ const Login = () => {
             </div>
           </div>
           <p className="p-4">
-            Don't you have an account?
+            {"Don't"} you have an account?
             <button onClick={() => nav('/signup')} className="underline text-light-side-bar-color">
               Sign up
             </button>

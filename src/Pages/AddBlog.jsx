@@ -1,27 +1,19 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import  { useContext, useRef, useState } from "react";
 import TopBar from "./TopBar";
-import { RiImageEditLine, RiCalendar2Line } from "react-icons/ri";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { StateContext } from "../Context/StateContext";
-import { useNavigate } from "react-router-dom";
-import blog from "../../Image/blogging.svg";
 
 const Addblog = () => {
-  const [tab, setTab] = useState("PersonalDetails");
 
   const { semi, detached } = useContext(StateContext);
   const [isImage, setIsImage] = useState(null);
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
   const [post, setPost] = useState("");
-  const nav = useNavigate();
 
   const inputRef = useRef();
 
-  const token = localStorage.getItem("token");
-  useEffect(() => {
-    !token && nav("/logout");
-  }, []);
+  
 
   const label = {
     open: {
@@ -64,7 +56,7 @@ const Addblog = () => {
               type="text"
               id="title"
               placeholder="Your Name"
-              className="focus:outline-none text-[.9rem] border border-gray-400  px-4 py-4 rounded-md font-para text-light-para-color dark:text-dark-para-color bg-transparent w-full"
+              className="focus:outline-none text-[.9rem] border border-gray-400   px-4 py-4 rounded-md font-para text-light-para-color dark:text-dark-para-color bg-transparent w-full"
             />
           </div>
           <div className="relative my-6">
@@ -83,7 +75,7 @@ const Addblog = () => {
               type="text"
               id="title"
               placeholder="Blog Title"
-              className="focus:outline-none text-[.9rem] border border-gray-400  px-4 py-4 rounded-md font-para text-light-para-color dark:text-dark-para-color bg-transparent w-full"
+              className="focus:outline-none text-[.9rem] border border-gray-400   px-4 py-4 rounded-md font-para text-light-para-color dark:text-dark-para-color bg-transparent w-full"
             />
           </div>
           <div className="relative">
@@ -102,7 +94,7 @@ const Addblog = () => {
               type="text"
               id="title"
               placeholder="Blog Post"
-              className="focus:outline-none text-[.9rem] border border-gray-400  px-4 py-4 rounded-md font-para text-light-para-color dark:text-dark-para-color bg-transparent w-full"
+              className="focus:outline-none text-[.9rem] border border-gray-400   px-4 py-4 rounded-md font-para text-light-para-color dark:text-dark-para-color bg-transparent w-full"
             />
           </div>
 
@@ -110,7 +102,7 @@ const Addblog = () => {
             <select
               name="type"
               id="type"
-              className="focus:outline-none w-full border border-gray-400  px-4 py-4 rounded-md font-para  text-light-para-color dark:text-dark-para-color bg-transparent"
+              className="focus:outline-none w-full border border-gray-400   px-4 py-4 rounded-md font-para  text-light-para-color dark:text-dark-para-color bg-transparent"
             >
               <option className="font-para  text-light-para-color dark:text-dark-para-color  bg-light-gray-bg dark:bg-dark-bg-color " value="generalKnowledge">General Knowledge</option>
               <option  className="font-para  text-light-para-color dark:text-dark-para-color  bg-light-gray-bg dark:bg-dark-bg-color" value="texhnology">Technology</option>
@@ -225,7 +217,7 @@ export default Addblog;
 //               type="text"
 //               id="title"
 //               placeholder="Blog Title"
-//               className="focus:outline-none text-[.9rem] border border-gray-400  px-4 py-4 rounded-md font-para text-light-para-color dark:text-dark-para-color bg-transparent w-full"
+//               className="focus:outline-none text-[.9rem] border border-gray-400   px-4 py-4 rounded-md font-para text-light-para-color dark:text-dark-para-color bg-transparent w-full"
 //             />
 //           </div>
 //           <div className="relative mt-8">
@@ -245,7 +237,7 @@ export default Addblog;
 //               id="title"
 //               rows={6}
 //               placeholder="Blog Post"
-//               className="focus:outline-none  text-[.9rem] border border-gray-400  px-4 py-4  font-para text-light-para-color dark:text-dark-para-color bg-transparent  w-full rounded-md"
+//               className="focus:outline-none  text-[.9rem] border border-gray-400   px-4 py-4  font-para text-light-para-color dark:text-dark-para-color bg-transparent  w-full rounded-md"
 //             />
 //           </div>
 //           <div className="w-full text-end">

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import  { useContext, useState } from "react";
 import TopBar from "./TopBar";
 import {
   RiImageEditLine,
@@ -16,18 +16,16 @@ import PersonalDetails from "../components/PersonalDetails";
 import PrivacyPolicy from "../components/PrivacyPolicy";
 import { motion, AnimatePresence } from "framer-motion";
 import { StateContext } from "../Context/StateContext";
-import { useNavigate } from "react-router-dom";
 
 const ProfileSettings = () => {
   const [tab, setTab] = useState("PersonalDetails");
 
   const { semi, detached } = useContext(StateContext);
-  const nav = useNavigate();
 
-  const token = localStorage.getItem("token");
-  useEffect(() => {
-    !token && nav("/logout");
-  }, []);
+  // const token = localStorage.getItem("token");
+  // useEffect(() => {
+  //   !token && nav("/logout");
+  // }, []);
 
   return (
     <div
@@ -173,8 +171,8 @@ const ProfileSettings = () => {
             <nav className="w-full border-b-[1px] border-gray-300 dark:border-gray-dark">
               <AnimatePresence>
                 <ul className="flex cursor-pointer text-light-side-bar-color dark:text-light ps-2">
-                  <li
-                    onClick={(e) => setTab("PersonalDetails")}
+                  <motion.li
+                    onClick={() => setTab("PersonalDetails")}
                     className={`p-3   ${
                       tab === "PersonalDetails" &&
                       "active dark:text-light-side-bar-text-color"
@@ -182,9 +180,9 @@ const ProfileSettings = () => {
                     transition={{ delay: 1 }}
                   >
                     <p>Personal Detail</p>
-                  </li>
-                  <li
-                    onClick={(e) => setTab("ChangePassword")}
+                  </motion.li>
+                  <motion.li
+                    onClick={() => setTab("ChangePassword")}
                     className={`p-3  ${
                       tab === "ChangePassword" &&
                       "active dark:text-light-side-bar-text-color"
@@ -192,9 +190,9 @@ const ProfileSettings = () => {
                     transition={{ delay: 1 }}
                   >
                     Change Password
-                  </li>
+                  </motion.li>
                   <li
-                    onClick={(e) => setTab("Experience")}
+                    onClick={() => setTab("Experience")}
                     className={`p-3  ${
                       tab === "Experience" &&
                       "active dark:text-light-side-bar-text-color"
@@ -203,7 +201,7 @@ const ProfileSettings = () => {
                     Experience
                   </li>
                   <li
-                    onClick={(e) => setTab("PrivacyPolicy")}
+                    onClick={() => setTab("PrivacyPolicy")}
                     className={`p-3  ${
                       tab === "PrivacyPolicy" &&
                       "active dark:text-light-side-bar-text-color"

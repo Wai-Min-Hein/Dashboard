@@ -6,23 +6,16 @@ import ProfileSettings from "./Pages/ProfileSettings";
 // import TopBar from "./Pages/TopBar";
 import Test from "./Pages/Test";
 
-import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
 import Ecommerce from "./Pages/Ecommerce";
 import { motion } from "framer-motion";
 import { FiSettings } from "react-icons/fi";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { StateContext } from "./Context/StateContext";
 import SettingBar from "./Components/SettingBar";
 import SideBarTwo from "./Pages/SideBarTwo";
 import PasswordReset from "./Pages/PassReset";
 import { useLocation } from "react-router-dom/dist";
-import SideSmallHover from "./Pages/SideSmallHover";
-import SideBoxed from "./Pages/SideBoxed";
-import SideCompact from "./Pages/SideCompact";
-import TopBar from "./Pages/TopBar";
-import SideBarHor from "./Pages/SideBarHor";
-import SmallIconView from "./Pages/SmallIconView";
 import { useMediaQuery } from "react-responsive";
 import Overview from "./Pages/Profile/Overview";
 import Activities from "./Pages/Profile/Activities";
@@ -32,6 +25,7 @@ import Login from "./Pages/Login";
 import Logout from "./Pages/Logout";
 import SignUp from "./Pages/SignUp";
 import Addblog from "./Pages/AddBlog";
+import TopBar from "./Pages/TopBar";
 
 const App = () => {
   const tablet = useMediaQuery({
@@ -48,15 +42,11 @@ const App = () => {
     tCol,
     hor,
     detached,
-    ver,
-    compact,
-    boxed,
-    smallIcon,
-    smallHover,
+       boxed,
+    
   } = useContext(StateContext);
 
   const location = useLocation();
-  const token = localStorage.getItem("token");
   return (
     <>
       {detached ? (
@@ -96,24 +86,24 @@ const App = () => {
             <SettingBar />
 
             <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
-            <Route path="/profile/settings" element={<ProfileSettings />} />
-            <Route path="/test" element={<Test />} />
+              {/* <Route path="/" element={<Home />} /> */}
+              <Route path="/profile/settings" element={<ProfileSettings />} />
+              <Route path="/test" element={<Test />} />
 
-            {/* <Route path="/" element={<Home />} /> */}
-            <Route exact path="/profile" element={<Profile />}>
-              <Route index element={<Overview />} />
-              <Route path="activities" element={<Activities />} />
-              <Route path="projects" element={<Projects />} />
-              <Route path="documents" element={<Docu />} />
-            </Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/password-reset" element={<PasswordReset />} />
-            <Route path="/" element={<Ecommerce />} />
-            <Route path="/add-blog" element={<Addblog />} />
-          </Routes>
+              {/* <Route path="/" element={<Home />} /> */}
+              <Route exact path="/profile" element={<Profile />}>
+                <Route index element={<Overview />} />
+                <Route path="activities" element={<Activities />} />
+                <Route path="projects" element={<Projects />} />
+                <Route path="documents" element={<Docu />} />
+              </Route>
+              <Route path="/login" element={<Login />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/password-reset" element={<PasswordReset />} />
+              <Route path="/" element={<Ecommerce />} />
+              <Route path="/add-blog" element={<Addblog />} />
+            </Routes>
           </div>
         </div>
       ) : (
@@ -149,7 +139,6 @@ const App = () => {
             <FiSettings className=" text-white font-semibold text-xl " />
           </motion.span>
           <SettingBar />
-          
 
           <Routes>
             {/* <Route path="/" element={<Home />} /> */}
